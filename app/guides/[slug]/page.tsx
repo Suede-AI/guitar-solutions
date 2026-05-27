@@ -17,9 +17,27 @@ export async function generateMetadata({
   const { slug } = await params;
   const guide = getGuideBySlug(slug);
   if (!guide) return { title: 'Guide not found' };
+  const url = `https://guitar.solutions/guides/${slug}`;
   return {
     title: guide.frontmatter.title,
     description: guide.frontmatter.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'article',
+      title: guide.frontmatter.title,
+      description: guide.frontmatter.description,
+      url,
+      siteName: 'guitar.solutions',
+      publishedTime: guide.frontmatter.published,
+      authors: guide.frontmatter.authors ?? ['Suede Labs'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@AISUEDE',
+      creator: '@johnnysuede',
+      title: guide.frontmatter.title,
+      description: guide.frontmatter.description,
+    },
   };
 }
 
@@ -38,9 +56,45 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
   }
 
   const { frontmatter } = guide;
+  const url = `https://guitar.solutions/guides/${slug}`;
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: frontmatter.title,
+    description: frontmatter.description,
+    datePublished: frontmatter.published,
+    author: (frontmatter.authors ?? ['Suede Labs']).map((name) => ({
+      '@type': 'Person',
+      name,
+    })),
+    publisher: {
+      '@type': 'Organization',
+      name: 'Suede Labs',
+      url: 'https://suedeai.ai',
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    articleSection: frontmatter.category,
+  };
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://guitar.solutions' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://guitar.solutions/categories' },
+      { '@type': 'ListItem', position: 3, name: frontmatter.title, item: url },
+    ],
+  };
 
   return (
     <article className="mx-auto max-w-[1280px] px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <header className="grid grid-cols-1 lg:grid-cols-12 gap-x-10 py-20 hairline-b">
         <div className="lg:col-span-2 mb-6 lg:mb-0">
           <Link href="/" className="mono-label text-paper-dim hover:text-cyan transition-colors">
