@@ -1,0 +1,93 @@
+---
+title: "Impedance and the First Three Feet"
+slug: "impedance-and-the-first-three-feet"
+category: "Electronics"
+published: "2026-05-24"
+description: "Why the cable between your guitar and your first pedal is doing more to your tone than most of the gear on your board — and what to do about it."
+authors:
+  - "Suede Labs"
+---
+
+The single most common source of tonal degradation in a guitar rig is the
+unbuffered cable run between the instrument and the first pedal. It is also
+the cheapest to fix.
+
+## The Problem
+
+A passive guitar pickup has an output impedance that swings with frequency,
+typically peaking somewhere between 5 kΩ and 25 kΩ depending on pickup
+design.[^1] Any capacitance downstream forms a low-pass filter with that
+source impedance. The cable is the dominant capacitance in the chain — roughly
+30 pF/ft for low-grade cable, down to about 19 pF/ft for premium audio cable.
+
+A 20-foot cheap cable presents roughly 600 pF of shunt capacitance. Combined
+with a typical humbucker source impedance, this places the rolloff knee in the
+audible top end — sometimes as low as 4 kHz.
+
+## The Math
+
+The treble rolloff frequency is approximately:
+
+```
+f₋₃dB ≈ 1 / (2π · Rₛ · C)
+```
+
+For a 15 kΩ source and 600 pF cable:
+
+```
+f ≈ 1 / (2π · 15,000 · 600e-12) ≈ 17.7 kHz
+```
+
+That looks safe. The trap is that the pickup is *not* a resistor — it is an
+LCR resonant network. The audible "sparkle" of a Stratocaster bridge pickup
+sits on top of a resonant peak somewhere between 3 and 6 kHz. A long cable's
+capacitance combines with the pickup's own inductance to drop that peak's
+amplitude and shift it lower in frequency, where it loses the perception
+of clarity.[^2]
+
+## What a Buffer Does
+
+A buffer is a unity-gain amplifier with high input impedance (typically 1 MΩ)
+and low output impedance (typically under 1 kΩ). Place one early in the chain
+and:
+
+- The pickup sees only the buffer's 1 MΩ load → no audible high-end loss
+- Downstream cable capacitance now interacts with the buffer's low output
+  impedance instead of the pickup → the same 600 pF cable now has its rolloff
+  knee well above 100 kHz
+
+In other words: the buffer moves the bottleneck out of the audio band.
+
+## When *Not* to Buffer
+
+Buffers are not universally good. Specific cases where you want the pickup
+running into the next device directly:
+
+- **Vintage germanium fuzz** — Fuzz Face and friends rely on pickup interaction
+  for their volume-knob cleanup behavior. A buffer flattens this.
+- **Treble-bleed-style volume controls** — these are tuned for the specific
+  impedance the pickup presents. Buffering changes the math.
+- **Players who deliberately want darker, woolier top end** — sometimes that
+  rolloff is the sound.
+
+## Practical Rule of Thumb
+
+- Less than 10 ft of cable, premium quality: passive run is fine
+- 10–20 ft, mixed-quality cable: buffer at the front of the board
+- More than 20 ft, or running into a switcher with long internal paths:
+  buffer at both the pickup end and downstream
+
+## Recommended Topology
+
+Tuner pedals often have always-on input buffers. Placing a tuner first solves
+the problem incidentally — provided the tuner's buffer is reasonable. Most
+modern ones are.
+
+---
+
+[^1]: Source impedance depends on the pickup's winding, DCR, and the frequency
+of interest. Treat published "DC resistance" as a rough proxy, not a number
+to design against.
+
+[^2]: This is the classic argument for why short, low-capacitance cables sound
+"brighter" than longer ones. The effect is real and measurable.

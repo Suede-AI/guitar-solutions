@@ -1,0 +1,77 @@
+---
+title: "Gain Staging Across the Chain"
+slug: "gain-staging-across-the-chain"
+category: "Signal Chain"
+published: "2026-05-22"
+description: "Why two clean pedals into a clean amp can still clip the front end — and how to set unity gain across a multi-pedal board so the amp sounds the way it should."
+authors:
+  - "Suede Labs"
+---
+
+Gain staging is the practice of setting the operating level of each block in a
+signal chain so the next block sees a signal it can handle without clipping
+prematurely or burying it in the noise floor. It is unglamorous work, and it
+decides whether a board sounds tight or smeared.
+
+## The Core Idea
+
+Every block in a chain has:
+
+- An **input headroom ceiling** — the maximum signal it can accept before clipping
+- A **noise floor** — the minimum signal it can pass before the output is dominated by hiss
+- A **target operating range** — somewhere comfortably between the two
+
+The objective is to keep the signal inside that window at every block. Push it
+too hot and you get distortion you did not ask for. Run it too cold and you
+amplify hiss along with the signal further down.
+
+## How Pedals Misbehave
+
+A "boost" pedal at unity is not really at unity. Most boosts add a small
+amount of voltage gain even with the knob at minimum, plus a small amount of
+input-stage coloration. Stack three of them and the front of your amp is
+seeing something hotter than your pickup output by 6–12 dB.
+
+Conversely, some buffers and noise gates have a hidden insertion loss. Run a
+clean signal through six of them in series and you can lose 3–6 dB before
+the amp's input.
+
+## Setting Unity Across a Board
+
+A practical procedure:
+
+1. **Plug straight into the amp.** Set the amp's input gain to where it sounds right at performance volume.
+2. **Insert one pedal at a time, bypassed.** Confirm the signal level does not change measurably between engaged-bypass and removed.
+3. **Engage each pedal at its intended setting.** Adjust output level so total output (engaged) ≈ total output (bypassed), unless that pedal is *meant* to boost.
+4. **Repeat with all pedals in their working positions.** Check the cumulative offset.
+
+If you do this honestly, you will discover that two or three pedals on a
+"clean" board are routinely pushing 3–8 dB hotter than your bare signal.
+
+## Where the Headroom Lives
+
+The amp's preamp input is almost always the lowest-headroom stage in a guitar
+rig. Most tube preamp inputs start clipping around 100–200 mV peak. A hot
+humbucker into a hot boost can easily exceed that. Most modeler input stages
+are far more forgiving — but they still have a ceiling.
+
+> If the amp sounds harsh, blurry, or "wooly" when you engage your normal
+> clean board, the problem is almost never the amp. It is the gain stack
+> in front of it.
+
+## The Loop Side
+
+Effects loops have their own headroom. Mismatched send/return levels are a
+classic cause of brittle reverb tails or clipped delay repeats. Most amps
+expose a switch for line-level vs instrument-level loop operation; use it.
+
+## Quick Checks
+
+- Bypass everything. Does the amp sound the way you bought it to sound?
+- Engage one pedal at a time. Note any level shift.
+- Watch for "I have to turn the amp down when I engage the board" — that is a gain-staging problem dressed up as a tone preference.
+
+## Further Reading
+
+See also: *Signal Chain Topology* for the high-level map. *Impedance and the
+First Three Feet* for the upstream block this sits on top of.

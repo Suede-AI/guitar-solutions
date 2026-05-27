@@ -1,0 +1,116 @@
+---
+title: "Signal Chain Topology: What Actually Goes Where, and Why"
+slug: "signal-chain-topology"
+category: "Signal Chain"
+published: "2026-05-26"
+description: "A first-principles map of the modern guitar signal chain — pickup through speaker — with the engineering reasons each block sits where it does."
+authors:
+  - "Suede Labs"
+---
+
+The order of pedals in front of an amplifier is not a matter of taste. It is a series
+of engineering decisions about impedance, gain staging, dynamic range, and noise floor.
+This guide lays out the canonical topology, explains the reasoning behind each block,
+and flags the places where players routinely make tone worse by reordering on
+intuition alone.
+
+## The Five-Block Model
+
+Every guitar signal chain — analog, digital, hybrid, or modeler — can be reduced to
+five sequential blocks. The labels change. The physics does not.
+
+- **Source** — pickup output, instrument volume, tone control
+- **Front of Amp** — dynamics, gain, filtering before the preamp
+- **Preamp** — voltage gain, tone stack, the "voice" of the amp
+- **Effects Loop** — time-based effects placed after the preamp
+- **Power Section & Speaker** — current gain, speaker excursion, mic'd or DI'd output
+
+The five-block model holds whether you are running a Tube Screamer into a 1959
+Plexi or routing a profile through a digital convolver. Skipping blocks does
+not eliminate them; it consolidates them into something you have less control
+over.
+
+## Block 1 — Source
+
+The instrument is a high-impedance, low-level voltage source. The pickup output
+sits between roughly 100 mV and 1.5 V peak depending on string excitation,
+pickup design, and electronics. Anything that loads the pickup excessively
+will lose treble before the first cable run is done.[^1]
+
+**Engineering decisions made here:**
+
+- Pickup type sets the impedance curve and resonant peak
+- Volume pot value (250 kΩ vs 500 kΩ vs 1 MΩ) shifts the high-frequency rolloff
+- Cable capacitance acts as a low-pass filter — long, cheap cables audibly darken the signal
+
+## Block 2 — Front of Amp
+
+Anything you put between the guitar and the preamp input belongs to this block.
+The order inside it is where most tone problems originate.
+
+The canonical front-of-amp order is:
+
+1. **Buffer** — converts high-impedance pickup signal to low-impedance line
+2. **Tuner** — needs a clean signal to track pitch
+3. **Wah / Filter** — wants to see pickup-like impedance, hence early placement
+4. **Compressor** — sets dynamic envelope before gain stages
+5. **Overdrive / Distortion / Fuzz** — gain stages stack in the order placed
+6. **EQ** — shapes the post-gain spectrum
+
+**Why fuzz lives early.** Vintage germanium fuzz circuits expect to see the
+guitar pickup's impedance directly. Putting a buffer in front of a Fuzz Face
+collapses its interactive volume-knob behavior into a flat clipper.[^2]
+
+## Block 3 — Preamp
+
+The preamp does three things: amplifies the signal from millivolts to volts,
+shapes it through the tone stack, and applies the first major nonlinearity.
+Almost everything we describe as "the sound of the amp" lives here.
+
+> The preamp is not a transparent gain stage. It is a deliberately colored
+> voltage amplifier with intentional harmonic distortion, deliberate frequency
+> shaping, and a tone stack that interacts with all of the above.
+
+## Block 4 — Effects Loop
+
+Time-based effects — delay, reverb, modulation — placed before the preamp get
+distorted along with the dry signal. This is sometimes desirable (slap delay
+into a cranked Marshall), more often not (reverb tails getting clipped into
+mud). The effects loop exists to place these after the preamp's gain and
+shaping but before the power section.
+
+A serial loop puts effects in the audio path entirely. A parallel loop
+blends a wet signal back with a dry feed. Pick based on whether you want the
+effect to replace or supplement the dry tone.
+
+## Block 5 — Power Section and Speaker
+
+The power amp adds current gain and contributes its own compression and harmonic
+content under load. The speaker is the final filter — typically rolling off
+above 5 kHz and below 80 Hz — and is mechanically reactive in ways that no
+modeler approximates without convolution.
+
+This block decides whether your tone holds together at performance volume.
+A great preamp into a flubby cab is a great preamp into a flubby cab.
+
+## Where Players Go Wrong
+
+The most common topology mistakes:
+
+- **Delay before overdrive** — turns repeats into a wash of distortion
+- **Buffered fuzz** — collapses the volume-knob interaction
+- **Compressor after gain** — squashes the harmonic content you just generated
+- **EQ as a band-aid** — used to cover up a bad pickup choice instead of fixing it upstream
+- **Reverb in front** — almost always belongs in the loop
+
+## Further Reading
+
+See also: *Impedance and the First Three Feet*, *Gain Staging Across the Chain*.
+
+---
+
+[^1]: Pickup loading is a textbook RC low-pass problem. See the appendix in
+"Inductance, capacitance, and pickup response" — to be published.
+
+[^2]: Roger Mayer and others have written extensively about the input impedance
+sensitivity of germanium fuzz designs.
