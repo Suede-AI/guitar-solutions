@@ -12,17 +12,61 @@ export const metadata: Metadata = {
   },
   description:
     'The technical reference your tone needs. Engineering-grade writeups on signal chains, gear pairing, and tone topology — by Suede Labs.',
+  alternates: { canonical: 'https://guitar.solutions' },
   openGraph: {
-    title: 'guitar.solutions',
-    description: 'The technical reference your tone needs.',
+    title: 'guitar.solutions — Technical Reference for Guitar Signal Chains',
+    description:
+      'Engineering-grade writeups on signal chains, gear pairing, and tone topology.',
+    url: 'https://guitar.solutions',
+    siteName: 'guitar.solutions',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@AISUEDE',
+    creator: '@johnnysuede',
+    title: 'guitar.solutions',
+    description:
+      'Engineering-grade writeups on signal chains, gear pairing, and tone topology.',
+  },
+  robots: { index: true, follow: true },
+};
+
+const SITE_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://guitar.solutions/#website',
+      url: 'https://guitar.solutions',
+      name: 'guitar.solutions',
+      description:
+        'Engineering-grade writeups on signal chains, gear pairing, and tone topology.',
+      publisher: { '@id': 'https://guitar.solutions/#organization' },
+      inLanguage: 'en-US',
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://guitar.solutions/#organization',
+      name: 'Suede Labs',
+      url: 'https://suedeai.ai',
+      sameAs: [
+        'https://suedeai.ai',
+        'https://suedeai.org',
+        'https://x.com/AISUEDE',
+      ],
+    },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(SITE_JSON_LD) }}
+        />
         <header className="hairline-b">
           <div className="mx-auto max-w-[1280px] px-6 h-14 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3" aria-label="guitar.solutions home">
