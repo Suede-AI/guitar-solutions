@@ -81,10 +81,8 @@ This site uses the **Suede Institutional IP Terminal** palette:
 
 Editorial layout: hairline rules, mono labels in uppercase tracked-out caps,
 a single accent color carrying the system. Avoid card grids; prefer ruled
-ordered lists. See `/Users/jason/Documents/Ramboed/Suede-AI-App/DESIGN.md` for
-the broader Suede design vocabulary and
-`/Users/jason/.claude/rules/ecc/web/design-quality.md` for the anti-template
-policy this site is built against.
+ordered lists. This site follows the broader Suede design vocabulary and the
+anti-template policy it is built against.
 
 ## What's intentionally *not* here
 
