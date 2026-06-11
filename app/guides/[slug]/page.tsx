@@ -17,9 +17,27 @@ export async function generateMetadata({
   const { slug } = await params;
   const guide = getGuideBySlug(slug);
   if (!guide) return { title: 'Guide not found' };
+  const { title, description, slug } = guide.frontmatter;
+  const url = `https://guitar-solutions.vercel.app/guides/${slug}`;
   return {
-    title: guide.frontmatter.title,
-    description: guide.frontmatter.description,
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'article',
+      url,
+      title,
+      description,
+      siteName: 'guitar.solutions',
+      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@suedeai',
+      images: ['/og-image.png'],
+    },
   };
 }
 

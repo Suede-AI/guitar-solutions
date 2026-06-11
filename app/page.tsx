@@ -1,5 +1,15 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { getAllGuides, getCategories } from '@/lib/mdx';
+
+export const metadata: Metadata = {
+  title: 'guitar.solutions — Technical Reference for Guitar Signal Chains',
+  description:
+    'Engineering-grade reference for guitar signal chains — pickup output through speaker excursion. Signal topology, impedance, gain staging, and gear pairing by Suede Labs.',
+  alternates: {
+    canonical: 'https://guitar-solutions.vercel.app',
+  },
+};
 
 export default function HomePage() {
   const guides = getAllGuides();
