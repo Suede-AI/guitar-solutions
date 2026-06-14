@@ -139,6 +139,20 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
           <div className="prose-suede">
             <MDXContent />
           </div>
+
+          <div className="mt-16 border-t border-paper-dim/20 pt-8">
+            <p className="mono-label text-cyan mb-4">ABOUT THE AUTHOR</p>
+            <p className="text-paper-dim text-sm leading-relaxed max-w-2xl mb-4">
+              <span className="text-paper font-semibold">Jason Colapietro</span> (Johnny Suede) is the founder and CEO of Suede Labs AI and the author of <em>The Signal Chain</em>. He built the creator-ownership layer for the AI media era: proof of creation, programmable IP, on-chain royalty routing, and agent-accessible licensing. Patent pending USPTO&nbsp;63/947,120.
+            </p>
+            <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-paper-dim">
+              <a href="https://guitar.solutions" className="hover:text-cyan transition-colors">The Signal Chain</a>
+              <a href="https://www.amazon.com/dp/B0GRG8LGQQ" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">Stake Your Claim</a>
+              <a href="https://www.amazon.com/dp/B0GMB2VLXQ" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">Proof as Infrastructure</a>
+              <a href="https://www.amazon.com/dp/B0GD5FX6N6" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">The Guitar Without a Number</a>
+              <a href="https://www.amazon.com/dp/B0GD5FX6N6" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">The Human Authenticity Layer</a>
+            </div>
+          </div>
         </div>
       </div>
     </article>
