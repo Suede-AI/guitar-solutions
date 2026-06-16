@@ -32,7 +32,19 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light dark;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --color-ink-0: #f5f0e8;
+      --color-ink-1: #ece7de;
+      --color-ink-2: #e3ddd4;
+      --color-rule: #d4cfc6;
+      --color-paper: #0d0d0d;
+      --color-paper-mute: #5a5a5a;
+      --color-paper-dim: #8a8480;
+    }
   }
 
   html {
