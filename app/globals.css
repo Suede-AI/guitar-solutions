@@ -113,6 +113,9 @@
 
   .hairline-t { border-top: 1px solid var(--color-rule); }
   .hairline-b { border-bottom: 1px solid var(--color-rule); }
+  @media (max-width: 768px) {
+    .featured-grid-responsive { grid-template-columns: 1fr !important; }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -122,3 +125,4 @@
     transition-duration: 0.01ms !important;
   }
 }
+
