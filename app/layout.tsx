@@ -5,7 +5,7 @@ import Link from 'next/link';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://guitar-solutions.vercel.app'),
+  metadataBase: new URL('https://guitar.services'),
   title: {
     default: 'guitar.solutions — Technical Reference for Guitar Signal Chains',
     template: '%s — guitar.solutions',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://guitar-solutions.vercel.app',
+    url: 'https://guitar.services',
     title: 'guitar.solutions — Technical Reference for Guitar Signal Chains',
     description:
       'Engineering-grade reference for guitar signal chains — pickup output through speaker excursion. Signal topology, impedance, gain staging, and gear pairing by Suede Labs.',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://guitar-solutions.vercel.app',
+    canonical: 'https://guitar.services',
   },
 };
 
@@ -107,7 +107,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@context': 'https://schema.org',
               '@type': 'WebSite',
               name: 'guitar.solutions',
-              url: 'https://guitar-solutions.vercel.app',
+              url: 'https://guitar.services',
               description:
                 'Engineering-grade reference for guitar signal chains — pickup output through speaker excursion. Signal topology, impedance, gain staging, and gear pairing by Suede Labs.',
               publisher: {
