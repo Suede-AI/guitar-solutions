@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getAllGuides, getGuideBySlug } from '@/lib/mdx';
+import { GuideSidebar } from '@/components/GuideSidebar';
 
 type Params = { slug: string };
 
@@ -28,15 +29,7 @@ export async function generateMetadata({
       url,
       title,
       description,
-      siteName: 'guitar.solutions',
-      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: title }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      creator: '@suedeai',
-      images: ['/og-image.png'],
+      siteName: 'guitar.services',
     },
   };
 }
@@ -46,7 +39,15 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
   const guide = getGuideBySlug(slug);
   if (!guide) notFound();
 
-  // Dynamic import — Next.js MDX loader compiles each file as a module.
+  const allGuides = getAllGuides();
+  const related = allGuides
+    .filter(
+      (g) =>
+        g.frontmatter.category === guide.frontmatter.category &&
+        g.frontmatter.slug !== slug,
+    )
+    .slice(0, 3);
+
   let MDXContent: React.ComponentType;
   try {
     const mod = await import(`@/content/guides/${slug}.mdx`);
@@ -60,15 +61,15 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
   return (
     <article className="mx-auto max-w-[1280px] px-6">
       <header className="grid grid-cols-1 lg:grid-cols-12 gap-x-10 py-20 hairline-b">
-        <div className="lg:col-span-2 mb-6 lg:mb-0">
+        <div className="lg:col-span-3 mb-6 lg:mb-0">
           <Link href="/" className="mono-label text-paper-dim hover:text-cyan transition-colors">
             ← BACK
           </Link>
         </div>
-        <div className="lg:col-span-10">
+        <div className="lg:col-span-9">
           <p className="mono-label">
             <span className="text-red">●</span> {frontmatter.category.toUpperCase()} · FILED{' '}
-            {formatDate(frontmatter.published)}
+            {formatDate(frontmatter.published)} · {guide.readingTime} MIN READ
           </p>
           <h1
             className="font-display text-paper mt-6"
@@ -90,16 +91,10 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-10 py-16">
-        <div className="lg:col-span-2 lg:sticky lg:top-8 self-start mb-12 lg:mb-0">
-          <p className="mono-label mb-3">SECTION</p>
-          <Link
-            href={`/categories#${slugifyCategory(frontmatter.category)}`}
-            className="font-display text-paper hover:text-cyan transition-colors block"
-          >
-            {frontmatter.category}
-          </Link>
+        <div className="lg:col-span-3 lg:sticky lg:top-8 self-start mb-12 lg:mb-0">
+          <GuideSidebar headings={guide.headings} relatedGuides={related} />
         </div>
-        <div className="lg:col-span-10">
+        <div className="lg:col-span-9">
           <div className="prose-suede">
             <MDXContent />
           </div>
@@ -110,12 +105,7 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
 }
 
 function formatDate(iso: string): string {
-  const d = new Date(iso);
-  return d
+  return new Date(iso)
     .toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit' })
     .toUpperCase();
-}
-
-function slugifyCategory(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
