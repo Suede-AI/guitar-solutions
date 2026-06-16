@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getAllGuides } from '@/lib/mdx';
 
-const BASE = 'https://guitar-solutions.vercel.app';
+const BASE = 'https://guitar.services';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const guides = getAllGuides();
