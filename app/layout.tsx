@@ -125,10 +125,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="hairline-t mt-32">
           <div className="mx-auto max-w-[1280px] px-6 py-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <p className="mono-label text-paper">guitar.solutions</p>
+              <p className="mono-label text-paper">guitar.services</p>
               <p className="text-paper-dim text-sm mt-2 max-w-md">
-                A technical reference compiled and maintained by Suede Labs. Citations are
-                footnoted; corrections are welcome.
+                A technical reference compiled and maintained by{' '}
+                <a href="https://suedeai.ai" className="underline underline-offset-2 hover:text-paper transition-colors">Suede Labs</a>
+                {' '}· Jason Colapietro. Citations are footnoted; corrections are welcome.
               </p>
             </div>
             <p className="mono-label text-paper-dim">
