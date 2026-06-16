@@ -1,0 +1,54 @@
+---
+title: "True Bypass vs. Buffered: What Your Pedal Actually Does"
+slug: "true-bypass-vs-buffered"
+category: "Electronics"
+published: "2026-05-15"
+description: "What true bypass and buffered bypass mean at the circuit level — when each preserves your tone and when each hurts it."
+authors: ["Jason Colapietro"]
+---
+
+Every guitar pedal makes a decision when it's switched off: does it put your signal straight through a wire, or does it keep running it through a circuit? That choice — true bypass vs. buffered bypass — is one of the most argued and most misunderstood topics in guitar gear. The argument is mostly settled. Here is why.
+
+## What the switch actually does
+
+In a true bypass pedal, the footswitch routes your signal through a mechanical relay or switch connecting input directly to output. The pedal's circuit is completely removed from the path when bypassed. Step on it — the relay clicks, the effect engages. Step off — the wire is the entire pedal.
+
+In a buffered bypass pedal, the pedal's input buffer stays active even when the effect is switched off. Your signal enters the circuit, gets buffered (impedance-converted), and exits — the wet effect is bypassed, but the buffer is always in the path.
+
+## The case for true bypass
+
+True bypass advocates have a real point: the only component a bypassed signal should touch is wire. No capacitors, no op-amps, nothing that can color the tone. A quality true bypass pedal adds nothing to your signal when bypassed.
+
+This matters especially for pedals with noisy or reactive input stages. A mediocre buffer is worse than no buffer at all. True bypass eliminates that variable entirely.
+
+## The problem with true bypass at scale
+
+Cable is a capacitor. Guitar cable has a capacitance rating — typically 25–100 pF per foot — and when that cable sits between your high-impedance pickup (8–15 kΩ output) and the next thing in your chain, it forms a passive low-pass filter. The longer the cable run, the more high frequencies attenuate.
+
+Ten feet of cable is barely noticeable. Fifteen feet to your first pedal, plus patch cables between six true-bypass boxes, plus another fifteen feet to your amp — you're running 30–40 feet of capacitance against a 10 kΩ source impedance. Your highs are measurably rolling off before the signal enters any effect.
+
+True bypass does not help this. It removes the buffer that would fix it.
+
+## The case for buffering
+
+A buffer — a unity-gain circuit with very low output impedance — solves the cable problem completely. It accepts your pickup's 10 kΩ signal and outputs the same signal at 100–300 Ω. From that point, cable capacitance is acoustically irrelevant because the source impedance is negligible.
+
+This is why Boss has used buffered bypass for decades and why serious rigs use a dedicated buffer at chain start. A well-designed buffer is inaudible. A chain of true-bypass pedals plus long cable runs is not.
+
+## The germanium fuzz exception
+
+Vintage germanium fuzz pedals — Fuzz Face, Tone Bender originals, their modern derivatives — expect to see the raw impedance of your guitar's pickups. Their input circuit uses your pickup's inductance and the cable capacitance as part of the tone-shaping network. Put a buffer before a germanium fuzz and it sounds wrong: thinner, stiffer, less organic.
+
+> Buffer before a wah = tone suck eliminated. Buffer before a germanium fuzz = dynamics killed.
+
+**Rule:** If you use a germanium fuzz, it goes first in your chain with nothing buffered before it. Silicon fuzz pedals are less sensitive and more flexible.
+
+## Practical guidance
+
+- **Long total cable runs (>20 ft):** Buffer early. A clean, transparent buffer at chain start — or your first buffered-bypass pedal — solves this permanently.
+- **Short runs (<15 ft) with few pedals:** True bypass is fine. Capacitance loading is low enough not to matter.
+- **Germanium fuzz in the chain:** First pedal, before any buffer, always.
+- **Stacking many true-bypass pedals:** The capacitance accumulates. Six true-bypass boxes plus cables between them adds up. One buffer at chain start fixes this.
+- **Boss-heavy rig:** Boss's JFET buffers are well-designed and largely transparent. An all-Boss chain is correctly buffered by default.
+
+The debate is not bypass type vs. bypass type. It is about whether you have a good buffer and where it sits. A great buffer is inaudible. An absent one with 30 feet of cable is not.
