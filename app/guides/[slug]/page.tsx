@@ -17,7 +17,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const guide = getGuideBySlug(slug);
   if (!guide) return { title: 'Guide not found' };
-  const { title, description, slug } = guide.frontmatter;
+  const { title, description } = guide.frontmatter;
   const url = `https://guitar-solutions.vercel.app/guides/${slug}`;
   return {
     title,

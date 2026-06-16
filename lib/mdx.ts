@@ -43,6 +43,8 @@ export type GuideFrontmatter = {
 export type GuideRecord = {
   frontmatter: GuideFrontmatter;
   filePath: string;
+  readingTime: number;
+  headings: Heading[];
 };
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'guides');
@@ -56,6 +58,7 @@ function readGuideFile(file: string): GuideRecord | null {
   if (!fm.title || !fm.slug || !fm.category || !fm.published || !fm.description) {
     return null;
   }
+  const content = parsed.content;
   return {
     frontmatter: {
       title: fm.title,
@@ -66,6 +69,8 @@ function readGuideFile(file: string): GuideRecord | null {
       authors: fm.authors ?? ['Suede Labs'],
     },
     filePath,
+    readingTime: readingTime(content),
+    headings: extractHeadings(content),
   };
 }
 

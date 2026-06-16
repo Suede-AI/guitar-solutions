@@ -53,3 +53,32 @@ describe('extractHeadings', () => {
     expect(extractHeadings('just paragraph text')).toEqual([]);
   });
 });
+
+import { getAllGuides, getGuideBySlug } from '../mdx';
+
+describe('getAllGuides', () => {
+  it('returns guides with readingTime >= 1', () => {
+    const guides = getAllGuides();
+    expect(guides.length).toBeGreaterThan(0);
+    for (const g of guides) {
+      expect(g.readingTime).toBeGreaterThanOrEqual(1);
+    }
+  });
+
+  it('returns guides sorted newest first', () => {
+    const guides = getAllGuides();
+    for (let i = 1; i < guides.length; i++) {
+      expect(new Date(guides[i - 1].frontmatter.published).getTime()).toBeGreaterThanOrEqual(
+        new Date(guides[i].frontmatter.published).getTime(),
+      );
+    }
+  });
+});
+
+describe('getGuideBySlug', () => {
+  it('returns headings for signal-chain-topology', () => {
+    const guide = getGuideBySlug('signal-chain-topology');
+    expect(guide).toBeDefined();
+    expect(guide!.headings.length).toBeGreaterThan(0);
+  });
+});
