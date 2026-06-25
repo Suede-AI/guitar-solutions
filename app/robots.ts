@@ -7,6 +7,5 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
     },
     sitemap: 'https://guitar.solutions/sitemap.xml',
-    host: 'https://guitar.solutions',
   };
 }
