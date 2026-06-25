@@ -12,6 +12,25 @@ export const metadata: Metadata = {
   },
   description:
     'The Signal Chain by Jason Colapietro — a footnoted, engineering-grade reference for guitar signal chains. Pickup output through speaker excursion. Free.',
+  keywords: [
+    'guitar signal chain',
+    'guitar electronics',
+    'guitar impedance',
+    'gain staging guitar',
+    'guitar tone topology',
+    'guitar pickup output',
+    'guitar engineering reference',
+    'signal chain topology',
+    'guitar gear pairing',
+    'guitar amp signal flow',
+    'guitar effects order',
+    'guitar technical reference',
+    'Jason Colapietro',
+    'Suede Labs guitar',
+  ],
+  authors: [{ name: 'Jason Colapietro', url: 'https://suedeai.ai/founder' }],
+  creator: 'Jason Colapietro',
+  publisher: 'Suede Labs AI',
   openGraph: {
     title: 'guitar.solutions — The Signal Chain by Jason Colapietro',
     description:
@@ -19,6 +38,8 @@ export const metadata: Metadata = {
     url: 'https://guitar.solutions',
     siteName: 'guitar.solutions',
     type: 'website',
+    locale: 'en_US',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'guitar.solutions — Engineering Reference for Guitar Signal Chains by Jason Colapietro' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -28,7 +49,11 @@ export const metadata: Metadata = {
     description:
       'The Signal Chain by Jason Colapietro — a footnoted, engineering-grade reference for guitar signal chains. Pickup output through speaker excursion. Free.',
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+  },
 };
 
 const SITE_JSON_LD = {
@@ -49,11 +74,7 @@ const SITE_JSON_LD = {
       '@id': 'https://guitar.solutions/#organization',
       name: 'Suede Labs',
       url: 'https://suedeai.ai',
-      sameAs: [
-        'https://suedeai.ai',
-        'https://suedeai.org',
-        'https://x.com/AISUEDE',
-      ],
+      sameAs: ['https://suedeai.ai', 'https://suedeai.org', 'https://x.com/AISUEDE'],
     },
     {
       '@type': 'Person',
@@ -124,8 +145,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div>
               <p className="mono-label text-paper">guitar.solutions</p>
               <p className="text-paper-dim text-sm mt-2 max-w-md">
-                A technical reference compiled and maintained by Suede Labs. Citations are
-                footnoted; corrections are welcome.
+                A technical reference compiled and maintained by{' '}
+                <a
+                  href="https://suedeai.ai"
+                  className="underline underline-offset-2 hover:text-paper transition-colors"
+                >
+                  Suede Labs
+                </a>
+                {' '}· Jason Colapietro. Citations are footnoted; corrections are welcome.
               </p>
             </div>
             <p className="mono-label text-paper-dim">

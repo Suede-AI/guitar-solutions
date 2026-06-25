@@ -1,5 +1,23 @@
 import type { MDXComponents } from 'mdx/types';
 
+function getTextContent(node: React.ReactNode): string {
+  if (typeof node === 'string') return node;
+  if (typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(getTextContent).join('');
+  if (node !== null && typeof node === 'object' && 'props' in (node as object)) {
+    const el = node as { props: { children?: React.ReactNode } };
+    return getTextContent(el.props.children);
+  }
+  return '';
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: ({ children }) => (
@@ -7,14 +25,25 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </h1>
     ),
-    h2: ({ children }) => (
-      <h2 className="font-display text-2xl md:text-3xl tracking-tight text-paper mt-12 mb-4 border-t border-rule pt-8">
-        {children}
-      </h2>
-    ),
-    h3: ({ children }) => (
-      <h3 className="font-display text-xl text-paper mt-8 mb-3">{children}</h3>
-    ),
+    h2: ({ children }) => {
+      const id = slugify(getTextContent(children));
+      return (
+        <h2
+          id={id}
+          className="font-display text-2xl md:text-3xl tracking-tight text-paper mt-12 mb-4 border-t border-rule pt-8"
+        >
+          {children}
+        </h2>
+      );
+    },
+    h3: ({ children }) => {
+      const id = slugify(getTextContent(children));
+      return (
+        <h3 id={id} className="font-display text-xl text-paper mt-8 mb-3">
+          {children}
+        </h3>
+      );
+    },
     p: ({ children }) => (
       <p className="text-paper-mute leading-[1.7] mb-5 max-w-[68ch]">{children}</p>
     ),

@@ -2,6 +2,35 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 
+export interface Heading {
+  id: string;
+  text: string;
+  level: number;
+}
+
+export function readingTime(content: string): number {
+  const words = content.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
+export function extractHeadings(content: string): Heading[] {
+  return content
+    .split('\n')
+    .filter((line) => /^#{2,3} /.test(line))
+    .map((line) => {
+      const match = line.match(/^(#{2,3}) (.+)$/);
+      if (!match) return null;
+      const level = match[1].length;
+      const text = match[2].trim();
+      const id = text
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
+      return { id, text, level };
+    })
+    .filter((h): h is Heading => h !== null);
+}
+
 export type GuideFrontmatter = {
   title: string;
   slug: string;
@@ -15,6 +44,8 @@ export type GuideFrontmatter = {
 export type GuideRecord = {
   frontmatter: GuideFrontmatter;
   filePath: string;
+  readingTime: number;
+  headings: Heading[];
 };
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'guides');
@@ -28,6 +59,7 @@ function readGuideFile(file: string): GuideRecord | null {
   if (!fm.title || !fm.slug || !fm.category || !fm.published || !fm.description) {
     return null;
   }
+  const content = parsed.content;
   return {
     frontmatter: {
       title: fm.title,
@@ -39,6 +71,8 @@ function readGuideFile(file: string): GuideRecord | null {
       authors: fm.authors ?? ['Suede Labs'],
     },
     filePath,
+    readingTime: readingTime(content),
+    headings: extractHeadings(content),
   };
 }
 

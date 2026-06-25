@@ -1,0 +1,48 @@
+---
+title: "Cable Capacitance and Frequency Response: The Spec That Actually Matters"
+slug: "cable-capacitance-and-frequency-response"
+category: "Electronics"
+published: "2026-02-01"
+description: "How cable capacitance rolls off your high frequencies, which spec to check, and why a buffer is the complete fix."
+authors: ["Jason Colapietro"]
+---
+
+Most guitarists select cables by brand or by a recommendation. The one spec that directly determines how a cable affects your tone — capacitance — is printed on most cable boxes and almost universally ignored.
+
+## What cable capacitance is
+
+A cable is two conductors separated by an insulating material (the dielectric). Two conductors separated by an insulator is the physical definition of a capacitor. Every guitar cable is a capacitor running along its length.
+
+Cable capacitance is measured in picofarads per foot (pF/ft) or per meter (pF/m). Common instrument cables measure 30–80 pF/ft. Premium low-capacitance cables measure 12–25 pF/ft. High-capacitance cables can exceed 100 pF/ft.
+
+## How it forms a low-pass filter
+
+Your guitar's pickup has a source impedance — typically 8–15 kΩ for a passive single-coil or humbucker. When the pickup connects to a cable, the pickup's source impedance (a resistance) and the cable's capacitance combine to form a passive low-pass filter.
+
+The cutoff frequency of this filter:
+
+```
+f_cutoff = 1 / (2π × R_source × C_cable)
+```
+
+At 10 kΩ source impedance and 500 pF of cable capacitance (10 feet at 50 pF/ft), the cutoff sits around 31 kHz — well above audible range. At the same impedance but 2,000 pF (20 feet at 100 pF/ft), the cutoff drops to 8 kHz. You are losing the upper harmonic content of your guitar before the signal reaches anything with a volume knob.
+
+## The numbers in practice
+
+| Cable | pF/ft | 15 ft total | Cutoff at 10 kΩ |
+|-------|-------|-------------|-----------------|
+| Premium low-capacitance | 20 pF | 300 pF | ~53 kHz |
+| Standard instrument | 50 pF | 750 pF | ~21 kHz |
+| High-capacitance | 100 pF | 1,500 pF | ~10 kHz |
+
+Short premium cable to a good buffer eliminates this completely. From the buffer's output — typically 100–300 Ω — the same cable has a cutoff above 500 kHz. Capacitance is irrelevant.
+
+## What this means for cable selection
+
+- **Without a buffer:** Lower capacitance matters. Every pF counts. Choose cables rated under 30 pF/ft for long runs.
+- **With a buffer at chain start:** Capacitance is irrelevant after the buffer. Spend on durability and shielding, not low-capacitance specs.
+- **Total run length matters more than per-foot spec.** A 30 pF/ft cable at 20 feet adds more capacitance than a 50 pF/ft cable at 10 feet.
+
+> The tone difference between a buffered chain using cheap cables and an unbuffered chain using premium low-capacitance cables is in favor of the buffered chain.
+
+A buffer is the correct solution. Cable choice is the approximation you use when you don't have one.
