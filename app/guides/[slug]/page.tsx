@@ -63,6 +63,7 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
     headline: frontmatter.title,
     description: frontmatter.description,
     datePublished: frontmatter.published,
+    dateModified: frontmatter.updated ?? frontmatter.published,
     author: (frontmatter.authors ?? ['Suede Labs']).map((name) => ({
       '@type': 'Person',
       name,
@@ -150,7 +151,7 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
               <a href="https://www.amazon.com/dp/B0GRG8LGQQ" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">Stake Your Claim</a>
               <a href="https://www.amazon.com/dp/B0GMB2VLXQ" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">Proof as Infrastructure</a>
               <a href="https://www.amazon.com/dp/B0GD5FX6N6" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">The Guitar Without a Number</a>
-              <a href="https://www.amazon.com/dp/B0GD5FX6N6" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">The Human Authenticity Layer</a>
+              <a href="https://www.amazon.com/dp/B0GMBBWHMQ" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">The Human Authenticity Layer</a>
             </div>
           </div>
         </div>

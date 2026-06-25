@@ -7,6 +7,7 @@ export type GuideFrontmatter = {
   slug: string;
   category: string;
   published: string; // ISO date
+  updated?: string;  // ISO date, optional
   description: string;
   authors?: string[];
 };
@@ -33,6 +34,7 @@ function readGuideFile(file: string): GuideRecord | null {
       slug: fm.slug,
       category: fm.category,
       published: fm.published,
+      updated: fm.updated,
       description: fm.description,
       authors: fm.authors ?? ['Suede Labs'],
     },

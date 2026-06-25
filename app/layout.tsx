@@ -7,16 +7,15 @@ import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL('https://guitar.solutions'),
   title: {
-    default: 'guitar.solutions — Technical Reference for Guitar Signal Chains',
-    template: '%s — guitar.solutions',
+    default: 'guitar.solutions — The Signal Chain by Jason Colapietro',
+    template: '%s | The Signal Chain — guitar.solutions',
   },
   description:
-    'The technical reference your tone needs. Engineering-grade writeups on signal chains, gear pairing, and tone topology — by Suede Labs.',
-  alternates: { canonical: 'https://guitar.solutions' },
+    'The Signal Chain by Jason Colapietro — a footnoted, engineering-grade reference for guitar signal chains. Pickup output through speaker excursion. Free.',
   openGraph: {
-    title: 'guitar.solutions — Technical Reference for Guitar Signal Chains',
+    title: 'guitar.solutions — The Signal Chain by Jason Colapietro',
     description:
-      'Engineering-grade writeups on signal chains, gear pairing, and tone topology.',
+      'The Signal Chain by Jason Colapietro — a footnoted, engineering-grade reference for guitar signal chains. Pickup output through speaker excursion. Free.',
     url: 'https://guitar.solutions',
     siteName: 'guitar.solutions',
     type: 'website',
@@ -25,9 +24,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@AISUEDE',
     creator: '@johnnysuede',
-    title: 'guitar.solutions',
+    title: 'guitar.solutions — The Signal Chain by Jason Colapietro',
     description:
-      'Engineering-grade writeups on signal chains, gear pairing, and tone topology.',
+      'The Signal Chain by Jason Colapietro — a footnoted, engineering-grade reference for guitar signal chains. Pickup output through speaker excursion. Free.',
   },
   robots: { index: true, follow: true },
 };
@@ -55,6 +54,34 @@ const SITE_JSON_LD = {
         'https://suedeai.org',
         'https://x.com/AISUEDE',
       ],
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://guitar.solutions/#jason-colapietro',
+      name: 'Jason Colapietro',
+      url: 'https://suedeai.ai/founder',
+      image: {
+        '@type': 'ImageObject',
+        url: 'https://suedeai.org/assets/img/founder-jason.png',
+        caption: 'Jason Colapietro, Founder of Suede Labs',
+      },
+      jobTitle: 'Founder',
+      worksFor: { '@type': 'Organization', name: 'Suede Labs AI', url: 'https://suedeai.ai' },
+      sameAs: [
+        'https://twitter.com/johnnysuede',
+        'https://suedeai.ai/founder',
+        'https://suedeai.org/jason-colapietro/',
+        'https://jasoncolapietro.substack.com',
+      ],
+    },
+    {
+      '@type': 'Book',
+      name: 'The Signal Chain',
+      author: { '@id': 'https://guitar.solutions/#jason-colapietro' },
+      description:
+        'A footnoted, engineering-grade reference for guitar signal chains — from pickup output through speaker excursion.',
+      url: 'https://guitar.solutions',
+      publisher: { '@type': 'Organization', name: 'Suede Labs AI', url: 'https://suedeai.ai' },
     },
   ],
 };
