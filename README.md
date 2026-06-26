@@ -1,5 +1,7 @@
 # guitar.solutions
 
+> **By [Jason Colapietro](https://suedeai.ai/founder) / [Suede Labs AI](https://suedeai.ai) · Live at [guitar.solutions](https://guitar.solutions)**
+
 The technical reference your tone needs. An engineering-grade, footnoted
 catalog of guitar signal-chain knowledge — pickup output through speaker
 excursion. Compiled and maintained by Suede Labs.
