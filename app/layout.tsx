@@ -5,7 +5,7 @@ import Link from 'next/link';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://guitar.solutions'),
+  metadataBase: new URL('https://www.guitar.solutions'),
   title: {
     default: 'guitar.solutions — The Signal Chain by Jason Colapietro',
     template: '%s | The Signal Chain — guitar.solutions',
