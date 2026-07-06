@@ -58,10 +58,27 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ul: ({ children }) => (
       <ul className="list-none pl-0 mb-6 space-y-2 text-paper-mute max-w-[68ch]">{children}</ul>
     ),
+    ol: ({ children }) => (
+      <ol className="list-decimal pl-5 mb-6 space-y-2 text-paper-mute max-w-[68ch]">{children}</ol>
+    ),
     li: ({ children }) => (
-      <li className="pl-5 relative before:content-['—'] before:absolute before:left-0 before:text-red">
+      <li className="pl-5 relative before:content-['-'] before:absolute before:left-0 before:text-red">
         {children}
       </li>
+    ),
+    table: ({ children }) => (
+      <div className="my-8 max-w-full overflow-x-auto border border-rule">
+        <table className="w-full min-w-[640px] border-collapse text-sm">{children}</table>
+      </div>
+    ),
+    thead: ({ children }) => <thead className="bg-ink-1 text-paper">{children}</thead>,
+    th: ({ children }) => (
+      <th className="border-b border-rule px-4 py-3 text-left mono-label text-paper">
+        {children}
+      </th>
+    ),
+    td: ({ children }) => (
+      <td className="border-t border-rule px-4 py-3 text-paper-mute align-top">{children}</td>
     ),
     blockquote: ({ children }) => (
       <blockquote className="border-l-2 border-red pl-5 my-6 text-paper italic font-display max-w-[60ch]">

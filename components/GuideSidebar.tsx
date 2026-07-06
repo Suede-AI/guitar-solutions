@@ -7,10 +7,18 @@ import type { Heading, GuideRecord } from '@/lib/mdx';
 interface GuideSidebarProps {
   headings: Heading[];
   relatedGuides: Pick<GuideRecord, 'frontmatter'>[];
+  facts: {
+    category: string;
+    published: string;
+    readingTime: number;
+    sectionCount: number;
+    relatedCount: number;
+  };
 }
 
-export function GuideSidebar({ headings, relatedGuides }: GuideSidebarProps) {
+export function GuideSidebar({ headings, relatedGuides, facts }: GuideSidebarProps) {
   const [activeId, setActiveId] = useState('');
+  const [activePanel, setActivePanel] = useState<'contents' | 'related' | 'facts'>('contents');
 
   useEffect(() => {
     if (headings.length === 0) return;
@@ -33,9 +41,27 @@ export function GuideSidebar({ headings, relatedGuides }: GuideSidebarProps) {
 
   return (
     <div className="flex flex-col gap-8">
-      {headings.length > 0 && (
+      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Guide sidebar sections">
+        {(['contents', 'related', 'facts'] as const).map((panel) => (
+          <button
+            key={panel}
+            type="button"
+            role="tab"
+            aria-selected={activePanel === panel}
+            onClick={() => setActivePanel(panel)}
+            className={`border px-3 py-2 mono-label transition-colors ${
+              activePanel === panel
+                ? 'border-cyan text-cyan bg-ink-1'
+                : 'border-rule text-paper-dim hover:text-paper hover:border-paper-dim'
+            }`}
+          >
+            {panel}
+          </button>
+        ))}
+      </div>
+
+      {activePanel === 'contents' && headings.length > 0 && (
         <nav aria-label="Guide contents">
-          <p className="mono-label mb-3">CONTENTS</p>
           <ul className="space-y-1">
             {headings.map(({ id, text, level }) => (
               <li key={id} style={{ paddingLeft: level === 3 ? '0.75rem' : '0' }}>
@@ -57,9 +83,8 @@ export function GuideSidebar({ headings, relatedGuides }: GuideSidebarProps) {
         </nav>
       )}
 
-      {relatedGuides.length > 0 && (
-        <div className="hairline-t pt-6">
-          <p className="mono-label mb-3">RELATED</p>
+      {activePanel === 'related' && relatedGuides.length > 0 && (
+        <div>
           <ul className="space-y-2">
             {relatedGuides.map((guide) => (
               <li key={guide.frontmatter.slug}>
@@ -73,6 +98,31 @@ export function GuideSidebar({ headings, relatedGuides }: GuideSidebarProps) {
             ))}
           </ul>
         </div>
+      )}
+
+      {activePanel === 'facts' && (
+        <dl className="grid grid-cols-2 gap-px bg-rule hairline-t">
+          <div className="bg-ink-0 p-3">
+            <dt className="mono-label text-paper-dim">Category</dt>
+            <dd className="text-paper text-sm mt-1">{facts.category}</dd>
+          </div>
+          <div className="bg-ink-0 p-3">
+            <dt className="mono-label text-paper-dim">Read</dt>
+            <dd className="text-paper text-sm mt-1">{facts.readingTime} min</dd>
+          </div>
+          <div className="bg-ink-0 p-3">
+            <dt className="mono-label text-paper-dim">Sections</dt>
+            <dd className="text-paper text-sm mt-1">{facts.sectionCount}</dd>
+          </div>
+          <div className="bg-ink-0 p-3">
+            <dt className="mono-label text-paper-dim">Related</dt>
+            <dd className="text-paper text-sm mt-1">{facts.relatedCount}</dd>
+          </div>
+          <div className="bg-ink-0 p-3 col-span-2">
+            <dt className="mono-label text-paper-dim">Filed</dt>
+            <dd className="text-paper text-sm mt-1">{facts.published}</dd>
+          </div>
+        </dl>
       )}
     </div>
   );

@@ -3,11 +3,11 @@ title: "Cable Capacitance and Frequency Response: The Spec That Actually Matters
 slug: "cable-capacitance-and-frequency-response"
 category: "Electronics"
 published: "2026-02-01"
-description: "How cable capacitance rolls off your high frequencies, which spec to check, and why a buffer is the complete fix."
+description: "How cable capacitance rolls off your high frequencies, which spec to check, and why a buffer fixes downstream cable loading."
 authors: ["Jason Colapietro"]
 ---
 
-Most guitarists select cables by brand or by a recommendation. The one spec that directly determines how a cable affects your tone — capacitance — is printed on most cable boxes and almost universally ignored.
+Most guitarists select cables by brand or by a recommendation. The one spec that directly determines how a cable affects your tone is capacitance, and it is printed on most cable boxes while being widely ignored.
 
 ## What cable capacitance is
 
@@ -17,7 +17,7 @@ Cable capacitance is measured in picofarads per foot (pF/ft) or per meter (pF/m)
 
 ## How it forms a low-pass filter
 
-Your guitar's pickup has a source impedance — typically 8–15 kΩ for a passive single-coil or humbucker. When the pickup connects to a cable, the pickup's source impedance (a resistance) and the cable's capacitance combine to form a passive low-pass filter.
+Your guitar's pickup has a source impedance, typically 8–15 kΩ for a passive single-coil or humbucker. When the pickup connects to a cable, the pickup's source impedance (a resistance) and the cable's capacitance combine to form a passive low-pass filter.
 
 The cutoff frequency of this filter:
 
@@ -25,7 +25,7 @@ The cutoff frequency of this filter:
 f_cutoff = 1 / (2π × R_source × C_cable)
 ```
 
-At 10 kΩ source impedance and 500 pF of cable capacitance (10 feet at 50 pF/ft), the cutoff sits around 31 kHz — well above audible range. At the same impedance but 2,000 pF (20 feet at 100 pF/ft), the cutoff drops to 8 kHz. You are losing the upper harmonic content of your guitar before the signal reaches anything with a volume knob.
+At 10 kΩ source impedance and 500 pF of cable capacitance (10 feet at 50 pF/ft), the cutoff sits around 31 kHz, well above audible range. At the same impedance but 2,000 pF (20 feet at 100 pF/ft), the cutoff drops to 8 kHz. You are losing the upper harmonic content of your guitar before the signal reaches anything with a volume knob.
 
 ## The numbers in practice
 
@@ -35,7 +35,7 @@ At 10 kΩ source impedance and 500 pF of cable capacitance (10 feet at 50 pF/ft)
 | Standard instrument | 50 pF | 750 pF | ~21 kHz |
 | High-capacitance | 100 pF | 1,500 pF | ~10 kHz |
 
-Short premium cable to a good buffer eliminates this completely. From the buffer's output — typically 100–300 Ω — the same cable has a cutoff above 500 kHz. Capacitance is irrelevant.
+Short premium cable to a good buffer fixes the downstream cable problem. From the buffer's output, typically 100–300 Ω, the same cable has a cutoff above 500 kHz. Capacitance is irrelevant.
 
 ## What this means for cable selection
 
@@ -43,6 +43,18 @@ Short premium cable to a good buffer eliminates this completely. From the buffer
 - **With a buffer at chain start:** Capacitance is irrelevant after the buffer. Spend on durability and shielding, not low-capacitance specs.
 - **Total run length matters more than per-foot spec.** A 30 pF/ft cable at 20 feet adds more capacitance than a 50 pF/ft cable at 10 feet.
 
+## Quick Diagnosis
+
+| Symptom | Likely cause | First check | Fix |
+|---|---|---|---|
+| Pick attack sounds softer with the board connected | Too much capacitance before the first buffer | Add up cable and patch length before the buffer | Shorten the run or put a buffer first |
+| Expensive cable does not change the sound | A buffer is already early in the chain | Check whether the first pedal is buffered | Spend on shielding and durability instead |
+| One long cable sounds darker than two shorter runs with a buffer | Capacitance is only loading the pickup before the buffer | Compare the cable before and after a buffer | Keep the low-capacitance run before the buffer |
+
 > The tone difference between a buffered chain using cheap cables and an unbuffered chain using premium low-capacitance cables is in favor of the buffered chain.
 
-A buffer is the correct solution. Cable choice is the approximation you use when you don't have one.
+## Further Reading
+
+See also: [Impedance and the First Three Feet](/guides/impedance-and-the-first-three-feet) for the pickup-loading problem behind cable choice. [True Bypass vs. Buffered](/guides/true-bypass-vs-buffered) for where the first buffer belongs.
+
+A buffer is the clean fix. Cable choice is the approximation you use when you do not have one.

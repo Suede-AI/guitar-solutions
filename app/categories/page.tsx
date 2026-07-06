@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getAllGuides, getCategories } from '@/lib/mdx';
+import { getCategoryDetails } from '@/lib/categories';
 
 export const metadata: Metadata = {
-  title: 'Subject Index',
-description: 'All guitar.solutions guides grouped by engineering category — signal chain, electronics, amplifiers, and more.',
+  title: 'Guitar Signal Chain Subject Index',
+  description:
+    'Browse guitar.solutions guides by signal-chain category: electronics, gain, power, effects loops, pedal order, and board diagnosis.',
   alternates: { canonical: 'https://guitar.solutions/categories' },
 };
 
@@ -28,17 +30,33 @@ export default function CategoriesPage() {
         </h1>
         <p className="text-paper-mute mt-6 max-w-[60ch] text-lg leading-relaxed">
           Every guide belongs to one category. Categories map to a section of the signal chain or a
-          discrete engineering concern — not to a marketing theme.
+          discrete engineering concern, not to a marketing theme.
         </p>
       </header>
 
+      <nav aria-label="Category shortcuts" className="py-6 hairline-b">
+        <ul className="flex flex-wrap gap-2">
+          {categories.map((category) => (
+            <li key={category.name}>
+              <a
+                href={`#${slugifyCategory(category.name)}`}
+                className="block border border-rule px-3 py-2 mono-label hover:text-cyan hover:border-cyan transition-colors"
+              >
+                {category.name} ({category.count})
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
       <section className="py-20 space-y-20">
         {categories.length === 0 && (
-          <p className="text-paper-mute">No categories yet — add a guide with frontmatter to see it appear here.</p>
+          <p className="text-paper-mute">No categories yet. Add a guide with frontmatter to see it appear here.</p>
         )}
         {categories.map((c) => {
           const id = slugifyCategory(c.name);
           const inCategory = guides.filter((g) => g.frontmatter.category === c.name);
+          const details = getCategoryDetails(c.name);
           return (
             <section
               key={c.name}
@@ -61,23 +79,34 @@ export default function CategoriesPage() {
                 >
                   {c.name}
                 </h2>
+                <p className="text-paper-mute mt-5 max-w-[42ch] leading-relaxed">
+                  {details.summary}
+                </p>
+                <p className="text-paper-dim mt-4 max-w-[42ch] text-sm leading-relaxed">
+                  {details.useWhen}
+                </p>
               </div>
               <ol className="lg:col-span-8 hairline-t">
                 {inCategory.map((g, i) => (
                   <li
                     key={g.frontmatter.slug}
-                    className="hairline-b grid grid-cols-12 gap-x-4 py-6"
+                    className="hairline-b grid grid-cols-12 gap-x-4 gap-y-3 py-6"
                   >
-                    <span className="col-span-2 md:col-span-1 mono-label text-paper-dim self-center">
+                    <span className="col-span-2 md:col-span-1 mono-label text-paper-dim self-start pt-1">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <Link
-                      href={`/guides/${g.frontmatter.slug}`}
-                      className="col-span-10 md:col-span-8 font-display text-paper hover:text-cyan transition-colors text-xl leading-tight self-center"
-                    >
-                      {g.frontmatter.title}
-                    </Link>
-                    <span className="col-span-12 md:col-span-3 mono-label text-paper-dim md:text-right self-center">
+                    <div className="col-span-10 md:col-span-8">
+                      <Link
+                        href={`/guides/${g.frontmatter.slug}`}
+                        className="font-display text-paper hover:text-cyan transition-colors text-xl leading-tight"
+                      >
+                        {g.frontmatter.title}
+                      </Link>
+                      <p className="text-paper-mute mt-3 text-sm leading-relaxed max-w-[62ch]">
+                        {g.frontmatter.description}
+                      </p>
+                    </div>
+                    <span className="col-span-12 md:col-span-3 mono-label text-paper-dim md:text-right self-start pt-1">
                       {formatDate(g.frontmatter.published)}
                     </span>
                   </li>

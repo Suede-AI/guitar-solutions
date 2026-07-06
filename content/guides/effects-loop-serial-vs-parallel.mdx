@@ -15,11 +15,11 @@ Inside a tube amp, there are two major stages: the preamp and the power amp. The
 
 The effects loop sits between them. The Send jack taps the signal after the preamp has done its work. The Return jack injects signal back in directly before the power amp.
 
-A pedal placed in the loop processes the sound of your preamp, not the raw guitar. The tone shape, the gain character, the amp EQ — all of that enters the loop pedal's input. The loop pedal's output feeds the power amp directly.
+A pedal placed in the loop processes the sound of your preamp, not the raw guitar. The tone shape, the gain character, and the amp EQ all enter the loop pedal's input. The loop pedal's output feeds the power amp directly.
 
 ## Why this matters for time-based effects
 
-Delay and reverb produce repeats and reflections that sound most natural when they're applied to an already-formed tone. If you run delay into the front of a driven amp, the amp's preamp processes both the original note and every one of its repeats — each repeat is re-driven, re-compressed, re-shaped. The delays become thick and indistinct.
+Delay and reverb produce repeats and reflections that sound most natural when they're applied to an already-formed tone. If you run delay into the front of a driven amp, the amp's preamp processes both the original note and every one of its repeats. Each repeat is re-driven, re-compressed, and re-shaped. The delays become thick and indistinct.
 
 In the effects loop, delay receives the preamp's shaped output. Its repeats go directly to the power amp, bypassing the gain stage entirely. Each repeat is a clean copy of the processed note, not a re-driven version. The delays decay naturally with clear pitch definition.
 
@@ -27,17 +27,17 @@ The same logic applies to reverb, chorus, and flanger. Applied after the gain st
 
 ## Serial vs. parallel effects loops
 
-A **serial loop** — the most common type — places your pedal completely in the signal path. The amp's signal goes entirely into the pedal's input, and the pedal's output returns entirely to the power amp. The pedal's wet/dry mix control determines the blend.
+A **serial loop**, the most common type, places your pedal completely in the signal path. The amp's signal goes entirely into the pedal's input, and the pedal's output returns entirely to the power amp. The pedal's wet/dry mix control determines the blend.
 
-A **parallel loop** — less common, found on some boutique and high-end amps — splits the signal into two paths: one through the loop pedal, one bypassing it. The amp blends them before the power amp stage using a Mix control. At 100% wet, you hear only the loop pedal. At 0%, you hear the dry amp path. Between them, you get both.
+A **parallel loop**, less common and found on some boutique and high-end amps, splits the signal into two paths: one through the loop pedal, one bypassing it. The amp blends them before the power amp stage using a Mix control. At 100% wet, you hear only the loop pedal. At 0%, you hear the dry amp path. Between them, you get both.
 
-The parallel loop is useful for reverb and delay — you preserve the amp's completely dry signal on one path while adding depth on the other. Some engineers prefer this because the dry path never touches a converter or a buffer.
+The parallel loop is useful for reverb and delay because it preserves the amp's dry signal on one path while adding depth on the other. Some engineers prefer this because the dry path never touches a converter or a buffer.
 
-The tradeoff: the parallel loop's Mix control behaves unintuively with drive pedals. You can't blend a processed and an unprocessed signal cleanly when the processed signal contains heavy harmonic content.
+The tradeoff: the parallel loop's Mix control behaves poorly with drive pedals. You cannot blend a processed and an unprocessed signal cleanly when the processed signal contains heavy harmonic content.
 
 ## The four-cable method
 
-The four-cable method (4CM) routes a multi-effects unit or switcher so that some effects sit before the amp's preamp and others sit in the effects loop — using the physical amp as the gain stage in the middle.
+The four-cable method (4CM) routes a multi-effects unit or switcher so that some effects sit before the amp's preamp and others sit in the effects loop. The physical amp remains the gain stage in the middle.
 
 The routing:
 
@@ -56,10 +56,41 @@ Some effects loops operate at instrument level (-10 dBV). Others operate at line
 
 ## Practical placement guide
 
-- **Delay, reverb, chorus, flanger, phaser:** In the effects loop. Nearly always correct.
+- **Delay, reverb, chorus, flanger, phaser:** Start in the effects loop when the amp preamp supplies most of the gain.
 - **Compressor, wah, overdrive, fuzz, distortion:** In front of the amp. These shape the signal entering the preamp.
 - **Volume pedal for dynamics and cleaning up drive:** In front. Controls input level and preamp response.
 - **Volume pedal for master level control:** In the loop. Controls output without changing preamp saturation.
 - **Pitch shifters:** In front for tracking accuracy. The cleaner the input, the more accurate the pitch detection.
 
-The effects loop is a routing decision with audible consequences. Running reverb in the front is not wrong — it is a different sound. Understanding the difference is what makes the choice deliberate.
+## Try This: Front vs. Loop Delay
+
+Use a short palm-muted phrase so the repeats are easy to hear.
+
+```text
+e|----------------|
+B|----------------|
+G|----------------|
+D|--2-2---5-5-----|
+A|--2-2---5-5-----|
+E|--0-0---3-3-----|
+```
+
+| Pass | Placement | Settings | Expected difference |
+|---|---|---|---|
+| A | Delay before amp input | 350 ms, 25% mix, 3 repeats | Repeats hit the preamp and smear with gain |
+| B | Delay in the loop | Same settings | Repeats stay clearer because they bypass preamp distortion |
+| C | Reverb in the loop after delay | Small room, low mix | The repeat trail sits behind the driven tone |
+
+## Quick Diagnosis
+
+| Symptom | Likely cause | First check | Fix |
+|---|---|---|---|
+| Delay repeats turn to mush | Delay is before a driven preamp | Move the delay into the loop for one pass | Keep time effects after the main gain stage |
+| Loop sounds thin or noisy | Level mismatch | Check -10 dBV vs +4 dBu on amp and pedal | Match levels or add a converter |
+| Parallel loop has phasey repeats | Wet/dry blend conflict | Set the pedal fully wet if possible | Let the amp handle the dry blend |
+
+## Further Reading
+
+See also: [Pedalboard Order](/guides/pedalboard-order-methodology) for what belongs before the amp input. [Signal Chain Topology](/guides/signal-chain-topology) for where the loop sits in the full chain.
+
+The effects loop is a routing decision with audible consequences. Running reverb in the front is not wrong. It is a different sound. Understanding the difference is what makes the choice deliberate.

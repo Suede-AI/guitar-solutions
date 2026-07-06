@@ -1,5 +1,6 @@
 import createMDX from '@next/mdx';
 import remarkFrontmatter from 'remark-frontmatter';
+import remarkGfm from 'remark-gfm';
 
 function stripFrontmatter() {
   return (tree) => {
@@ -21,7 +22,7 @@ const nextConfig = {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkFrontmatter, stripFrontmatter],
+    remarkPlugins: [remarkFrontmatter, stripFrontmatter, remarkGfm],
   },
 });
 

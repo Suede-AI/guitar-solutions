@@ -2,9 +2,9 @@
 
 > **By [Jason Colapietro](https://suedeai.ai/founder) / [Suede Labs AI](https://suedeai.ai) · Live at [guitar.solutions](https://guitar.solutions)**
 
-The technical reference your tone needs. An engineering-grade, footnoted
-catalog of guitar signal-chain knowledge — pickup output through speaker
-excursion. Compiled and maintained by Suede Labs.
+The technical reference your tone needs. A detailed catalog of guitar
+signal-chain knowledge from pickup output through speaker excursion. Compiled
+and maintained by Suede Labs AI.
 
 This is a static Next.js site. No backend, no DB, no auth. Long-form guides
 are authored as MDX in `content/guides/`.
@@ -33,7 +33,7 @@ pnpm build        # production build
 ```
 app/
   layout.tsx              Root layout, Suede IP Terminal palette
-  page.tsx                Landing — editorial, recently-filed index, subject rail
+  page.tsx                Landing, editorial index, category tabs, study path
   globals.css             Tailwind v4 + design tokens
   guides/[slug]/page.tsx  Dynamic guide page, dynamic-imports MDX module
   categories/page.tsx     Subject index (grouped by category)
@@ -58,9 +58,9 @@ postcss.config.mjs        @tailwindcss/postcss
    ---
    title: "Title in title case"
    slug: "kebab-case-slug"
-   category: "Signal Chain | Electronics | Amplification | Speaker & Cab | Recording"
+   category: "Electronics | Signal Chain | Gain & Dynamics | Power"
    published: "YYYY-MM-DD"
-   description: "One sentence, ~150 chars, used in landing index and meta description."
+   description: "One sentence, about 150 chars, used in the landing index and meta description."
    authors:
      - "Suede Labs"
    ---
@@ -77,9 +77,9 @@ postcss.config.mjs        @tailwindcss/postcss
 
 This site uses the **Suede Institutional IP Terminal** palette:
 
-- Rights Red `#9f101a` — accent, current state, route emphasis
-- Registry Cyan `#22d3ee` — interactive elements, links, focus rings
-- Deep Ink `#050b16` — page background
+- Rights Red `#9f101a`: accent, current state, route emphasis
+- Registry Cyan `#22d3ee`: interactive elements, links, focus rings
+- Deep Ink `#050b16`: page background
 
 Editorial layout: hairline rules, mono labels in uppercase tracked-out caps,
 a single accent color carrying the system. Avoid card grids; prefer ruled
@@ -97,6 +97,6 @@ anti-template policy it is built against.
 ## Provenance
 
 The taxonomic decisions (signal-chain categories, decade range, archival tone)
-draw on patterns from the Suede DNA project — a separate rig manifest site
+draw on patterns from the Suede DNA project, a separate rig manifest site
 at `dna.suedeai.ai`. guitar.solutions is the *engineering reference* sibling
 to DNA's *archival catalog* of rigs.

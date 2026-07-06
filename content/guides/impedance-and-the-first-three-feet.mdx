@@ -3,26 +3,26 @@ title: "Impedance and the First Three Feet"
 slug: "impedance-and-the-first-three-feet"
 category: "Electronics"
 published: "2026-05-24"
-description: "Why the cable between your guitar and your first pedal is doing more to your tone than most of the gear on your board — and what to do about it."
+description: "Why the cable between your guitar and your first pedal is doing more to your tone than most of the gear on your board, and what to do about it."
 authors:
   - "Jason Colapietro"
 ---
 
-The single most common source of tonal degradation in a guitar rig is the
-unbuffered cable run between the instrument and the first pedal. It is also
-the cheapest to fix.
+One common and cheap-to-fix source of tonal degradation is the unbuffered cable
+run between the instrument and the first pedal.
 
 ## The Problem
 
 A passive guitar pickup has an output impedance that swings with frequency,
 typically peaking somewhere between 5 kΩ and 25 kΩ depending on pickup
 design.[^1] Any capacitance downstream forms a low-pass filter with that
-source impedance. The cable is the dominant capacitance in the chain — roughly
-30 pF/ft for low-grade cable, down to about 19 pF/ft for premium audio cable.
+source impedance. The cable is the dominant capacitance in the chain. Common
+instrument cables often sit around 30–80 pF/ft, premium low-capacitance cables
+often sit around 12–25 pF/ft, and high-capacitance runs can exceed 100 pF/ft.
 
 A 20-foot cheap cable presents roughly 600 pF of shunt capacitance. Combined
 with a typical humbucker source impedance, this places the rolloff knee in the
-audible top end — sometimes as low as 4 kHz.
+audible top end, sometimes as low as 4 kHz.
 
 ## The Math
 
@@ -38,7 +38,7 @@ For a 15 kΩ source and 600 pF cable:
 f ≈ 1 / (2π · 15,000 · 600e-12) ≈ 17.7 kHz
 ```
 
-That looks safe. The trap is that the pickup is *not* a resistor — it is an
+That looks safe. The trap is that the pickup is *not* a resistor. It is an
 LCR resonant network. The audible "sparkle" of a Stratocaster bridge pickup
 sits on top of a resonant peak somewhere between 3 and 6 kHz. A long cable's
 capacitance combines with the pickup's own inductance to drop that peak's
@@ -51,9 +51,9 @@ A buffer is a unity-gain amplifier with high input impedance (typically 1 MΩ)
 and low output impedance (typically under 1 kΩ). Place one early in the chain
 and:
 
-- The pickup sees only the buffer's 1 MΩ load → no audible high-end loss
+- The pickup sees only the buffer's 1 MΩ load, so there is no audible high-end loss
 - Downstream cable capacitance now interacts with the buffer's low output
-  impedance instead of the pickup → the same 600 pF cable now has its rolloff
+  impedance instead of the pickup, so the same 600 pF cable now has its rolloff
   knee well above 100 kHz
 
 In other words: the buffer moves the bottleneck out of the audio band.
@@ -63,11 +63,11 @@ In other words: the buffer moves the bottleneck out of the audio band.
 Buffers are not universally good. Specific cases where you want the pickup
 running into the next device directly:
 
-- **Vintage germanium fuzz** — Fuzz Face and friends rely on pickup interaction
+- **Vintage germanium fuzz**: Fuzz Face and friends rely on pickup interaction
   for their volume-knob cleanup behavior. A buffer flattens this.
-- **Treble-bleed-style volume controls** — these are tuned for the specific
+- **Treble-bleed-style volume controls**: these are tuned for the specific
   impedance the pickup presents. Buffering changes the math.
-- **Players who deliberately want darker, woolier top end** — sometimes that
+- **Guitarists who deliberately want darker, woolier top end**: sometimes that
   rolloff is the sound.
 
 ## Practical Rule of Thumb
@@ -79,9 +79,17 @@ running into the next device directly:
 
 ## Recommended Topology
 
-Tuner pedals often have always-on input buffers. Placing a tuner first solves
-the problem incidentally — provided the tuner's buffer is reasonable. Most
+Tuner pedals often have input buffers that remain active. Placing a tuner first solves
+the problem incidentally, provided the tuner's buffer is reasonable. Most
 modern ones are.
+
+## Quick Diagnosis
+
+| Symptom | Likely cause | First check | Fix |
+|---|---|---|---|
+| Bright straight into the amp, dull through the board | Cable capacitance loading the pickups | Measure total cable length before the first buffer | Put a good buffer first or shorten the unbuffered run |
+| Fuzz loses cleanup when the tuner is first | Buffer before germanium fuzz | Move the fuzz before the tuner for one test | Put germanium fuzz before the first buffer |
+| Top end returns when the guitar volume is full up | Pickup and volume-pot loading | Compare 250 kΩ vs 500 kΩ guitar behavior | Match pot value, cable length, and first buffer to the pickup |
 
 ## Further Reading
 

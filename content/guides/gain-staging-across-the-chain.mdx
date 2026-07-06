@@ -3,7 +3,7 @@ title: "Gain Staging Across the Chain"
 slug: "gain-staging-across-the-chain"
 category: "Signal Chain"
 published: "2026-05-22"
-description: "Why two clean pedals into a clean amp can still clip the front end — and how to set unity gain across a multi-pedal board so the amp sounds the way it should."
+description: "Why two clean pedals into a clean amp can still clip the front end, and how to set unity gain across a multi-pedal board so the amp sounds the way it should."
 authors:
   - "Jason Colapietro"
 ---
@@ -17,9 +17,9 @@ decides whether a board sounds tight or smeared.
 
 Every block in a chain has:
 
-- An **input headroom ceiling** — the maximum signal it can accept before clipping
-- A **noise floor** — the minimum signal it can pass before the output is dominated by hiss
-- A **target operating range** — somewhere comfortably between the two
+- An **input headroom ceiling**: the maximum signal it can accept before clipping
+- A **noise floor**: the minimum signal it can pass before the output is dominated by hiss
+- A **target operating range**: somewhere comfortably between the two
 
 The objective is to keep the signal inside that window at every block. Push it
 too hot and you get distortion you did not ask for. Run it too cold and you
@@ -48,15 +48,36 @@ A practical procedure:
 If you do this honestly, you will discover that two or three pedals on a
 "clean" board are routinely pushing 3–8 dB hotter than your bare signal.
 
+## Try This: One-Bar Level Test
+
+Use the same riff for every bypass check. Keep the pick attack steady and do
+not change the amp volume between passes.
+
+```text
+e|----------------|
+B|----------------|
+G|----------------|
+D|------5-----7---|
+A|--5h7---7-5---7-|
+E|----------------|
+```
+
+| Pass | Chain state | What to listen for |
+|---|---|---|
+| A | Guitar straight into amp | Baseline level, attack, and low-end shape |
+| B | Board inserted, all pedals bypassed | Any volume drop, brightness loss, or hiss increase |
+| C | One pedal engaged | Whether the pedal changes level when it should only change tone |
+| D | Full working board | Cumulative level lift or loss |
+
 ## Where the Headroom Lives
 
-The amp's preamp input is almost always the lowest-headroom stage in a guitar
+The amp's preamp input is usually the lowest-headroom stage in a guitar
 rig. Most tube preamp inputs start clipping around 100–200 mV peak. A hot
 humbucker into a hot boost can easily exceed that. Most modeler input stages
-are far more forgiving — but they still have a ceiling.
+are far more forgiving, but they still have a ceiling.
 
 > If the amp sounds harsh, blurry, or "wooly" when you engage your normal
-> clean board, the problem is almost never the amp. It is the gain stack
+> clean board, the problem is usually not the amp. It is the gain stack
 > in front of it.
 
 ## The Loop Side
@@ -67,9 +88,17 @@ expose a switch for line-level vs instrument-level loop operation; use it.
 
 ## Quick Checks
 
-- Bypass everything. Does the amp sound the way you bought it to sound?
+- Bypass the board. Does the amp sound the way you bought it to sound?
 - Engage one pedal at a time. Note any level shift.
-- Watch for "I have to turn the amp down when I engage the board" — that is a gain-staging problem dressed up as a tone preference.
+- Watch for "I have to turn the amp down when I engage the board." That is a gain-staging problem dressed up as a tone preference.
+
+## Quick Diagnosis
+
+| Symptom | Likely cause | First check | Fix |
+|---|---|---|---|
+| Clean board makes the amp harsher | Pedals are stacking above unity | Compare full-board bypass to straight-in level | Trim pedal outputs one at a time |
+| Delay repeats clip in the loop | Send level is too hot for the pedal | Check loop level switch and pedal input rating | Match instrument vs line level or add a level converter |
+| Noise rises after a quiet pedal | Signal is too cold before the next gain stage | Compare bypass and engaged output | Raise the pedal output to unity |
 
 ## Further Reading
 

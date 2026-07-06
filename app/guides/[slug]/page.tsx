@@ -79,7 +79,7 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
     })),
     publisher: {
       '@type': 'Organization',
-      name: 'Suede Labs',
+      name: 'Suede Labs AI',
       url: 'https://suedeai.ai',
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
@@ -132,12 +132,40 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
           <p className="mono-label text-paper-dim mt-8">
             BY {(frontmatter.authors ?? ['Jason Colapietro']).join(' · ').toUpperCase()}
           </p>
+          <dl className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px bg-rule hairline-t">
+            <div className="bg-ink-0 p-4">
+              <dt className="mono-label text-paper-dim">Category</dt>
+              <dd className="text-paper text-sm mt-1">{frontmatter.category}</dd>
+            </div>
+            <div className="bg-ink-0 p-4">
+              <dt className="mono-label text-paper-dim">Sections</dt>
+              <dd className="text-paper text-sm mt-1">{guide.headings.length}</dd>
+            </div>
+            <div className="bg-ink-0 p-4">
+              <dt className="mono-label text-paper-dim">Related</dt>
+              <dd className="text-paper text-sm mt-1">{related.length}</dd>
+            </div>
+            <div className="bg-ink-0 p-4">
+              <dt className="mono-label text-paper-dim">Read</dt>
+              <dd className="text-paper text-sm mt-1">{guide.readingTime} minutes</dd>
+            </div>
+          </dl>
         </div>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-10 py-16">
         <div className="lg:col-span-3 lg:sticky lg:top-8 self-start mb-12 lg:mb-0">
-          <GuideSidebar headings={guide.headings} relatedGuides={related} />
+          <GuideSidebar
+            headings={guide.headings}
+            relatedGuides={related}
+            facts={{
+              category: frontmatter.category,
+              published: formatDate(frontmatter.published),
+              readingTime: guide.readingTime,
+              sectionCount: guide.headings.length,
+              relatedCount: related.length,
+            }}
+          />
         </div>
         <div className="lg:col-span-9">
           <div className="prose-suede">
@@ -147,7 +175,7 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
           <div className="mt-16 border-t border-paper-dim/20 pt-8">
             <p className="mono-label text-cyan mb-4">ABOUT THE AUTHOR</p>
             <p className="text-paper-dim text-sm leading-relaxed max-w-2xl mb-4">
-              <span className="text-paper font-semibold">Jason Colapietro</span> (Johnny Suede) is the founder and CEO of Suede Labs AI and the author of <em>The Signal Chain</em>. He built the creator-ownership layer for the AI media era: proof of creation, programmable IP, on-chain royalty routing, and agent-accessible licensing. Patent pending USPTO&nbsp;63/947,120.
+              <span className="text-paper font-semibold">Jason Colapietro</span> writes <em>The Signal Chain</em>, a technical reference for guitar routing, electronics, gain staging, power, and rig diagnosis.
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-paper-dim">
               <a href="https://guitar.solutions" className="hover:text-cyan transition-colors">The Signal Chain</a>

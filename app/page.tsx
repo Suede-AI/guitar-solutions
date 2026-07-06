@@ -3,9 +3,9 @@ import { getAllGuides } from '@/lib/mdx';
 import { FeaturedStack } from '@/components/FeaturedStack';
 
 export const metadata: Metadata = {
-  title: 'guitar.solutions — The Signal Chain by Jason Colapietro',
+  title: 'Guitar Signal Chain Reference',
   description:
-    'Authoritative technical guides on guitar signal chains — impedance, gain staging, power supplies, and effects topology by Jason Colapietro.',
+    'Technical guitar signal-chain guides by Jason Colapietro covering impedance, gain staging, power, effects loops, buffers, pedals, and amp routing.',
   alternates: {
     canonical: 'https://guitar.solutions',
   },

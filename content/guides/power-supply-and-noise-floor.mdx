@@ -3,31 +3,31 @@ title: "Power Supply and Noise Floor: The Hidden Variable in Your Tone"
 slug: "power-supply-and-noise-floor"
 category: "Power"
 published: "2026-04-20"
-description: "How your power supply affects your noise floor — ground loops, daisy chains, isolated outputs, and the specs that matter."
+description: "How your power supply affects your noise floor: ground loops, daisy chains, isolated outputs, and the specs that matter."
 authors: ["Jason Colapietro"]
 ---
 
-Your power supply is the least discussed piece of gear on a pedalboard and the one most likely to degrade your tone in ways that don't respond to EQ. A mediocre supply does not change your frequency response or your dynamics. It puts noise under everything — all the time — until you fix it or stop noticing it.
+Your power supply is often the least discussed piece of gear on a pedalboard and one of the first places to check when noise does not respond to EQ. A mediocre supply does not change your frequency response or your dynamics. It puts noise under the whole board until you fix it or stop noticing it.
 
 ## What noise sounds like
 
 Understanding what you're hearing narrows the diagnosis:
 
 - **60 Hz hum** (low, buzzy drone): classic ground loop. AC mains frequency finding a path through your signal chain.
-- **120 Hz buzz** (slightly higher, more "electrical"): AC rectification artifacts — common with unregulated or cheaply filtered supplies and daisy chains.
-- **High-frequency whine or clicking**: switching power supply noise bleeding into the audio path. Almost always originates from digital pedals — delays, loopers, reverbs with microprocessors.
+- **120 Hz buzz** (slightly higher, more "electrical"): AC rectification artifacts, common with unregulated or cheaply filtered supplies and daisy chains.
+- **High-frequency whine or clicking**: switching power supply noise bleeding into the audio path. It usually originates from digital pedals such as delays, loopers, and reverbs with microprocessors.
 
 ## Ground loops: the primary culprit
 
 A ground loop forms when two or more pieces of equipment share a ground at different electrical potentials. Current flows between them to equalize those potentials, and that current couples into the audio signal as audible hum.
 
-Classic setup: your amp plugged into one outlet, your pedalboard power supply into another on a different circuit. A signal cable connects them. If those two circuits have different ground references — which happens constantly in older buildings, rented venues, or with long cable runs — current circulates through your cable's shield and adds hum.
+Classic setup: your amp plugged into one outlet, your pedalboard power supply into another on a different circuit. A signal cable connects them. If those two circuits have different ground references, which happens constantly in older buildings, rented venues, or with long cable runs, current circulates through your cable's shield and adds hum.
 
-Isolated power supplies reduce inter-pedal ground loops by keeping each pedal's power path completely separate. They don't fix a ground loop between your amp and the wall, but they solve everything happening on the board itself.
+Isolated power supplies reduce inter-pedal ground loops by keeping each pedal's power path separate. They do not fix a ground loop between your amp and the wall, but they reduce board-side loops and shared-rail noise.
 
 ## Daisy chaining: shared rail, shared noise
 
-A daisy-chain cable splits one supply output across multiple pedals. Every pedal on the chain shares the same power rail and the same ground reference. If any one pedal generates noise on that rail — switching noise from a digital circuit, poor internal filtering, a failing capacitor — that noise appears on the shared rail and leaks into every other pedal connected to it.
+A daisy-chain cable splits one supply output across multiple pedals. Every pedal on the chain shares the same power rail and the same ground reference. If any one pedal generates noise on that rail, from a digital circuit, poor internal filtering, or a failing capacitor, that noise appears on the shared rail and leaks into every other pedal connected to it.
 
 Digital pedals are the worst offenders. Delays, reverbs, and loopers running microprocessors generate high-frequency switching noise that bleeds through a shared daisy chain into analog pedals sitting next to them.
 
@@ -37,17 +37,17 @@ Digital pedals are the worst offenders. Delays, reverbs, and loopers running mic
 
 A truly isolated power supply contains separate transformer windings or individual DC-DC converter modules for each output. Each pedal draws from its own independent source with its own ground reference. There is no shared rail for noise to travel between pedals.
 
-This eliminates inter-pedal ground loops completely and prevents digital switching noise from contaminating analog supply rails. It is the correct solution for any board mixing digital and analog pedals.
+This reduces inter-pedal ground loops and prevents digital switching noise from contaminating analog supply rails. It is the correct fix for any board mixing digital and analog pedals.
 
-All professional-tier supplies use isolation: Strymon Zuma, Cioks DC7, Eventide PowerMax, Voodoo Lab Pedal Power 2+. The affordable single-transformer designs with multiple tapped outputs are not isolated — they share a rail.
+All professional-tier supplies use isolation: Strymon Zuma, Cioks DC7, Eventide PowerMax, Voodoo Lab Pedal Power 2+. The affordable single-transformer designs with multiple tapped outputs are not isolated. They share a rail.
 
 ## The specs that matter
 
 **Current (mA):** Every pedal specifies a current draw. Your supply must provide at least that much per output. Running at or near the rated limit causes voltage sag and increased noise. Budget 20–30% headroom above each pedal's rated draw.
 
-**Voltage:** Most pedals require 9V DC. Some use 12V or 18V. Some designs benefit audibly from higher voltage — increased headroom, less compression at the power stage. Always verify the pedal's specifications before using a non-9V output.
+**Voltage:** Most pedals require 9V DC. Some use 12V or 18V. Some designs benefit audibly from higher voltage: increased headroom, less compression at the power stage. Always verify the pedal's specifications before using a non-9V output.
 
-**Polarity:** Nearly all modern pedals use center-negative, 2.1mm barrel jacks. Center-negative means the tip of the barrel connector is negative and the sleeve is positive. Reversing polarity can damage a pedal immediately. Vintage gear may differ — verify before connecting.
+**Polarity:** Nearly all modern pedals use center-negative, 2.1mm barrel jacks. Center-negative means the tip of the barrel connector is negative and the sleeve is positive. Reversing polarity can damage a pedal immediately. Vintage gear may differ, so verify before connecting.
 
 **Regulated vs. unregulated:** Regulated supplies maintain constant output voltage regardless of load variation. Unregulated supplies sag under load, which some vintage-voiced pedals are designed around but most modern pedals are not. Default to regulated.
 
@@ -57,6 +57,23 @@ All professional-tier supplies use isolation: Strymon Zuma, Cioks DC7, Eventide 
 
 **5–8 pedals, mixed analog and digital:** Isolated supply required. Voodoo Lab Pedal Power 2+ is the minimum. Route digital pedals (delay, reverb, looper) to their own isolated outputs, separated from your drives and filters.
 
-**Full board (8+ pedals):** High-current isolated supply with multiple voltage options. Cioks, Strymon Zuma, Eventide PowerMax. Plan outputs before purchasing — high-current isolated outputs are the limiting resource.
+**Full board (8+ pedals):** High-current isolated supply with multiple voltage options. Cioks, Strymon Zuma, Eventide PowerMax. Plan outputs before purchasing because high-current isolated outputs are the limiting resource.
+
+## Safety Boundary
+
+Do not lift mains safety ground to chase hum. Use proper isolation, power
+conditioning, or a qualified tech for amp-to-wall grounding problems.
+
+## Quick Diagnosis
+
+| Symptom | Likely cause | First check | Fix |
+|---|---|---|---|
+| Low hum appears only with the full board | Ground loop or shared supply path | Run one pedal at a time from isolated outputs | Separate power paths and check the amp outlet |
+| Digital whine appears when delay is powered | Switching noise on shared rail | Put the digital pedal on its own output | Use isolated high-current output |
+| Pedal sounds compressed or starved | Current draw exceeds output rating | Compare pedal draw to output mA | Use an output with 20-30% current headroom |
+
+## Further Reading
+
+See also: [Gain Staging Across the Chain](/guides/gain-staging-across-the-chain) for separating noise from level problems. [Signal Chain Topology](/guides/signal-chain-topology) for where power noise enters the full rig.
 
 A clean power supply resolves an entire category of problems permanently. It costs less than most of the pedals it powers.

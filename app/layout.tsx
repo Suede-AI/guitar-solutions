@@ -7,11 +7,11 @@ import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL('https://guitar.solutions'),
   title: {
-    default: 'guitar.solutions — The Signal Chain by Jason Colapietro',
-    template: '%s | The Signal Chain — guitar.solutions',
+    default: 'guitar.solutions | Guitar Signal Chain Reference',
+    template: '%s | guitar.solutions',
   },
   description:
-    'The Signal Chain by Jason Colapietro — a footnoted, engineering-grade reference for guitar signal chains. Pickup output through speaker excursion. Free.',
+    'Guitar signal-chain guides by Jason Colapietro covering impedance, gain staging, power, effects loops, buffers, pedals, and amp routing.',
   keywords: [
     'guitar signal chain',
     'guitar electronics',
@@ -32,22 +32,29 @@ export const metadata: Metadata = {
   creator: 'Jason Colapietro',
   publisher: 'Suede Labs AI',
   openGraph: {
-    title: 'guitar.solutions — The Signal Chain by Jason Colapietro',
+    title: 'guitar.solutions | Guitar Signal Chain Reference',
     description:
-      'The Signal Chain by Jason Colapietro — a footnoted, engineering-grade reference for guitar signal chains. Pickup output through speaker excursion. Free.',
+      'Guitar signal-chain guides by Jason Colapietro covering impedance, gain staging, power, effects loops, buffers, pedals, and amp routing.',
     url: 'https://guitar.solutions',
     siteName: 'guitar.solutions',
     type: 'website',
     locale: 'en_US',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'guitar.solutions — Engineering Reference for Guitar Signal Chains by Jason Colapietro' }],
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'guitar.solutions guitar signal-chain reference by Jason Colapietro',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@AISUEDE',
     creator: '@johnnysuede',
-    title: 'guitar.solutions — The Signal Chain by Jason Colapietro',
+    title: 'guitar.solutions | Guitar Signal Chain Reference',
     description:
-      'The Signal Chain by Jason Colapietro — a footnoted, engineering-grade reference for guitar signal chains. Pickup output through speaker excursion. Free.',
+      'Guitar signal-chain guides by Jason Colapietro covering impedance, gain staging, power, effects loops, buffers, pedals, and amp routing.',
   },
   robots: {
     index: true,
@@ -66,14 +73,14 @@ const SITE_JSON_LD = {
       url: 'https://guitar.solutions',
       name: 'guitar.solutions',
       description:
-        'Engineering-grade writeups on signal chains, gear pairing, and tone topology.',
+        'Technical guide index for guitar signal chains, gear pairing, and tone topology.',
       publisher: { '@id': 'https://guitar.solutions/#organization' },
       inLanguage: 'en-US',
     },
     {
       '@type': 'Organization',
       '@id': 'https://guitar.solutions/#organization',
-      name: 'Suede Labs',
+      name: 'Suede Labs AI',
       url: 'https://suedeai.ai',
       sameAs: ['https://suedeai.ai', 'https://suedeai.org', 'https://x.com/AISUEDE'],
     },
@@ -101,7 +108,7 @@ const SITE_JSON_LD = {
       name: 'The Signal Chain',
       author: { '@id': 'https://guitar.solutions/#jason-colapietro' },
       description:
-        'A footnoted, engineering-grade reference for guitar signal chains — from pickup output through speaker excursion.',
+        'A technical reference for guitar signal chains from pickup output through speaker excursion.',
       url: 'https://guitar.solutions',
       publisher: { '@type': 'Organization', name: 'Suede Labs AI', url: 'https://suedeai.ai' },
     },
@@ -153,7 +160,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 >
                   Suede Labs
                 </a>
-                {' '}· Jason Colapietro. Citations are footnoted; corrections are welcome.
+                {' '}and Jason Colapietro. The guides are technical; corrections are welcome.
               </p>
             </div>
             <p className="mono-label text-paper-dim">
