@@ -12,47 +12,74 @@ export default function OpenGraphImage() {
         style={{
           width: '100%',
           height: '100%',
+          background: '#050b16',
+          color: '#f5f2eb',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          background: '#050b16',
-          color: '#e8edf5',
-          padding: 72,
-          fontFamily: 'Arial, sans-serif',
-          position: 'relative',
+          padding: 64,
+          fontFamily: 'Arial, Helvetica, sans-serif',
         }}
       >
         <div
           style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage:
-              'linear-gradient(rgba(34,211,238,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.12) 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            color: '#22d3ee',
+            fontSize: 26,
+            fontWeight: 700,
+            letterSpacing: 4,
+            textTransform: 'uppercase',
           }}
-        />
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ fontSize: 22, letterSpacing: 4, color: '#22d3ee' }}>
-            GUITAR.SOLUTIONS
-          </div>
-          <div style={{ fontSize: 18, letterSpacing: 3, color: '#94a3b8' }}>
-            THE SIGNAL CHAIN
-          </div>
+        >
+          <span>guides.guitar.solutions</span>
+          <span>Suede Labs AI</span>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 22, maxWidth: 880 }}>
-          <div style={{ fontSize: 92, fontWeight: 800, lineHeight: 0.95 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+          <div
+            style={{
+              width: 104,
+              height: 8,
+              background: '#9f101a',
+            }}
+          />
+          <div
+            style={{
+              fontSize: 86,
+              lineHeight: 0.96,
+              fontWeight: 800,
+              maxWidth: 920,
+              letterSpacing: 0,
+            }}
+          >
             Guitar Signal Chains, Engineered.
           </div>
-          <div style={{ fontSize: 30, lineHeight: 1.25, color: '#94a3b8' }}>
-            A technical reference by Jason Colapietro for impedance, gain staging,
-            effects topology, power, and tone.
+          <div
+            style={{
+              color: '#c7d0dc',
+              fontSize: 34,
+              lineHeight: 1.25,
+              maxWidth: 940,
+            }}
+          >
+            Technical guitar guides from pickup output through speaker excursion.
           </div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
-          <div style={{ width: 10, height: 10, borderRadius: 999, background: '#9f101a' }} />
-          <div style={{ fontSize: 20, letterSpacing: 3, color: '#64748b' }}>
-            SUEDE LABS AI · JASON COLAPIETRO
-          </div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            color: '#8ea0b6',
+            fontSize: 24,
+            letterSpacing: 2,
+            textTransform: 'uppercase',
+          }}
+        >
+          <span>Impedance</span>
+          <span>Gain Staging</span>
+          <span>Effects Loops</span>
+          <span>Power</span>
         </div>
       </div>
     ),
