@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'guitar.solutions - The Signal Chain by Jason Colapietro';
+export const alt = 'guides.guitar.solutions - Technical Reference for Guitar Signal Chains';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 

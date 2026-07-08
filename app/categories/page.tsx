@@ -4,8 +4,8 @@ import { getAllGuides, getCategories } from '@/lib/mdx';
 
 export const metadata: Metadata = {
   title: 'Subject Index',
-description: 'All guitar.solutions guides grouped by engineering category — signal chain, electronics, amplifiers, and more.',
-  alternates: { canonical: 'https://guitar.solutions/categories' },
+  description: 'All guides.guitar.solutions guides grouped by engineering category — signal chain, electronics, amplifiers, and more.',
+  alternates: { canonical: 'https://guides.guitar.solutions/categories' },
 };
 
 export default function CategoriesPage() {

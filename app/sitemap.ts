@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { getAllGuides } from '@/lib/mdx';
 
-const BASE = 'https://guitar.solutions';
+const BASE = 'https://guides.guitar.solutions';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [

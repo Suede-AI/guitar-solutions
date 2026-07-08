@@ -19,7 +19,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const guide = getGuideBySlug(slug);
   if (!guide) return { title: 'Guide not found' };
-  const url = `https://guitar.solutions/guides/${slug}`;
+  const url = `https://guides.guitar.solutions/guides/${slug}`;
   return {
     title: guide.frontmatter.title,
     description: guide.frontmatter.description,
@@ -29,7 +29,7 @@ export async function generateMetadata({
       title: guide.frontmatter.title,
       description: guide.frontmatter.description,
       url,
-      siteName: 'guitar.solutions',
+      siteName: 'guides.guitar.solutions',
       publishedTime: guide.frontmatter.published,
       authors: guide.frontmatter.authors ?? ['Jason Colapietro'],
       images: [SITE_OG_IMAGE],
@@ -68,7 +68,7 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
   }
 
   const { frontmatter } = guide;
-  const url = `https://guitar.solutions/guides/${slug}`;
+  const url = `https://guides.guitar.solutions/guides/${slug}`;
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -92,8 +92,8 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://guitar.solutions' },
-      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://guitar.solutions/categories' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://guides.guitar.solutions' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://guides.guitar.solutions/categories' },
       { '@type': 'ListItem', position: 3, name: frontmatter.title, item: url },
     ],
   };
@@ -156,7 +156,7 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
               <a href="https://guitar.solutions" className="hover:text-cyan transition-colors">The Signal Chain</a>
               <a href="https://www.amazon.com/dp/B0GRG8LGQQ" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">Stake Your Claim</a>
               <a href="https://www.amazon.com/dp/B0GMB2VLXQ" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">Proof as Infrastructure</a>
-              <a href="https://guitar.solutions" className="hover:text-cyan transition-colors">The Guitar Without a Number</a>
+              <a href="https://www.amazon.com/author/johnnysuede" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">The Guitar Without a Number</a>
               <a href="https://www.amazon.com/dp/B0GD5FX6N6" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">The Human Authenticity Layer</a>
             </div>
           </div>

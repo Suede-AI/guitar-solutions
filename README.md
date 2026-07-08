@@ -1,6 +1,6 @@
-# guitar.solutions
+# guides.guitar.solutions
 
-> **By [Jason Colapietro](https://suedeai.ai/founder) / [Suede Labs AI](https://suedeai.ai) · Live at [guitar.solutions](https://guitar.solutions)**
+> **By [Jason Colapietro](https://suedeai.ai/founder) / [Suede Labs AI](https://suedeai.ai) · Live at [guides.guitar.solutions](https://guides.guitar.solutions)**
 
 The technical reference your tone needs. An engineering-grade, footnoted
 catalog of guitar signal-chain knowledge — pickup output through speaker
@@ -98,5 +98,5 @@ anti-template policy it is built against.
 
 The taxonomic decisions (signal-chain categories, decade range, archival tone)
 draw on patterns from the Suede DNA project — a separate rig manifest site
-at `dna.suedeai.ai`. guitar.solutions is the *engineering reference* sibling
+at `dna.suedeai.ai`. guides.guitar.solutions is the *engineering reference* sibling
 to DNA's *archival catalog* of rigs.

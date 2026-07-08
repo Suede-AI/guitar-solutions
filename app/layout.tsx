@@ -8,11 +8,11 @@ import { SITE_OG_IMAGE, SITE_TWITTER_IMAGES, SITE_URL } from '@/lib/seo';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'guitar.solutions — The Signal Chain by Jason Colapietro',
-    template: '%s | The Signal Chain — guitar.solutions',
+    default: 'guides.guitar.solutions — Technical Reference for Guitar Signal Chains',
+    template: '%s | guides.guitar.solutions',
   },
   description:
-    'The Signal Chain by Jason Colapietro — a footnoted, engineering-grade reference for guitar signal chains. Pickup output through speaker excursion. Free.',
+    'Engineering-grade reference for guitar signal chains — pickup output through speaker excursion. Signal topology, impedance, gain staging, and gear pairing by Suede Labs.',
   keywords: [
     'guitar signal chain',
     'guitar electronics',
@@ -33,11 +33,11 @@ export const metadata: Metadata = {
   creator: 'Jason Colapietro',
   publisher: 'Suede Labs AI',
   openGraph: {
-    title: 'guitar.solutions — The Signal Chain by Jason Colapietro',
+    title: 'guides.guitar.solutions — Technical Reference for Guitar Signal Chains',
     description:
-      'The Signal Chain by Jason Colapietro — a footnoted, engineering-grade reference for guitar signal chains. Pickup output through speaker excursion. Free.',
-    url: 'https://guitar.solutions',
-    siteName: 'guitar.solutions',
+      'Engineering-grade reference for guitar signal chains — pickup output through speaker excursion. Signal topology, impedance, gain staging, and gear pairing by Suede Labs.',
+    url: 'https://guides.guitar.solutions',
+    siteName: 'guides.guitar.solutions',
     type: 'website',
     locale: 'en_US',
     images: [SITE_OG_IMAGE],
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@AISUEDE',
     creator: '@johnnysuede',
-    title: 'guitar.solutions — The Signal Chain by Jason Colapietro',
+    title: 'guides.guitar.solutions — Technical Reference for Guitar Signal Chains',
     description:
-      'The Signal Chain by Jason Colapietro — a footnoted, engineering-grade reference for guitar signal chains. Pickup output through speaker excursion. Free.',
+      'Engineering-grade reference for guitar signal chains — pickup output through speaker excursion. Signal topology, impedance, gain staging, and gear pairing by Suede Labs.',
     images: SITE_TWITTER_IMAGES,
   },
   robots: {
@@ -64,24 +64,24 @@ const SITE_JSON_LD = {
   '@graph': [
     {
       '@type': 'WebSite',
-      '@id': 'https://guitar.solutions/#website',
-      url: 'https://guitar.solutions',
-      name: 'guitar.solutions',
+      '@id': 'https://guides.guitar.solutions/#website',
+      url: 'https://guides.guitar.solutions',
+      name: 'guides.guitar.solutions',
       description:
         'Engineering-grade writeups on signal chains, gear pairing, and tone topology.',
-      publisher: { '@id': 'https://guitar.solutions/#organization' },
+      publisher: { '@id': 'https://guides.guitar.solutions/#organization' },
       inLanguage: 'en-US',
     },
     {
       '@type': 'Organization',
-      '@id': 'https://guitar.solutions/#organization',
+      '@id': 'https://guides.guitar.solutions/#organization',
       name: 'Suede Labs',
       url: 'https://suedeai.ai',
       sameAs: ['https://suedeai.ai', 'https://suedeai.org', 'https://x.com/AISUEDE'],
     },
     {
       '@type': 'Person',
-      '@id': 'https://guitar.solutions/#jason-colapietro',
+      '@id': 'https://suedeai.ai/founder#person',
       name: 'Jason Colapietro',
       url: 'https://suedeai.ai/founder',
       image: {
@@ -101,7 +101,7 @@ const SITE_JSON_LD = {
     {
       '@type': 'Book',
       name: 'The Signal Chain',
-      author: { '@id': 'https://guitar.solutions/#jason-colapietro' },
+      author: { '@id': 'https://suedeai.ai/founder#person' },
       description:
         'A footnoted, engineering-grade reference for guitar signal chains — from pickup output through speaker excursion.',
       url: 'https://guitar.solutions',
