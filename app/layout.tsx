@@ -3,9 +3,10 @@ import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import Link from 'next/link';
 import './globals.css';
+import { SITE_OG_IMAGE, SITE_TWITTER_IMAGES, SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://guitar.solutions'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'guitar.solutions — The Signal Chain by Jason Colapietro',
     template: '%s | The Signal Chain — guitar.solutions',
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     siteName: 'guitar.solutions',
     type: 'website',
     locale: 'en_US',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'guitar.solutions — Engineering Reference for Guitar Signal Chains by Jason Colapietro' }],
+    images: [SITE_OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
@@ -48,6 +49,7 @@ export const metadata: Metadata = {
     title: 'guitar.solutions — The Signal Chain by Jason Colapietro',
     description:
       'The Signal Chain by Jason Colapietro — a footnoted, engineering-grade reference for guitar signal chains. Pickup output through speaker excursion. Free.',
+    images: SITE_TWITTER_IMAGES,
   },
   robots: {
     index: true,
@@ -90,7 +92,7 @@ const SITE_JSON_LD = {
       jobTitle: 'Founder',
       worksFor: { '@type': 'Organization', name: 'Suede Labs AI', url: 'https://suedeai.ai' },
       sameAs: [
-        'https://twitter.com/johnnysuede',
+        'https://x.com/johnnysuede',
         'https://suedeai.ai/founder',
         'https://suedeai.org/jason-colapietro/',
         'https://jasoncolapietro.substack.com',

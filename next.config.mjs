@@ -6,6 +6,15 @@ const nextConfig = {
   experimental: {
     mdxRs: false,
   },
+  async redirects() {
+    return [
+      {
+        source: '/catalog.html',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withMDX = createMDX({

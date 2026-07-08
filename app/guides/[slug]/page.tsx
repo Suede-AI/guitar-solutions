@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getAllGuides, getGuideBySlug } from '@/lib/mdx';
 import { GuideSidebar } from '@/components/GuideSidebar';
+import { SITE_OG_IMAGE, SITE_TWITTER_IMAGES } from '@/lib/seo';
 
 type Params = { slug: string };
 
@@ -31,6 +32,7 @@ export async function generateMetadata({
       siteName: 'guitar.solutions',
       publishedTime: guide.frontmatter.published,
       authors: guide.frontmatter.authors ?? ['Jason Colapietro'],
+      images: [SITE_OG_IMAGE],
     },
     twitter: {
       card: 'summary_large_image',
@@ -38,6 +40,7 @@ export async function generateMetadata({
       creator: '@johnnysuede',
       title: guide.frontmatter.title,
       description: guide.frontmatter.description,
+      images: SITE_TWITTER_IMAGES,
     },
   };
 }
@@ -153,7 +156,7 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
               <a href="https://guitar.solutions" className="hover:text-cyan transition-colors">The Signal Chain</a>
               <a href="https://www.amazon.com/dp/B0GRG8LGQQ" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">Stake Your Claim</a>
               <a href="https://www.amazon.com/dp/B0GMB2VLXQ" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">Proof as Infrastructure</a>
-              <a href="https://www.amazon.com/author/johnnysuede" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">The Guitar Without a Number</a>
+              <a href="https://guitar.solutions" className="hover:text-cyan transition-colors">The Guitar Without a Number</a>
               <a href="https://www.amazon.com/dp/B0GD5FX6N6" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">The Human Authenticity Layer</a>
             </div>
           </div>

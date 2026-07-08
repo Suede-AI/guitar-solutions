@@ -16,6 +16,9 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto max-w-[1280px] px-6 pt-8">
+      <h1 className="sr-only">
+        guitar.solutions - The Signal Chain by Jason Colapietro
+      </h1>
       <FeaturedStack guides={guides} />
     </div>
   );
