@@ -13,6 +13,23 @@ export function readingTime(content: string): number {
   return Math.max(1, Math.ceil(words / 200));
 }
 
+export function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+function stripInlineMarkdown(text: string): string {
+  return text
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/__([^_]+)__/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/_([^_]+)_/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+}
+
 export function extractHeadings(content: string): Heading[] {
   return content
     .split('\n')
@@ -21,11 +38,8 @@ export function extractHeadings(content: string): Heading[] {
       const match = line.match(/^(#{2,3}) (.+)$/);
       if (!match) return null;
       const level = match[1].length;
-      const text = match[2].trim();
-      const id = text
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-|-$/g, '');
+      const text = stripInlineMarkdown(match[2].trim());
+      const id = slugify(text);
       return { id, text, level };
     })
     .filter((h): h is Heading => h !== null);
@@ -76,18 +90,22 @@ function readGuideFile(file: string): GuideRecord | null {
   };
 }
 
+let cachedGuides: GuideRecord[] | null = null;
+
 export function getAllGuides(): GuideRecord[] {
+  if (cachedGuides) return cachedGuides;
   if (!fs.existsSync(CONTENT_DIR)) return [];
   const files = fs.readdirSync(CONTENT_DIR);
   const records = files
     .map(readGuideFile)
     .filter((r): r is GuideRecord => r !== null);
   // Sort newest first
-  return records.sort(
+  cachedGuides = records.sort(
     (a, b) =>
       new Date(b.frontmatter.published).getTime() -
       new Date(a.frontmatter.published).getTime(),
   );
+  return cachedGuides;
 }
 
 export function getGuideSlugs(): string[] {

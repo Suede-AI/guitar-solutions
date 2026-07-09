@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types';
+import { slugify } from '@/lib/mdx';
 
 function getTextContent(node: React.ReactNode): string {
   if (typeof node === 'string') return node;
@@ -9,13 +10,6 @@ function getTextContent(node: React.ReactNode): string {
     return getTextContent(el.props.children);
   }
   return '';
-}
-
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
 }
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
