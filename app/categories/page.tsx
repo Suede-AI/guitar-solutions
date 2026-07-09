@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getAllGuides, getCategories } from '@/lib/mdx';
+import { getAllGuides, getCategories, slugify } from '@/lib/mdx';
 
 export const metadata: Metadata = {
   title: 'Subject Index',
@@ -37,7 +37,7 @@ export default function CategoriesPage() {
           <p className="text-paper-mute">No categories yet — add a guide with frontmatter to see it appear here.</p>
         )}
         {categories.map((c) => {
-          const id = slugifyCategory(c.name);
+          const id = slugify(c.name);
           const inCategory = guides.filter((g) => g.frontmatter.category === c.name);
           return (
             <section
@@ -94,10 +94,6 @@ export default function CategoriesPage() {
 function formatDate(iso: string): string {
   const d = new Date(iso);
   return d
-    .toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit' })
+    .toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit', timeZone: 'UTC' })
     .toUpperCase();
-}
-
-function slugifyCategory(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }

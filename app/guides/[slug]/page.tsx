@@ -168,6 +168,6 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
 
 function formatDate(iso: string): string {
   return new Date(iso)
-    .toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit' })
+    .toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit', timeZone: 'UTC' })
     .toUpperCase();
 }
