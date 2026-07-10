@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Guitar Services — Books, Guides, and Tools by Jason Colapietro',
+  title: { absolute: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro' },
   description:
     'The guitar work of Jason Colapietro, founder of Suede Labs AI: two published guitar books, an engineering-grade signal chain reference, chord and scale libraries, and AI practice tools.',
   alternates: {
     canonical: 'https://guitar.services',
   },
   openGraph: {
-    title: 'Guitar Services — Books, Guides, and Tools by Jason Colapietro',
+    title: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
     description:
       'Two guitar books, a signal chain reference, chord libraries, and AI practice tools, all by one guitarist who builds.',
     url: 'https://guitar.services',
@@ -72,7 +72,7 @@ const schema = {
       '@type': 'WebPage',
       '@id': 'https://guitar.services/#webpage',
       url: 'https://guitar.services',
-      name: 'Guitar Services — Books, Guides, and Tools by Jason Colapietro',
+      name: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
       description:
         'The guitar work of Jason Colapietro, founder of Suede Labs AI: books, references, and AI practice tools.',
       about: { '@id': JASON_PERSON_ID },
