@@ -16,6 +16,9 @@ export function middleware(request: NextRequest) {
     if (request.nextUrl.pathname === '/') {
       return NextResponse.rewrite(new URL('/guitar-services', request.url));
     }
+    if (request.nextUrl.pathname === '/sitemap.xml') {
+      return NextResponse.rewrite(new URL('/guitar-services-sitemap.xml', request.url));
+    }
     return NextResponse.redirect(
       new URL(request.nextUrl.pathname + request.nextUrl.search, 'https://guides.guitar.solutions'),
       { status: 308 },
