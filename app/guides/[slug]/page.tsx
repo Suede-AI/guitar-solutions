@@ -148,6 +148,20 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
           </div>
 
           <div className="mt-16 border-t border-paper-dim/20 pt-8">
+            <p className="mono-label text-red mb-3">GO DEEPER</p>
+            <p className="text-paper-dim text-sm leading-relaxed max-w-2xl">
+              This guide is one page. <span className="text-paper font-semibold">The Signal Chain</span> workbook
+              covers the rest — 111 lessons on tone, gear, and the engineering behind your signal chain.{' '}
+              <a
+                href="https://guitar.solutions/THE-SIGNAL-CHAIN-WORKBOOK.html"
+                className="text-cyan hover:underline underline-offset-2"
+              >
+                Open the workbook · $19.99
+              </a>
+            </p>
+          </div>
+
+          <div className="mt-12 border-t border-paper-dim/20 pt-8">
             <p className="mono-label text-cyan mb-4">ABOUT THE AUTHOR</p>
             <p className="text-paper-dim text-sm leading-relaxed max-w-2xl mb-4">
               <span className="text-paper font-semibold">Jason Colapietro</span> (Johnny Suede) is the founder and CEO of Suede Labs AI and the author of <em>The Signal Chain</em>. He built the creator-ownership layer for the AI media era: proof of creation, programmable IP, on-chain royalty routing, and agent-accessible licensing. Patent pending USPTO&nbsp;63/947,120.

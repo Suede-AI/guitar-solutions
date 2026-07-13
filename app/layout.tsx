@@ -138,6 +138,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     CATEGORIES
                   </Link>
                 </li>
+                <li>
+                  <a
+                    href="https://guitar.solutions"
+                    className="hover:text-cyan transition-colors"
+                  >
+                    THE BOOK
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>
@@ -148,14 +156,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div>
               <p className="mono-label text-paper">guitar.solutions</p>
               <p className="text-paper-dim text-sm mt-2 max-w-md">
-                A technical reference compiled and maintained by{' '}
+                Compiled by{' '}
                 <a
                   href="https://suedeai.ai"
                   className="underline underline-offset-2 hover:text-paper transition-colors"
                 >
-                  Suede Labs
+                  Suede Labs AI
                 </a>
-                {' '}· Jason Colapietro. Citations are footnoted; corrections are welcome.
+                {' '}· Jason Colapietro — corrections welcome. Citations are footnoted. Reach the maintainer at{' '}
+                <a
+                  href="mailto:info@suedeai.org"
+                  className="underline underline-offset-2 hover:text-paper transition-colors"
+                >
+                  info@suedeai.org
+                </a>
+                .
               </p>
             </div>
             <p className="mono-label text-paper-dim">
