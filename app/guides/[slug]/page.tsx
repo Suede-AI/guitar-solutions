@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { getAllGuides, getGuideBySlug } from '@/lib/mdx';
 import { GuideSidebar } from '@/components/GuideSidebar';
 import { SITE_OG_IMAGE, SITE_TWITTER_IMAGES } from '@/lib/seo';
+import { getRelatedAppLink } from '@/lib/related-app-links';
 
 type Params = { slug: string };
 
@@ -68,6 +69,7 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
   }
 
   const { frontmatter } = guide;
+  const relatedAppLink = getRelatedAppLink(slug);
   const url = `https://guides.guitar.solutions/guides/${slug}`;
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -146,6 +148,29 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
           <div className="prose-suede">
             <MDXContent />
           </div>
+
+          {relatedAppLink && (
+            <div
+              className="mt-12 border-t border-paper-dim/20 pt-8"
+              data-testid="related-app-callout"
+            >
+              <p className="mono-label text-cyan mb-3">TRY IT LIVE</p>
+              <p className="text-paper-dim text-sm leading-relaxed max-w-2xl">
+                Try it live:{' '}
+                <a
+                  href={relatedAppLink.href}
+                  className="text-paper font-semibold hover:text-cyan transition-colors"
+                >
+                  build this chain in Suede Guitar Studio
+                </a>{' '}
+                — {relatedAppLink.label} at{' '}
+                <a href={relatedAppLink.href} className="text-cyan hover:underline underline-offset-2">
+                  {relatedAppLink.href.replace('https://', '')}
+                </a>
+                .
+              </p>
+            </div>
+          )}
 
           <div className="mt-16 border-t border-paper-dim/20 pt-8">
             <p className="mono-label text-red mb-3">GO DEEPER</p>
