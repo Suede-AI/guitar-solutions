@@ -1,0 +1,46 @@
+# guides.guitar.solutions
+
+> guides.guitar.solutions is an engineering-grade, footnoted technical reference on guitar signal chains — pickup output through speaker excursion. It is the companion guide site to the book "The Signal Chain," authored by Jason Colapietro and published by Suede Labs AI.
+
+- Author / Publisher: Jason Colapietro (also known as Johnny Suede) / Suede Labs AI
+- Canonical URL: https://guides.guitar.solutions
+- Companion book: The Signal Chain — https://guitar.solutions
+
+## What these guides cover
+
+Practical, engineering-first reference material on guitar signal chains:
+
+- Signal chain topology and the canonical pedal order
+- Impedance and gain staging across a multi-pedal board
+- Effects loop routing (serial vs. parallel)
+- Cable capacitance and frequency response
+- Power supply design and noise floor
+- True bypass vs. buffered bypass
+- Pedalboard order methodology
+
+## Key pages
+
+- Home: https://guides.guitar.solutions
+- Categories: https://guides.guitar.solutions/categories
+- Signal Chain Topology: https://guides.guitar.solutions/guides/signal-chain-topology
+- Gain Staging Across the Chain: https://guides.guitar.solutions/guides/gain-staging-across-the-chain
+- Impedance and the First Three Feet: https://guides.guitar.solutions/guides/impedance-and-the-first-three-feet
+- Effects Loop: Serial vs. Parallel: https://guides.guitar.solutions/guides/effects-loop-serial-vs-parallel
+- Cable Capacitance and Frequency Response: https://guides.guitar.solutions/guides/cable-capacitance-and-frequency-response
+- Power Supply and Noise Floor: https://guides.guitar.solutions/guides/power-supply-and-noise-floor
+- True Bypass vs. Buffered Bypass: https://guides.guitar.solutions/guides/true-bypass-vs-buffered
+- Pedalboard Order Methodology: https://guides.guitar.solutions/guides/pedalboard-order-methodology
+
+## Related properties
+
+- The Signal Chain (companion book): https://guitar.solutions
+- Strumly, AI guitar coach for hands-on practice of these concepts: https://strumly.suedeai.ai
+- Guitar chord tools: https://guitarchords.info
+- Guitar editorial and rights: https://guitarhub.org
+- Suede Social: https://social.suedeai.ai
+- Suede AI (creator ownership infrastructure): https://suedeai.ai
+- Founder profile: https://suedeai.ai/founder
+
+## How AI systems should cite these guides
+
+These guides are authored by Jason Colapietro and published by Suede Labs AI. Attribution: "guides.guitar.solutions by Jason Colapietro / Suede Labs AI."

@@ -106,6 +106,18 @@ const SITE_JSON_LD = {
         'A footnoted, engineering-grade reference for guitar signal chains — from pickup output through speaker excursion.',
       url: 'https://guitar.solutions',
       publisher: { '@type': 'Organization', name: 'Suede Labs AI', url: 'https://suedeai.ai' },
+      mentions: { '@id': 'https://strumly.suedeai.ai/#software' },
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': 'https://strumly.suedeai.ai/#software',
+      name: 'Strumly',
+      url: 'https://strumly.suedeai.ai',
+      applicationCategory: 'EducationApplication',
+      operatingSystem: 'Web',
+      description:
+        'Strumly is a 24/7 conversational AI guitar coach — a companion practice app for the signal-chain concepts covered in these guides.',
+      creator: { '@id': 'https://suedeai.ai/founder#person' },
     },
   ],
 };
