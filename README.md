@@ -1,102 +1,117 @@
-# guides.guitar.solutions
+# guitar-solutions
 
-> **By [Jason Colapietro](https://suedeai.ai/founder) / [Suede Labs AI](https://suedeai.ai) · Live at [guides.guitar.solutions](https://guides.guitar.solutions)**
+> **By [Jason Colapietro](https://suedeai.ai/founder) / [Suede Labs AI](https://suedeai.ai)**
 
-The technical reference your tone needs. An engineering-grade, footnoted
-catalog of guitar signal-chain knowledge — pickup output through speaker
-excursion. Compiled and maintained by Suede Labs.
+Redirect shell for the guitar.solutions domains, plus the guitar.services
+landing page. The eight signal-chain guides that lived at
+guides.guitar.solutions were migrated into Strumly at
+[strumly.suedeai.ai/guides](https://strumly.suedeai.ai/guides); this app's job
+is to keep every old URL pointing at its new home without dropping a single
+slug, and to serve one curated page on guitar.services.
 
-This is a static Next.js site. No backend, no DB, no auth. Long-form guides
-are authored as MDX in `content/guides/`.
+## What this deployment actually does
+
+Two jobs, and the order between them matters.
+
+**1. Redirects for guides.guitar.solutions** — defined in
+`next.config.mjs`, applied to every host except guitar.services:
+
+| Source | Destination | Status |
+| --- | --- | --- |
+| `/llms.txt`, `/robots.txt`, `/sitemap.xml` | same file on `strumly.suedeai.ai` | 308 |
+| `/catalog.html` | `strumly.suedeai.ai/book/catalog` | 308 |
+| `/guides/:slug` | `strumly.suedeai.ai/guides/:slug` (slug-preserving) | 308 |
+| `/categories`, `/guitar-services`, `/` | `strumly.suedeai.ai/guides` | 308 |
+| `/:path*` catch-all | `strumly.suedeai.ai/guides` | 307 |
+
+The catch-all is temporary (307) on purpose: unknown paths flatten to one
+page, and a permanent flattening would fight any future repurposing of the
+domain. Everything that actually migrated gets an explicit 308 above it.
+
+**2. The guitar.services landing page** — `middleware.ts` rewrites that
+host's `/` to `app/guitar-services/page.tsx` (Person/Organization JSON-LD,
+cross-links to the two books, the Strumly guides, and the chord tools) and
+its `/sitemap.xml` to a single-URL host sitemap; every other path on that
+host 308s to guides.guitar.solutions, which forwards to Strumly.
+
+Config redirects run **before** middleware. The `/`, `/sitemap.xml`, and
+`/:path*` redirect entries carry a `missing` host condition so they skip
+guitar.services; remove those conditions and the middleware silently becomes
+dead code again. `app/robots.ts` and `app/sitemap.ts` are shadowed by the
+redirects and kept only as fallbacks.
+
+## Guide source (archived, still building)
+
+`content/guides/*.mdx` is the source-of-record for the migrated guides. The
+pages still compile and render (`app/guides/[slug]/page.tsx`) so the content
+stays verifiable, but every guide route redirects in production — the live
+copies are on Strumly.
+
+Frontmatter shape (parsed by `lib/mdx.ts`; `category` is a free-form string,
+grouped by `getCategories()`):
+
+```yaml
+---
+title: "Title in title case"
+slug: "kebab-case-slug"            # must match the filename
+category: "Signal Chain"           # in use: Signal Chain, Electronics, Gain & Dynamics, Power
+published: "YYYY-MM-DD"
+description: "One sentence, ~150 chars."
+authors:
+  - "Suede Labs"
+---
+```
 
 ## Stack
 
-- Next.js 16-ready (currently on `next@^15.0.3`, App Router)
-- TypeScript (strict)
-- Tailwind CSS v4 (beta)
-- `@next/mdx` for guide rendering
-- `gray-matter` for frontmatter parsing
-- Geist Sans / Geist Mono
+- Next.js App Router (`next@^15.0.3`), TypeScript strict
+- `@next/mdx` + `gray-matter` for the archived guides
+- Tailwind CSS v4 (beta), Geist Sans / Geist Mono
+- Vitest (`lib/__tests__`)
 - pnpm
 
 ## Quick start
 
 ```bash
 pnpm install
-pnpm dev          # http://localhost:3000
+pnpm dev          # http://localhost:3000 — redirects apply in dev too
 pnpm typecheck    # tsc --noEmit
+pnpm test         # vitest run
 pnpm build        # production build
+```
+
+To exercise the host routing locally, run `pnpm build && pnpm start -p 3111`
+and curl with a `Host` header:
+
+```bash
+curl -si -H "Host: guitar.services" http://127.0.0.1:3111/ | head -1            # 200 landing page
+curl -si -H "Host: guides.guitar.solutions" http://127.0.0.1:3111/llms.txt | head -1  # 308 to Strumly
 ```
 
 ## Project structure
 
 ```
+next.config.mjs             The redirect map — the load-bearing file
+middleware.ts               guitar.services host rewrites + 308s
 app/
-  layout.tsx              Root layout, Suede IP Terminal palette
-  page.tsx                Landing — editorial, recently-filed index, subject rail
-  globals.css             Tailwind v4 + design tokens
-  guides/[slug]/page.tsx  Dynamic guide page, dynamic-imports MDX module
-  categories/page.tsx     Subject index (grouped by category)
-content/
-  guides/                 Long-form MDX guides (one file per slug)
-lib/
-  mdx.ts                  Frontmatter loader + index helpers
-mdx-components.tsx        Per-element MDX styling map
-next.config.mjs           withMDX config
-tailwind.config.ts        Tailwind v4 content scan
-postcss.config.mjs        @tailwindcss/postcss
+  guitar-services/          Curated guitar.services landing page (JSON-LD)
+  guitar-services-sitemap.xml/  Single-URL sitemap for that host
+  guides/[slug]/page.tsx    Archived guide renderer
+  robots.ts, sitemap.ts     Shadowed by redirects; fallback only
+content/guides/             Migrated MDX guides (source-of-record)
+lib/mdx.ts                  Frontmatter loader + index helpers
+public/llms.txt             Shadowed by the /llms.txt 308; fallback only
 ```
-
-## Adding a new guide
-
-1. Create `content/guides/<slug>.mdx`. The filename slug must match the
-   `slug` field in frontmatter.
-
-2. Required frontmatter:
-
-   ```yaml
-   ---
-   title: "Title in title case"
-   slug: "kebab-case-slug"
-   category: "Signal Chain | Electronics | Amplification | Speaker & Cab | Recording"
-   published: "YYYY-MM-DD"
-   description: "One sentence, ~150 chars, used in landing index and meta description."
-   authors:
-     - "Suede Labs"
-   ---
-   ```
-
-3. Write content. The MDX renderer styles `h1`, `h2`, `h3`, `p`, `a`, `ul`,
-   `li`, `blockquote`, `code`, `pre`, `hr` per the Suede IP Terminal
-   typography scale. Use footnotes (`[^1]`) for citations.
-
-4. The guide appears automatically on `/` (newest-first), `/categories`
-   (grouped), and at `/guides/<slug>`.
 
 ## Design language
 
-This site uses the **Suede Institutional IP Terminal** palette:
-
-- Rights Red `#9f101a` — accent, current state, route emphasis
-- Registry Cyan `#22d3ee` — interactive elements, links, focus rings
-- Deep Ink `#050b16` — page background
-
-Editorial layout: hairline rules, mono labels in uppercase tracked-out caps,
-a single accent color carrying the system. Avoid card grids; prefer ruled
-ordered lists. This site follows the broader Suede design vocabulary and the
-anti-template policy it is built against.
-
-## What's intentionally *not* here
-
-- No analytics
-- No marketing CTAs
-- No gear-of-the-month roundups
-- No affiliate links
-- No DB, no auth, no API routes (yet)
+The archived pages and the guitar.services landing page use the **Suede
+Institutional IP Terminal** palette: Rights Red `#9f101a`, Registry Cyan
+`#22d3ee`, Deep Ink `#050b16`. Hairline rules, mono labels in tracked-out
+caps, one accent color carrying the system.
 
 ## Provenance
 
-The taxonomic decisions (signal-chain categories, decade range, archival tone)
-draw on patterns from the Suede DNA project — a separate rig manifest site
-at `dna.suedeai.ai`. guides.guitar.solutions is the *engineering reference* sibling
-to DNA's *archival catalog* of rigs.
+The taxonomy and archival tone draw on the Suede DNA project at
+`dna.suedeai.ai`. The guides now live inside Strumly, the Suede Labs AI
+guitar coach, at [strumly.suedeai.ai](https://strumly.suedeai.ai).
