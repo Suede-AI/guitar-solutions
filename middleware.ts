@@ -5,6 +5,12 @@ import type { NextRequest } from 'next/server';
  * guitar.services gets its own landing page instead of mirroring the guides
  * site. `/` rewrites to the dedicated page; every other path 308s to the
  * canonical guides host so no duplicate content indexes under this domain.
+ *
+ * Coupling: next.config.mjs redirects run BEFORE this middleware. The `/`,
+ * `/sitemap.xml`, and `/:path*` entries there carry a
+ * `missing: [guitarServicesHost]` condition so requests on this host fall
+ * through to the rewrites below. Removing those conditions silently turns
+ * this file back into dead code.
  */
 export function middleware(request: NextRequest) {
   const host = (request.headers.get('host') ?? '')

@@ -10,6 +10,17 @@ function stripFrontmatter() {
   };
 }
 
+// Host condition for guitar.services (optional www. prefix and :port for
+// local `next start` testing). Redirect entries that would shadow the
+// guitar.services middleware rewrites carry this in `missing`, so they skip
+// that host and fall through to middleware.ts — config redirects run BEFORE
+// middleware, so without this the catch-all swallows the whole domain.
+const guitarServicesHost = {
+  type: 'header',
+  key: 'host',
+  value: '(?:www\\.)?guitar\\.services(?::\\d+)?',
+};
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'mdx'],
@@ -39,9 +50,13 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Skipped for guitar.services: middleware rewrites that host's
+        // /sitemap.xml to the single-URL /guitar-services-sitemap.xml that
+        // its Search Console property expects.
         source: '/sitemap.xml',
         destination: 'https://strumly.suedeai.ai/sitemap.xml',
         permanent: true,
+        missing: [guitarServicesHost],
       },
       {
         source: '/catalog.html',
@@ -64,19 +79,25 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Skipped for guitar.services: middleware rewrites that host's root
+        // to the curated /guitar-services landing page.
         source: '/',
         destination: 'https://strumly.suedeai.ai/guides',
         permanent: true,
+        missing: [guitarServicesHost],
       },
       // The catch-all stays 307 (temporary) on purpose: it flattens unknown
       // paths to a single /guides page, and a 308 here would let crawlers
       // cache that flattening forever — which would fight any future
       // repurposing of the guitar.solutions domains. Every URL we actually
-      // migrated has an explicit permanent entry above.
+      // migrated has an explicit permanent entry above. Skipped for
+      // guitar.services so middleware can 308 that host's stray paths to
+      // guides.guitar.solutions instead.
       {
         source: '/:path*',
         destination: 'https://strumly.suedeai.ai/guides',
         permanent: false,
+        missing: [guitarServicesHost],
       },
     ];
   },
