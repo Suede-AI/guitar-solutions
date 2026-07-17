@@ -24,6 +24,25 @@ const nextConfig = {
   // identical on the new host.
   async redirects() {
     return [
+      // SEO files get explicit, permanent (308), path-preserving redirects so
+      // crawlers land on the Strumly equivalent of the file they asked for
+      // instead of the catch-all's /guides page. These MUST stay above the
+      // /:path* catch-all — Next.js applies the first matching redirect.
+      {
+        source: '/llms.txt',
+        destination: 'https://strumly.suedeai.ai/llms.txt',
+        permanent: true,
+      },
+      {
+        source: '/robots.txt',
+        destination: 'https://strumly.suedeai.ai/robots.txt',
+        permanent: true,
+      },
+      {
+        source: '/sitemap.xml',
+        destination: 'https://strumly.suedeai.ai/sitemap.xml',
+        permanent: true,
+      },
       {
         source: '/catalog.html',
         destination: 'https://strumly.suedeai.ai/book/catalog',
@@ -49,6 +68,11 @@ const nextConfig = {
         destination: 'https://strumly.suedeai.ai/guides',
         permanent: true,
       },
+      // The catch-all stays 307 (temporary) on purpose: it flattens unknown
+      // paths to a single /guides page, and a 308 here would let crawlers
+      // cache that flattening forever — which would fight any future
+      // repurposing of the guitar.solutions domains. Every URL we actually
+      // migrated has an explicit permanent entry above.
       {
         source: '/:path*',
         destination: 'https://strumly.suedeai.ai/guides',
