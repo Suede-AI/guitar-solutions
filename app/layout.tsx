@@ -158,6 +158,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     THE BOOK
                   </a>
                 </li>
+                <li>
+                  <Link href="/about" className="hover:text-cyan transition-colors">
+                    ABOUT
+                  </Link>
+                </li>
               </ul>
             </nav>
           </div>
@@ -182,6 +187,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 >
                   info@suedeai.org
                 </a>
+                . <Link
+                  href="/about"
+                  className="underline underline-offset-2 hover:text-paper transition-colors"
+                >
+                  About this site
+                </Link>
                 .
               </p>
             </div>
