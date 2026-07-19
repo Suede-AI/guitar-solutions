@@ -151,6 +151,10 @@ export default function GuitarServicesPage() {
           <a href="https://github.com/JasonColapietro" className="underline">
             github.com/JasonColapietro
           </a>
+          . Curious how this directory works?{' '}
+          <a href="/about" className="underline">
+            Read the about page
+          </a>
           .
         </p>
       </footer>
