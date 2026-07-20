@@ -3,12 +3,14 @@ import type { NextRequest } from 'next/server';
 
 /**
  * guitar.services gets its own landing page instead of mirroring the guides
- * site. `/` rewrites to the dedicated page, `/about` passes through to its
- * own real route, and every other path 308s to the canonical guides host so
- * no duplicate content indexes under this domain.
+ * site. `/` rewrites to the dedicated page, `/sitemap.xml` and `/robots.txt`
+ * rewrite to single-URL versions that point at this host instead of
+ * strumly.suedeai.ai's, `/about` passes through to its own real route, and
+ * every other path 308s to the canonical guides host so no duplicate
+ * content indexes under this domain.
  *
  * Coupling: next.config.mjs redirects run BEFORE this middleware. The `/`,
- * `/sitemap.xml`, and `/:path*` entries there carry a
+ * `/sitemap.xml`, `/robots.txt`, and `/:path*` entries there carry a
  * `missing: [guitarServicesHost]` condition so requests on this host fall
  * through to the rewrites below. Removing those conditions silently turns
  * this file back into dead code.
@@ -25,6 +27,9 @@ export function middleware(request: NextRequest) {
     }
     if (request.nextUrl.pathname === '/sitemap.xml') {
       return NextResponse.rewrite(new URL('/guitar-services-sitemap.xml', request.url));
+    }
+    if (request.nextUrl.pathname === '/robots.txt') {
+      return NextResponse.rewrite(new URL('/guitar-services-robots.txt', request.url));
     }
     if (request.nextUrl.pathname === '/about') {
       // Real local route (app/about/page.tsx) — let it through instead of
