@@ -45,9 +45,13 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Skipped for guitar.services: middleware rewrites that host's
+        // /robots.txt to the single-URL /guitar-services-robots.txt that
+        // points at its own sitemap instead of strumly.suedeai.ai's.
         source: '/robots.txt',
         destination: 'https://strumly.suedeai.ai/robots.txt',
         permanent: true,
+        missing: [guitarServicesHost],
       },
       {
         // Skipped for guitar.services: middleware rewrites that host's
@@ -93,8 +97,16 @@ const nextConfig = {
       // migrated has an explicit permanent entry above. Skipped for
       // guitar.services so middleware can 308 that host's stray paths to
       // guides.guitar.solutions instead.
+      //
+      // Also excludes /icon and any *opengraph-image path (negative
+      // lookahead): those are Next.js's own file-convention favicon/OG-image
+      // routes, not "unknown" paths, and used to get swallowed by this same
+      // rule — breaking the favicon and every social-share preview image on
+      // this host. Path-to-regexp's custom-regex groups match across
+      // slashes, so ".*opengraph-image$" also excludes nested ones like
+      // /guitar-services/opengraph-image.
       {
-        source: '/:path*',
+        source: '/:path((?!icon$|.*opengraph-image$).+)',
         destination: 'https://strumly.suedeai.ai/guides',
         permanent: false,
         missing: [guitarServicesHost],
