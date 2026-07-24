@@ -95,8 +95,8 @@ const nextConfig = {
       // cache that flattening forever — which would fight any future
       // repurposing of the guitar.solutions domains. Every URL we actually
       // migrated has an explicit permanent entry above. Skipped for
-      // guitar.services so middleware can 308 that host's stray paths to
-      // guides.guitar.solutions instead.
+      // guitar.services so middleware can return a true noindex 404 for
+      // unmatched paths on that distinct directory domain.
       //
       // Also excludes /icon and any *opengraph-image path (negative
       // lookahead): those are Next.js's own file-convention favicon/OG-image

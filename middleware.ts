@@ -6,8 +6,8 @@ import type { NextRequest } from 'next/server';
  * site. `/` rewrites to the dedicated page, `/sitemap.xml` and `/robots.txt`
  * rewrite to single-URL versions that point at this host instead of
  * strumly.suedeai.ai's, `/about` passes through to its own real route, and
- * every other path 308s to the canonical guides host so no duplicate
- * content indexes under this domain.
+ * every other path rewrites to a dedicated 404 response so stale or mistyped
+ * URLs cannot be mistaken for a migrated guide.
  *
  * Coupling: next.config.mjs redirects run BEFORE this middleware. The `/`,
  * `/sitemap.xml`, `/robots.txt`, and `/:path*` entries there carry a
@@ -33,13 +33,13 @@ export function middleware(request: NextRequest) {
     }
     if (request.nextUrl.pathname === '/about') {
       // Real local route (app/about/page.tsx) — let it through instead of
-      // falling into the catch-all redirect below.
+      // falling into the catch-all 404 below.
       return NextResponse.next();
     }
-    return NextResponse.redirect(
-      new URL(request.nextUrl.pathname + request.nextUrl.search, 'https://guides.guitar.solutions'),
-      { status: 308 },
-    );
+    if (request.nextUrl.pathname === '/guitar-services-not-found') {
+      return NextResponse.next();
+    }
+    return NextResponse.rewrite(new URL('/guitar-services-not-found', request.url));
   }
 
   return NextResponse.next();
