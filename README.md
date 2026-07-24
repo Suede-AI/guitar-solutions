@@ -31,8 +31,8 @@ domain. Everything that actually migrated gets an explicit 308 above it.
 **2. The guitar.services landing page** — `middleware.ts` rewrites that
 host's `/` to `app/guitar-services/page.tsx` (Person/Organization JSON-LD,
 cross-links to the two books, the Strumly guides, and the chord tools) and
-its `/sitemap.xml` to a single-URL host sitemap; every other path on that
-host 308s to guides.guitar.solutions, which forwards to Strumly.
+its `/sitemap.xml` to a single-URL host sitemap; every other unmatched path
+returns a true `404` with `noindex, nofollow`.
 
 Config redirects run **before** middleware. The `/`, `/sitemap.xml`, and
 `/:path*` redirect entries carry a `missing` host condition so they skip
