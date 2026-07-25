@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { GUITAR_SERVICES_OG_IMAGE, GUITAR_SERVICES_TWITTER_IMAGES } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: { absolute: 'About guitar.services' },
@@ -14,6 +15,14 @@ export const metadata: Metadata = {
     url: 'https://guitar.services/about',
     siteName: 'Guitar Services',
     type: 'website',
+    images: [GUITAR_SERVICES_OG_IMAGE],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About guitar.services',
+    description:
+      'What guitar.services is, how it is put together, and where the engineering-grade signal chain guides live now.',
+    images: GUITAR_SERVICES_TWITTER_IMAGES,
   },
 };
 

@@ -31,6 +31,9 @@ export function middleware(request: NextRequest) {
     if (request.nextUrl.pathname === '/robots.txt') {
       return NextResponse.rewrite(new URL('/guitar-services-robots.txt', request.url));
     }
+    if (request.nextUrl.pathname === '/guitar-services-social-card.webp') {
+      return NextResponse.next();
+    }
     if (request.nextUrl.pathname === '/about') {
       // Real local route (app/about/page.tsx) — let it through instead of
       // falling into the catch-all 404 below.
