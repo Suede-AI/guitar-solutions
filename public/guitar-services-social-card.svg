@@ -1,0 +1,55 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="ink" cx="78%" cy="16%" r="90%">
+      <stop offset="0" stop-color="#10223a"/>
+      <stop offset=".55" stop-color="#07101d"/>
+      <stop offset="1" stop-color="#030812"/>
+    </radialGradient>
+    <linearGradient id="rail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset=".65" stop-color="#22d3ee" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#ink)"/>
+  <g opacity=".2" stroke="#44617e" stroke-width="1">
+    <path d="M0 500H1200"/>
+    <path d="M0 514H1200"/>
+    <path d="M0 528H1200"/>
+    <path d="M0 542H1200"/>
+    <path d="M0 556H1200"/>
+    <path d="M0 570H1200"/>
+  </g>
+
+  <g transform="translate(68 64)"
+     font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace">
+    <text x="0" y="0" font-size="23" font-weight="700" letter-spacing="4" fill="#22d3ee">GUITAR.SERVICES</text>
+    <text x="1064" y="0" text-anchor="end" font-size="20" letter-spacing="3" fill="#8ea0b6">SUEDE LABS AI</text>
+  </g>
+
+  <rect x="68" y="126" width="112" height="8" fill="#9f101a"/>
+  <rect x="180" y="129" width="952" height="2" fill="url(#rail)"/>
+
+  <g transform="translate(68 236)"
+     font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif"
+     font-weight="800" fill="#f5f2eb">
+    <text x="0" y="0" font-size="70" letter-spacing="-1.5">Everything the guitar taught</text>
+    <text x="0" y="82" font-size="70" letter-spacing="-1.5">one builder, in one place.</text>
+  </g>
+
+  <text x="70" y="405"
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif"
+        font-size="29" fill="#c7d0dc">
+    Two books, a signal chain reference, chord libraries, and AI practice tools.
+  </text>
+
+  <g transform="translate(68 520)"
+     font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace"
+     font-size="20" font-weight="700" letter-spacing="2.5" fill="#8ea0b6">
+    <text x="0" y="0">BOOKS</text>
+    <text x="245" y="0">GUIDES</text>
+    <text x="490" y="0">CHORDS &amp; SCALES</text>
+    <text x="843" y="0">AI COACH</text>
+  </g>
+</svg>

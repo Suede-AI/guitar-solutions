@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { GUITAR_SERVICES_OG_IMAGE, GUITAR_SERVICES_TWITTER_IMAGES } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: { absolute: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro' },
@@ -14,6 +15,14 @@ export const metadata: Metadata = {
     url: 'https://guitar.services',
     siteName: 'Guitar Services',
     type: 'website',
+    images: [GUITAR_SERVICES_OG_IMAGE],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
+    description:
+      'Two guitar books, a signal chain reference, chord libraries, and AI practice tools, all by one guitarist who builds.',
+    images: GUITAR_SERVICES_TWITTER_IMAGES,
   },
 };
 
