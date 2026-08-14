@@ -1,3 +1,27 @@
 {
-  "ignoreCommand": "[ \"$VERCEL_ENV\" != \"production\" ] && exit 0 || exit 1"
+  "ignoreCommand": "[ \"$VERCEL_ENV\" != \"production\" ] && exit 0 || exit 1",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.guitar.solutions"
+        }
+      ],
+      "destination": "https://guitar.solutions/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.guitar.services"
+        }
+      ],
+      "destination": "https://guitar.services/:path*",
+      "permanent": true
+    }
+  ]
 }
