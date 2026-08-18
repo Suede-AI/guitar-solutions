@@ -84,7 +84,7 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
     })),
     publisher: {
       '@type': 'Organization',
-      name: 'Suede Labs',
+      name: 'Suede Labs AI',
       url: 'https://suedeai.ai',
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
