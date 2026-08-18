@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { GUITAR_SERVICES_OG_IMAGE, GUITAR_SERVICES_TWITTER_IMAGES } from '@/lib/seo';
+import { SURFACES, guitarServicesSchema } from '@/lib/guitar-services-content';
 
 export const metadata: Metadata = {
   title: { absolute: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro' },
@@ -26,91 +27,12 @@ export const metadata: Metadata = {
   },
 };
 
-const SURFACES = [
-  {
-    name: 'The Signal Chain',
-    kind: 'Book',
-    url: 'https://guitar.solutions',
-    desc: 'A life in six strings. Guitar tone, memoir, and method, built around the electric guitar signal chain.',
-  },
-  {
-    name: 'The Guitar Without a Number',
-    kind: 'Book',
-    url: 'https://guitar.solutions/catalog.html',
-    desc: 'Memoir-driven instruction for the self-taught guitarist, with theory, tone, artist songbooks, and a chapter on owning the rights to your music.',
-  },
-  {
-    name: 'Signal Chain Guides',
-    kind: 'Reference',
-    url: 'https://guides.guitar.solutions',
-    desc: 'Engineering-grade reference for guitar signal chains: impedance, gain staging, power, and effects topology.',
-  },
-  {
-    name: 'Guitar Chords',
-    kind: 'Reference',
-    url: 'https://guitarchords.info',
-    desc: 'Chord voicings, scale patterns, and technique pages you can read on any device.',
-  },
-  {
-    name: 'Strumly',
-    kind: 'AI Coach',
-    url: 'https://strumly.suedeai.ai',
-    desc: 'A conversational guitar coach with a free toolkit: tuner, metronome, chord and scale libraries, ear training.',
-  },
-  {
-    name: 'Suede Studio Guitar',
-    kind: 'iOS App',
-    url: 'https://fretpulse.suedeai.ai',
-    desc: 'Holistic guitar care on iOS: tuner, chords, and instrument health in one app.',
-  },
-  {
-    name: 'Suede Social',
-    kind: 'Community',
-    url: 'https://social.suedeai.ai',
-    desc: 'A network for musicians: clips, rig profiles with real tone data, practice threads, and uploads that can register as IP assets.',
-  },
-];
-
-const JASON_PERSON_ID = 'https://suedeai.ai/founder#person';
-const SUEDE_ORG_ID = 'https://suedeai.ai/#organization';
-
-const schema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'WebPage',
-      '@id': 'https://guitar.services/#webpage',
-      url: 'https://guitar.services',
-      name: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
-      description:
-        'The guitar work of Jason Colapietro, founder of Suede Labs AI: books, references, and AI practice tools.',
-      about: { '@id': JASON_PERSON_ID },
-    },
-    {
-      '@type': 'Person',
-      '@id': JASON_PERSON_ID,
-      name: 'Jason Colapietro',
-      alternateName: 'Johnny Suede',
-      url: 'https://suedeai.ai/founder',
-      worksFor: { '@id': SUEDE_ORG_ID },
-      sameAs: ['https://guitar.services', 'https://github.com/JasonColapietro', 'https://x.com/johnnysuede'],
-    },
-    {
-      '@type': 'Organization',
-      '@id': SUEDE_ORG_ID,
-      name: 'Suede Labs AI',
-      url: 'https://suedeai.ai',
-      founder: { '@id': JASON_PERSON_ID },
-    },
-  ],
-};
-
 export default function GuitarServicesPage() {
   return (
     <div className="mx-auto max-w-[1080px] px-6 py-16">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(guitarServicesSchema) }}
       />
       <header className="mb-14 max-w-2xl">
         <p className="mb-4 font-mono text-xs uppercase tracking-widest opacity-60">
