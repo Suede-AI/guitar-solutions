@@ -3,15 +3,15 @@ import type { NextRequest } from 'next/server';
 
 /**
  * guitar.services gets its own landing page instead of mirroring the guides
- * site. `/` rewrites to the dedicated page, `/sitemap.xml` and `/robots.txt`
- * rewrite to single-URL versions that point at this host instead of
- * strumly.suedeai.ai's, `/about` passes through to its own real route, and
+ * site. `/` rewrites to the dedicated page; `/sitemap.xml`, `/robots.txt` and
+ * `/llms.txt` rewrite to versions that speak for this host instead of
+ * strumly.suedeai.ai's; `/about` passes through to its own real route; and
  * every other path rewrites to a dedicated 404 response so stale or mistyped
  * URLs cannot be mistaken for a migrated guide.
  *
  * Coupling: next.config.mjs redirects run BEFORE this middleware. The `/`,
- * `/sitemap.xml`, `/robots.txt`, and `/:path*` entries there carry a
- * `missing: [guitarServicesHost]` condition so requests on this host fall
+ * `/sitemap.xml`, `/robots.txt`, `/llms.txt`, and `/:path*` entries there carry
+ * a `missing: [guitarServicesHost]` condition so requests on this host fall
  * through to the rewrites below. Removing those conditions silently turns
  * this file back into dead code.
  */
@@ -30,6 +30,9 @@ export function middleware(request: NextRequest) {
     }
     if (request.nextUrl.pathname === '/robots.txt') {
       return NextResponse.rewrite(new URL('/guitar-services-robots.txt', request.url));
+    }
+    if (request.nextUrl.pathname === '/llms.txt') {
+      return NextResponse.rewrite(new URL('/guitar-services-llms.txt', request.url));
     }
     if (request.nextUrl.pathname === '/guitar-services-social-card.webp') {
       return NextResponse.next();

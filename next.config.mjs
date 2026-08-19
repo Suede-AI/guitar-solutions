@@ -40,9 +40,13 @@ const nextConfig = {
       // instead of the catch-all's /guides page. These MUST stay above the
       // /:path* catch-all — Next.js applies the first matching redirect.
       {
+        // Skipped for guitar.services: middleware rewrites that host's
+        // /llms.txt to /guitar-services-llms.txt, which speaks for this host
+        // instead of handing an answer engine Strumly's identity.
         source: '/llms.txt',
         destination: 'https://strumly.suedeai.ai/llms.txt',
         permanent: true,
+        missing: [guitarServicesHost],
       },
       {
         // Skipped for guitar.services: middleware rewrites that host's
