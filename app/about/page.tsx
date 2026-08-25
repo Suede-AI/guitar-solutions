@@ -94,8 +94,8 @@ export default function AboutPage() {
       <footer className="mt-14 border-t border-current/10 pt-8 text-sm opacity-70">
         <p>
           Questions this page didn&rsquo;t answer go to{' '}
-          <a href="mailto:info@suedeai.org" className="underline">
-            info@suedeai.org
+          <a href="mailto:info@suedeai.ai" className="underline">
+            info@suedeai.ai
           </a>
           . Back to the{' '}
           <a href="/" className="underline">

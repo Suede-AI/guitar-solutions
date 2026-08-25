@@ -118,10 +118,10 @@ function GuidesChrome({ children }: { children: React.ReactNode }) {
               </a>
               {' '}· Jason Colapietro — corrections welcome. Citations are footnoted. Reach the maintainer at{' '}
               <a
-                href="mailto:info@suedeai.org"
+                href="mailto:info@suedeai.ai"
                 className="underline underline-offset-2 hover:text-paper transition-colors"
               >
-                info@suedeai.org
+                info@suedeai.ai
               </a>
               . <Link
                 href="/about"
