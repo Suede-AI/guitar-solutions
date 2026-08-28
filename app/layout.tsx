@@ -58,7 +58,12 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
-  verification: { google: 'AOoIfw-VogekFSkj1jmBG2vGHqlzpyG2Xk2w69s6a7U' },
+  verification: {
+    google: [
+      'AOoIfw-VogekFSkj1jmBG2vGHqlzpyG2Xk2w69s6a7U',
+      '8XJbkzFRKfZpwNHvnMbnJA202BGF5JzBuTHBDeDSasQ',
+    ],
+  },
 };
 
 // Guides-site chrome. Rendered only on the guides fallback host — never on
