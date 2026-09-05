@@ -88,6 +88,15 @@ export default function GuitarServicesPage() {
           </a>
           .
         </p>
+        <p className="mt-4">
+          <a href="https://suedeai.ai/privacy" className="underline">
+            Privacy
+          </a>{' '}
+          &middot;{' '}
+          <a href="https://suedeai.ai/contact" className="underline">
+            Contact
+          </a>
+        </p>
       </footer>
     </div>
   );
