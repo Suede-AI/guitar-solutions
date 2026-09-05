@@ -81,14 +81,14 @@ export default function AboutPage() {
         <h2 id="faq-heading" className="mb-6 text-2xl font-semibold">
           FAQ
         </h2>
-        <dl className="space-y-6">
+        <div className="space-y-6">
           {FAQ.map((item) => (
             <div key={item.q} className="rounded-lg border border-current/15 p-5">
-              <dt className="mb-2 font-semibold">{item.q}</dt>
-              <dd className="text-sm leading-relaxed opacity-80">{item.a}</dd>
+              <h3 className="mb-2 font-semibold">{item.q}</h3>
+              <p className="text-sm leading-relaxed opacity-80">{item.a}</p>
             </div>
           ))}
-        </dl>
+        </div>
       </section>
 
       <footer className="mt-14 border-t border-current/10 pt-8 text-sm opacity-70">
@@ -102,6 +102,15 @@ export default function AboutPage() {
             directory
           </a>
           .
+        </p>
+        <p className="mt-4">
+          <a href="https://suedeai.ai/privacy" className="underline">
+            Privacy
+          </a>{' '}
+          &middot;{' '}
+          <a href="https://suedeai.ai/contact" className="underline">
+            Contact
+          </a>
         </p>
       </footer>
     </div>
