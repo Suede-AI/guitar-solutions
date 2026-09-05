@@ -57,7 +57,7 @@ export default function GuitarServicesPage() {
                 href={s.url}
                 className="block h-full rounded-lg border border-current/15 p-5 transition-opacity hover:opacity-80"
               >
-                <p className="mb-1 font-mono text-[11px] uppercase tracking-widest opacity-50">
+                <p className="mb-1 font-mono text-[11px] uppercase tracking-widest opacity-60">
                   {s.kind}
                 </p>
                 <h2 className="mb-2 text-lg font-semibold">{s.name}</h2>

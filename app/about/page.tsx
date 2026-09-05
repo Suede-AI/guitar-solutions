@@ -43,9 +43,9 @@ export default function AboutPage() {
         </h1>
         <p className="text-lg leading-relaxed opacity-80">
           guitar.services is a directory, not a publication. It links to everything Jason
-          Colapietro has published about guitar &mdash; two books, an engineering-grade signal
-          chain reference, chord and scale libraries, and the tools built on top of them &mdash;
-          so there is one address to remember instead of six.
+          Colapietro has published about guitar: two books, an engineering-grade signal chain
+          reference, chord and scale libraries, and the tools built on top of them. There is one
+          address to remember instead of six.
         </p>
       </header>
 
@@ -60,12 +60,12 @@ export default function AboutPage() {
               home page
             </a>{' '}
             lists every surface: the two books, the guide library, the chord and scale
-            references, Strumly, and the iOS app. Each entry links straight to that surface
-            &mdash; nothing on this domain duplicates the content itself.
+            references, Strumly, and the iOS app. Each entry links straight to that surface.
+            This domain does not duplicate the content itself.
           </p>
           <p>
-            The long-form technical writing &mdash; signal topology, gain staging, cable
-            capacitance, pedalboard order, impedance, power and noise &mdash; now lives in{' '}
+            The long-form technical writing (signal topology, gain staging, cable capacitance,
+            pedalboard order, impedance, power and noise) now lives in{' '}
             <a href="https://strumly.suedeai.ai/guides" className="underline">
               Strumly&rsquo;s guide index
             </a>
@@ -79,7 +79,7 @@ export default function AboutPage() {
 
       <section aria-labelledby="faq-heading">
         <h2 id="faq-heading" className="mb-6 text-2xl font-semibold">
-          FAQ
+          FAQ about guitar.services
         </h2>
         <div className="space-y-6">
           {FAQ.map((item) => (
