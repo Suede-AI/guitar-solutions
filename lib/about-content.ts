@@ -17,7 +17,7 @@ export interface FaqItem {
 export const FAQ: FaqItem[] = [
   {
     q: 'Is guitar.services free?',
-    a: 'The signal chain guides, the chord and scale references, and Strumly’s practice toolkit (tuner, metronome, ear training) are all free to use. The two books are separate paid publications, sold through their own retail listings — this directory just points to them.',
+    a: 'The signal chain guides, the chord and scale references, and Strumly’s practice toolkit (tuner, metronome, ear training) are free to use. The two books are separate paid publications, sold through their own retail listings. This directory points to them.',
   },
   {
     q: 'Who writes the guides?',
@@ -25,11 +25,11 @@ export const FAQ: FaqItem[] = [
   },
   {
     q: 'How is this directory curated?',
-    a: 'By hand. The list of surfaces on the home page is maintained directly by Jason as new guitar work ships — there is no submission form, no ads, and no third-party listings.',
+    a: 'By hand. The list of surfaces on the home page is maintained directly by Jason as new guitar work ships. There is no submission form, no ads, and no third-party listings.',
   },
   {
     q: 'Where did the engineering-grade signal chain guides go?',
-    a: 'They used to live at guides.guitar.solutions. They have since moved into Strumly’s guide library at strumly.suedeai.ai/guides, alongside practice-methodology and rights & IP guides, so all of the long-form guitar writing lives in one place. guides.guitar.solutions now redirects there; guitar.solutions itself remains the home of The Signal Chain, the book.',
+    a: 'They used to live at guides.guitar.solutions. They have since moved into Strumly’s guide library at strumly.suedeai.ai/guides, alongside practice-methodology and rights & IP guides, so the long-form guitar writing lives in one place. guides.guitar.solutions now redirects there; guitar.solutions itself remains the home of The Signal Chain, the book.',
   },
   {
     q: 'What is the difference between guitar.solutions and guitar.services?',
@@ -41,7 +41,7 @@ export const FAQ: FaqItem[] = [
   },
   {
     q: 'Do I need an account to read the guides?',
-    a: 'No. The guides are plain reference pages — no login required. Strumly’s interactive tools (streaks, saved rigs) do use an account, but reading the guides does not.',
+    a: 'No. The guides are plain reference pages, with no login required. Strumly’s interactive tools (streaks, saved rigs) do use an account, but reading the guides does not.',
   },
 ];
 

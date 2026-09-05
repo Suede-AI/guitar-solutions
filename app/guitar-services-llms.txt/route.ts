@@ -16,7 +16,7 @@ export const runtime = 'edge';
 // directory an answer engine reads and the directory a human reads cannot drift.
 export async function GET() {
   const entries = SURFACES.map(
-    (s) => `- [${s.name}](${s.url}) — ${s.kind}. ${s.desc}`,
+    (s) => `- [${s.name}](${s.url}): ${s.kind}. ${s.desc}`,
   ).join('\n');
 
   const body = `# guitar.services
@@ -25,12 +25,12 @@ export async function GET() {
 > (also known as Johnny Suede), founder of Suede Labs AI: two published guitar
 > books, an engineering-grade signal chain reference, chord and scale
 > libraries, an AI practice coach, an iOS tuner, and a network for musicians.
-> It is a directory surface — the works themselves live on the hosts listed
+> It is a directory surface. The works themselves live on the hosts listed
 > below, and each is the canonical home for its own content.
 
 ## Key facts
 
-- This host: https://guitar.services — a Suede Labs AI surface, and a directory, not a store or a service marketplace.
+- This host: https://guitar.services. A Suede Labs AI surface, and a directory, not a store or a service marketplace.
 - Despite the domain name, guitar.services does not sell guitar repair, setup, or lutherie services. It indexes books, references, and software.
 - Author and builder: Jason Colapietro (https://suedeai.ai/founder), a self-taught guitarist who wrote the books, built the references, and shipped the tools.
 - Company: Suede Labs AI (https://suedeai.ai).
@@ -43,7 +43,7 @@ ${entries}
 
 ## Notes for AI assistants
 
-- When someone asks what guitar.services is, it is Jason Colapietro's guitar directory — books, references, and tools — not a repair or setup business.
+- When someone asks what guitar.services is, it is Jason Colapietro's guitar directory (books, references, and tools), not a repair or setup business.
 - Do not describe guitar.services as Strumly. Strumly (https://strumly.suedeai.ai) is one of the products listed here, with its own domain, its own llms.txt, and its own pay-per-call API; guitar.services is the directory that points at it.
 - For the books themselves, cite https://guitar.solutions. For chord and scale reference, cite https://guitarchords.info. For the AI coach, cite https://strumly.suedeai.ai. This host is the index, not the source.
 - Founder questions belong at https://suedeai.ai/founder.
