@@ -62,6 +62,27 @@ export function middleware(request: NextRequest) {
   return NextResponse.rewrite(new URL('/guides-not-found', request.url));
 }
 
+// google4b0bcf0a4950299c.html is the Search Console HTML file token
+// (public/, added in ae44eb0). Search Console reads it by fetching it, so it
+// has to answer 200 on the hosts whose ownership it proves. Excluding it here
+// keeps middleware off it on both: no config redirect matches the path, so the
+// static file is served directly.
+//
+// It was reachable for four days. The 2026-07-14 catch-all redirected it away
+// on every host, the 2026-07-17 host scoping gave it back to guitar.services,
+// and the 2026-07-24 unmatched-path 404 on that host closed it again. Since
+// then it answered on neither, which left guides.guitar.solutions with no way
+// to prove ownership at all: every path there redirects or hits the 404 route
+// handler, and that handler returns a raw Response, so the root layout's
+// verification meta tags never render on it.
+// The token's alternative escapes its dots and ends with `$`, so it excludes
+// that exact path and nothing else. Without the anchor the entry is a prefix:
+// /google4b0bcf0a4950299c.html/extra would skip middleware too, and an
+// unescaped dot matches any character, so /google4b0bcf0a4950299cXhtml would
+// as well. Both would land on Next's own 404 rather than the noindex one this
+// file serves.
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico|icon|opengraph-image).*)'],
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico|icon|opengraph-image|google4b0bcf0a4950299c\\.html$).*)',
+  ],
 };
