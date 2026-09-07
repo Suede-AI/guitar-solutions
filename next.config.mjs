@@ -94,6 +94,21 @@ const nextConfig = {
         permanent: true,
         missing: [guitarServicesHost],
       },
+      {
+        // /about is not in app/sitemap.ts, but the guides layout linked it from
+        // the nav and the footer of every page, so it was published and
+        // crawled. It is the one migrated URL whose equivalent is not on
+        // Strumly: app/about/page.tsx declares https://guitar.services/about as
+        // its canonical, and that page is live.
+        //
+        // Skipped for guitar.services, which serves this route itself. Config
+        // redirects run ahead of middleware, so without the condition this
+        // entry would bounce that host's own /about off to itself.
+        source: '/about',
+        destination: 'https://guitar.services/about',
+        permanent: true,
+        missing: [guitarServicesHost],
+      },
       // There is deliberately no catch-all here. The URLs this site published
       // each have an explicit permanent entry above: the root, /categories, and
       // the eight /guides/:slug pages, which is the inventory app/sitemap.ts
@@ -110,9 +125,15 @@ const nextConfig = {
       //
       // The old rule carried a negative lookahead for /icon and
       // *opengraph-image. Redirects run ahead of the filesystem, so without it
-      // the rule swallowed Next's own file-convention routes. That exclusion
-      // now lives in the middleware matcher, which skips _next/static,
-      // _next/image, favicon.ico, icon, and opengraph-image.
+      // the rule swallowed Next's own file-convention routes.
+      //
+      // The middleware matcher covers the root-level ones. It skips
+      // _next/static, _next/image, favicon.ico, icon, and opengraph-image,
+      // anchored to the start of the path, so it is narrower than the lookahead
+      // it replaces: a nested route such as /guitar-services/opengraph-image
+      // reaches middleware and 404s on this host. Nothing references that one.
+      // The guitar.services page sets openGraph.images to its social card, and
+      // requests on that host take the middleware branch for it.
     ];
   },
 };
