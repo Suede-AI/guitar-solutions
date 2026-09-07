@@ -5,7 +5,7 @@ import { SURFACES, guitarServicesSchema } from '@/lib/guitar-services-content';
 export const metadata: Metadata = {
   title: { absolute: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro' },
   description:
-    'The guitar work of Jason Colapietro, founder of Suede Labs AI: two published guitar books, an engineering-grade signal chain reference, chord and scale libraries, and AI practice tools.',
+    'The guitar work of Jason Colapietro, founder of Suede Labs AI: two published books, a signal chain reference, chord and scale libraries, and AI practice tools.',
   alternates: {
     canonical: 'https://guitar.services',
   },
