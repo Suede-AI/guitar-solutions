@@ -89,6 +89,32 @@ describe('migrated URLs keep an explicit permanent redirect', () => {
     });
   });
 
+  it('redirects /about to its canonical, and leaves guitar.services to serve it', async () => {
+    // /about is absent from app/sitemap.ts and was still published: the guides
+    // layout linked it from the nav and the footer. Taking the inventory from
+    // the sitemap alone dropped it, and removing the catch-all turned it into a
+    // 404 for one deploy. Its canonical is on guitar.services, not Strumly.
+    const redirects = (await nextConfig.redirects?.()) ?? [];
+    const about = redirects.find((r) => r.source === '/about');
+
+    expect(about).toMatchObject({
+      destination: 'https://guitar.services/about',
+      permanent: true,
+    });
+
+    // Config redirects run ahead of middleware. Without this condition the
+    // entry would catch guitar.services' own /about and bounce it off to
+    // itself, so the guard is part of the contract rather than a detail.
+    expect(about?.missing).toEqual([
+      expect.objectContaining({ type: 'header', key: 'host' }),
+    ]);
+
+    const request = new NextRequest('https://guitar.services/about', {
+      headers: { host: 'guitar.services' },
+    });
+    expect(middleware(request).headers.get('x-middleware-rewrite')).toBeNull();
+  });
+
   it('has a guide slug for the path-preserving rule to carry', () => {
     const slugs = getAllGuides().map((g) => g.frontmatter.slug);
 
