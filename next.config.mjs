@@ -94,27 +94,25 @@ const nextConfig = {
         permanent: true,
         missing: [guitarServicesHost],
       },
-      // The catch-all stays 307 (temporary) on purpose: it flattens unknown
-      // paths to a single /guides page, and a 308 here would let crawlers
-      // cache that flattening forever — which would fight any future
-      // repurposing of the guitar.solutions domains. Every URL we actually
-      // migrated has an explicit permanent entry above. Skipped for
-      // guitar.services so middleware can return a true noindex 404 for
-      // unmatched paths on that distinct directory domain.
+      // There is deliberately no catch-all here. The URLs this site published
+      // each have an explicit permanent entry above: the root, /categories, and
+      // the eight /guides/:slug pages, which is the inventory app/sitemap.ts
+      // declares. A path matching none of them was not part of the site, so it
+      // falls through to middleware.ts, which returns a noindex 404 for it.
       //
-      // Also excludes /icon and any *opengraph-image path (negative
-      // lookahead): those are Next.js's own file-convention favicon/OG-image
-      // routes, not "unknown" paths, and used to get swallowed by this same
-      // rule — breaking the favicon and every social-share preview image on
-      // this host. Path-to-regexp's custom-regex groups match across
-      // slashes, so ".*opengraph-image$" also excludes nested ones like
-      // /guitar-services/opengraph-image.
-      {
-        source: '/:path((?!icon$|.*opengraph-image$).+)',
-        destination: 'https://strumly.suedeai.ai/guides',
-        permanent: false,
-        missing: [guitarServicesHost],
-      },
+      // What used to be here was a `/:path*` rule that flattened unmatched
+      // paths onto https://strumly.suedeai.ai/guides with a 307. Redirecting
+      // unknown URLs onto an unrelated index is the soft-404 pattern search
+      // engines are asked to discount, and it also hid the difference between
+      // a migrated guide and a URL that had no equivalent. The 2026-09-07
+      // estate audit read that 307 as a missing 308; the response code was not
+      // the defect, the redirect itself was.
+      //
+      // The old rule carried a negative lookahead for /icon and
+      // *opengraph-image. Redirects run ahead of the filesystem, so without it
+      // the rule swallowed Next's own file-convention routes. That exclusion
+      // now lives in the middleware matcher, which skips _next/static,
+      // _next/image, favicon.ico, icon, and opengraph-image.
     ];
   },
 };

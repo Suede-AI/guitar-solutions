@@ -9,11 +9,19 @@ import type { NextRequest } from 'next/server';
  * every other path rewrites to a dedicated 404 response so stale or mistyped
  * URLs cannot be mistaken for a migrated guide.
  *
+ * The other hosts on this project (guides.guitar.solutions, plus the Vercel
+ * deployment aliases) form a retired redirect shell. The URLs that site actually
+ * published are listed in next.config.mjs and redirect to their Strumly
+ * equivalents, permanently and path-preserving. A request that reaches this
+ * file asked for something the site did not have, so it gets a real 404
+ * instead of a redirect flattening it onto the guides index, which search
+ * engines read as a soft 404.
+ *
  * Coupling: next.config.mjs redirects run BEFORE this middleware. The `/`,
- * `/sitemap.xml`, `/robots.txt`, `/llms.txt`, and `/:path*` entries there carry
- * a `missing: [guitarServicesHost]` condition so requests on this host fall
+ * `/sitemap.xml`, `/robots.txt`, and `/llms.txt` entries there carry a
+ * `missing: [guitarServicesHost]` condition so requests on that host fall
  * through to the rewrites below. Removing those conditions silently turns
- * this file back into dead code.
+ * the guitar.services half of this file back into dead code.
  */
 export function middleware(request: NextRequest) {
   const host = (request.headers.get('host') ?? '')
@@ -48,7 +56,10 @@ export function middleware(request: NextRequest) {
     return NextResponse.rewrite(new URL('/guitar-services-not-found', request.url));
   }
 
-  return NextResponse.next();
+  if (request.nextUrl.pathname === '/guides-not-found') {
+    return NextResponse.next();
+  }
+  return NextResponse.rewrite(new URL('/guides-not-found', request.url));
 }
 
 export const config = {
