@@ -37,4 +37,17 @@ describe('Search Console HTML file token', () => {
     expect(matched.test('/not-a-real-page')).toBe(true);
     expect(matched.test('/about')).toBe(true);
   });
+
+  it('excludes that exact path and nothing built out of it', () => {
+    // The alternative is anchored with `$` and its dots are escaped. Without
+    // either, the entry reads as a prefix: anything starting with the token
+    // would skip middleware and land on Next's own 404 rather than the noindex
+    // one, which is the opposite of what this file is here to do.
+    const [matcher] = config.matcher;
+    const matched = new RegExp(`^${matcher}$`);
+
+    expect(matched.test(`/${TOKEN_FILE}/extra`)).toBe(true);
+    expect(matched.test('/google4b0bcf0a4950299cXhtml')).toBe(true);
+    expect(matched.test(`/${TOKEN_FILE}-and-more`)).toBe(true);
+  });
 });
