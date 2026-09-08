@@ -37,10 +37,16 @@ export const SURFACES: Surface[] = [
     desc: 'Chord voicings, scale patterns, and technique pages you can read on any device.',
   },
   {
+    name: 'GuitarHub',
+    kind: 'Lessons',
+    url: 'https://guitarhub.org',
+    desc: 'The Suede Labs guitar lessons site: a step-by-step curriculum from the first foundations, a practice method, and free browser tools.',
+  },
+  {
     name: 'Strumly',
     kind: 'AI Coach',
     url: 'https://strumly.suedeai.ai',
-    desc: 'A conversational guitar coach with a free toolkit: tuner, metronome, chord and scale libraries, ear training.',
+    desc: 'A conversational guitar coach with a free toolkit: tuner, metronome, chord and scale libraries, ear training, plus a pay-per-call music API for agents.',
   },
   {
     name: 'Suede Guitar Tuner & Studio',
