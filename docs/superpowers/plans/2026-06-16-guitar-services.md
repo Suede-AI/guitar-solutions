@@ -49,7 +49,7 @@ Open `.gitignore` and append:
 - [ ] **Step 2: Install Vitest**
 
 ```bash
-cd /Users/jason/code/guitar-solutions
+cd ~/code/guitar-solutions
 pnpm add -D vitest@^2.0.0
 ```
 
@@ -638,7 +638,7 @@ git commit -m "feat: add scrollspy anchor ids to MDX h2 and h3 headings"
 - [ ] **Step 1: Create components directory and GuideSidebar.tsx**
 
 ```bash
-mkdir -p /Users/jason/code/guitar-solutions/components
+mkdir -p ~/code/guitar-solutions/components
 ```
 
 Create `components/GuideSidebar.tsx`:
@@ -1520,7 +1520,7 @@ pnpm add -g vercel
 - [ ] **Step 2: Deploy to Vercel from repo root**
 
 ```bash
-cd /Users/jason/code/guitar-solutions
+cd ~/code/guitar-solutions
 vercel
 ```
 
