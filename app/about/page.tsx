@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { keywordsFor } from '@/lib/keywords';
 import { GUITAR_SERVICES_OG_IMAGE, GUITAR_SERVICES_TWITTER_IMAGES } from '@/lib/seo';
 import { FAQ, aboutSchema } from '@/lib/about-content';
 
@@ -6,6 +7,7 @@ export const metadata: Metadata = {
   title: { absolute: 'About guitar.services' },
   description:
     'What guitar.services is, how it is put together, and where the engineering-grade signal chain guides live now.',
+  keywords: keywordsFor('about'),
   alternates: {
     canonical: 'https://guitar.services/about',
   },
