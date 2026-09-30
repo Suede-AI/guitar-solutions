@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { keywordsFor } from '@/lib/keywords';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import Link from 'next/link';
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
   },
   description:
     'Engineering-grade reference for guitar signal chains — pickup output through speaker excursion. Signal topology, impedance, gain staging, and gear pairing by Suede Labs.',
+  keywords: keywordsFor('default'),
   authors: [{ name: 'Jason Colapietro', url: 'https://suedeai.ai/founder' }],
   creator: 'Jason Colapietro',
   publisher: 'Suede Labs AI',

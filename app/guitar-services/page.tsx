@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { keywordsFor } from '@/lib/keywords';
 import { GUITAR_SERVICES_OG_IMAGE, GUITAR_SERVICES_TWITTER_IMAGES } from '@/lib/seo';
 import { SURFACES, guitarServicesSchema } from '@/lib/guitar-services-content';
 
@@ -6,6 +7,7 @@ export const metadata: Metadata = {
   title: { absolute: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro' },
   description:
     'The guitar work of Jason Colapietro, founder of Suede Labs AI: two published books, a signal chain reference, chord and scale libraries, and AI practice tools.',
+  keywords: keywordsFor('guitar-services'),
   alternates: {
     canonical: 'https://guitar.services',
   },
