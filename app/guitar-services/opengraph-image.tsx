@@ -34,7 +34,7 @@ export default function OpenGraphImage() {
           }}
         >
           <span>guitar.services</span>
-          <span>Suede Labs AI</span>
+          <span>Suede AI</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
           <div

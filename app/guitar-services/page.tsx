@@ -6,7 +6,7 @@ import { SURFACES, guitarServicesSchema } from '@/lib/guitar-services-content';
 export const metadata: Metadata = {
   title: { absolute: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro' },
   description:
-    'The guitar work of Jason Colapietro, founder of Suede Labs AI: two published books, a signal chain reference, chord and scale libraries, and AI practice tools.',
+    'The guitar work of Jason Colapietro, founder of Suede AI: two published books, a signal chain reference, chord and scale libraries, and AI practice tools.',
   keywords: keywordsFor('guitar-services'),
   alternates: {
     canonical: 'https://guitar.services',
@@ -38,13 +38,13 @@ export default function GuitarServicesPage() {
       />
       <header className="mb-14 max-w-2xl">
         <p className="mb-4 font-mono text-xs uppercase tracking-widest opacity-60">
-          guitar.services · a Suede Labs AI surface
+          guitar.services · a Suede AI surface
         </p>
         <h1 className="mb-5 text-4xl font-bold leading-tight md:text-5xl">
           Everything the guitar taught one builder, in one place.
         </h1>
         <p className="text-lg leading-relaxed opacity-80">
-          Jason Colapietro, founder of Suede Labs AI, is a self-taught guitarist who wrote the
+          Jason Colapietro, founder of Suede AI, is a self-taught guitarist who wrote the
           books, built the references, and shipped the tools. Two published guitar volumes, an
           engineering-grade signal chain reference, chord libraries, an AI practice coach, and a
           network for musicians. All of it live, all of it by one person.
@@ -78,7 +78,7 @@ export default function GuitarServicesPage() {
           </a>
           . The company is{' '}
           <a href="https://suedeai.ai" className="underline">
-            Suede Labs AI
+            Suede AI
           </a>
           . The code ships in public at{' '}
           <a href="https://github.com/JasonColapietro" className="underline">

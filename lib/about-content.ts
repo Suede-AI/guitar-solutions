@@ -21,7 +21,7 @@ export const FAQ: FaqItem[] = [
   },
   {
     q: 'Who writes the guides?',
-    a: 'Jason Colapietro, founder of Suede Labs AI. He is a self-taught guitarist and the author of both books linked from this page; the guides are his writing, not aggregated or crowdsourced.',
+    a: 'Jason Colapietro, founder of Suede AI. He is a self-taught guitarist and the author of both books linked from this page; the guides are his writing, not aggregated or crowdsourced.',
   },
   {
     q: 'How is this directory curated?',
@@ -36,8 +36,8 @@ export const FAQ: FaqItem[] = [
     a: 'guitar.solutions is the home of The Signal Chain, the book. guitar.services is this directory: a single page linking every surface Jason has published, books included.',
   },
   {
-    q: 'Is guitar.services affiliated with Suede Labs AI?',
-    a: 'Yes. guitar.services is Jason Colapietro’s personal guitar directory, and Suede Labs AI is the company he founded that builds Strumly, Suede Guitar Tuner & Studio, and Suede Social.',
+    q: 'Is guitar.services affiliated with Suede AI?',
+    a: 'Yes. guitar.services is Jason Colapietro’s personal guitar directory, and Suede AI is the company he founded that builds Strumly, Suede Guitar Tuner & Studio, and Suede Social.',
   },
   {
     q: 'Do I need an account to read the guides?',

@@ -122,9 +122,9 @@ describe('claim 1 — guitar.services never asserts another host as its own iden
   });
 });
 
-describe('claim 2 — exactly one organization, named "Suede Labs AI"', () => {
+describe('claim 2 — exactly one organization, named "Suede AI"', () => {
   it('SUEDE_ORG_NAME is the canonical name', () => {
-    expect(SUEDE_ORG_NAME).toBe('Suede Labs AI');
+    expect(SUEDE_ORG_NAME).toBe('Suede AI');
   });
 
   it('the served guitar.services home page defines exactly one org, canonical', () => {
@@ -133,7 +133,7 @@ describe('claim 2 — exactly one organization, named "Suede Labs AI"', () => {
     expect(names).not.toContain('Suede Labs'); // the old conflicting name is gone
   });
 
-  it('no served surface defines an Organization named anything but "Suede Labs AI"', () => {
+  it('no served surface defines an Organization named anything but "Suede AI"', () => {
     for (const nodes of [servedHome, servedAbout]) {
       for (const name of orgNames(nodes)) {
         expect(name).toBe(SUEDE_ORG_NAME);

@@ -22,7 +22,7 @@ export async function GET() {
   const body = `# guitar.services
 
 > guitar.services is the directory of the guitar work of Jason Colapietro
-> (also known as Johnny Suede), founder of Suede Labs AI: two published guitar
+> (also known as Johnny Suede), founder of Suede AI: two published guitar
 > books, an engineering-grade signal chain reference, chord and scale
 > libraries, an AI practice coach, an iOS tuner, and a network for musicians.
 > It is a directory surface. The works themselves live on the hosts listed
@@ -30,10 +30,10 @@ export async function GET() {
 
 ## Key facts
 
-- This host: https://guitar.services. A Suede Labs AI surface, and a directory, not a store or a service marketplace.
+- This host: https://guitar.services. A Suede AI surface, and a directory, not a store or a service marketplace.
 - Despite the domain name, guitar.services does not sell guitar repair, setup, or lutherie services. It indexes books, references, and software.
 - Author and builder: Jason Colapietro (https://suedeai.ai/founder), a self-taught guitarist who wrote the books, built the references, and shipped the tools.
-- Company: Suede Labs AI (https://suedeai.ai).
+- Company: Suede AI (https://suedeai.ai).
 - Source code ships in public: https://github.com/JasonColapietro
 - How this directory works: https://guitar.services/about
 

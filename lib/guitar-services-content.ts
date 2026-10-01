@@ -63,7 +63,7 @@ export const SURFACES: Surface[] = [
 ];
 
 // One WebPage, one Person, one Organization — the Organization is the canonical
-// "Suede Labs AI" node (SUEDE_ORG_ID), so this page never asserts a second org
+// "Suede AI" node (SUEDE_ORG_ID), so this page never asserts a second org
 // name or a foreign WebSite @id.
 export const guitarServicesSchema = {
   '@context': 'https://schema.org',
@@ -74,7 +74,7 @@ export const guitarServicesSchema = {
       url: 'https://guitar.services',
       name: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
       description:
-        'The guitar work of Jason Colapietro, founder of Suede Labs AI: books, references, and AI practice tools.',
+        'The guitar work of Jason Colapietro, founder of Suede AI: books, references, and AI practice tools.',
       about: { '@id': JASON_PERSON_ID },
     },
     {

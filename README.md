@@ -1,6 +1,6 @@
 # guitar-solutions
 
-> **By [Jason Colapietro](https://suedeai.ai/founder) / [Suede Labs AI](https://suedeai.ai)**
+> **By [Jason Colapietro](https://suedeai.ai/founder) / [Suede AI](https://suedeai.ai)**
 
 Redirect shell for the guitar.solutions domains, plus the guitar.services
 landing page. The eight signal-chain guides that lived at
@@ -113,5 +113,5 @@ caps, one accent color carrying the system.
 ## Provenance
 
 The taxonomy and archival tone draw on the Suede DNA project at
-`dna.suedeai.ai`. The guides now live inside Strumly, the Suede Labs AI
+`dna.suedeai.ai`. The guides now live inside Strumly, the Suede AI
 guitar coach, at [strumly.suedeai.ai](https://strumly.suedeai.ai).
