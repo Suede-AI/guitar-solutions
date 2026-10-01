@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   keywords: keywordsFor('default'),
   authors: [{ name: 'Jason Colapietro', url: 'https://suedeai.ai/founder' }],
   creator: 'Jason Colapietro',
-  publisher: 'Suede Labs AI',
+  publisher: 'Suede AI',
   openGraph: {
     title: 'guides.guitar.solutions — Technical Reference for Guitar Signal Chains',
     description:
@@ -105,7 +105,7 @@ function GuidesChrome({ children }: { children: React.ReactNode }) {
                 href="https://suedeai.ai"
                 className="underline underline-offset-2 hover:text-paper transition-colors"
               >
-                Suede Labs AI
+                Suede AI
               </a>
               {' '}· Jason Colapietro — corrections welcome. Citations are footnoted. Reach the maintainer at{' '}
               <a

@@ -20,11 +20,11 @@
 
 export const GUITAR_SERVICES_HOST = 'guitar.services';
 
-// Canonical Suede Labs AI organization node, shared estate-wide. Referenced by
+// Canonical Suede AI organization node, shared estate-wide. Referenced by
 // @id so every surface points at one organization entity rather than minting a
 // second, differently-named anonymous org.
 export const SUEDE_ORG_ID = 'https://suedeai.ai/#organization';
-export const SUEDE_ORG_NAME = 'Suede Labs AI';
+export const SUEDE_ORG_NAME = 'Suede AI';
 export const JASON_PERSON_ID = 'https://suedeai.ai/founder#person';
 
 export type SiteChrome = 'none' | 'guides';
@@ -46,7 +46,7 @@ export function normalizeHost(host: string | null | undefined): string {
 }
 
 // Guides-site JSON-LD graph. Only emitted on the guides fallback host. The
-// Organization is the canonical "Suede Labs AI" node referenced by @id — there
+// Organization is the canonical "Suede AI" node referenced by @id — there
 // is no second org named "Suede Labs".
 const GUIDES_JSON_LD: Record<string, unknown> = {
   '@context': 'https://schema.org',
@@ -77,7 +77,7 @@ const GUIDES_JSON_LD: Record<string, unknown> = {
       image: {
         '@type': 'ImageObject',
         url: 'https://suedeai.org/assets/img/founder-jason.png',
-        caption: 'Jason Colapietro, Founder of Suede Labs AI',
+        caption: 'Jason Colapietro, Founder of Suede AI',
       },
       jobTitle: 'Founder',
       worksFor: { '@id': SUEDE_ORG_ID },

@@ -5,7 +5,7 @@
 // Terms come from the 2026-09-08 estate keyword research (guitar and
 // musician_tools groups, plus brand) and from what each page actually lists.
 
-export const BRAND_KEYWORDS = ['Suede AI', 'Suede Labs AI', 'Jason Colapietro'] as const;
+export const BRAND_KEYWORDS = ['Suede AI', 'Jason Colapietro'] as const;
 
 const PAGE_KEYWORDS = {
   // Root layout default. Only the guides fallback host inherits it, and that
