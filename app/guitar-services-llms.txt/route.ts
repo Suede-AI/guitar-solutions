@@ -28,6 +28,10 @@ export async function GET() {
 > It is a directory surface. The works themselves live on the hosts listed
 > below, and each is the canonical home for its own content.
 
+## Source and citation guide
+
+- [AI Instructions](https://guitar.services/ai-instructions): Site identity, authoritative sources and citation guidance.
+
 ## Key facts
 
 - This host: https://guitar.services. A Suede AI surface, and a directory, not a store or a service marketplace.

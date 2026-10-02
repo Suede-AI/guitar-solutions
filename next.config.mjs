@@ -35,6 +35,7 @@ const nextConfig = {
   // identical on the new host.
   async redirects() {
     return [
+      { source: "/ai-instructions", destination: "https://strumly.suedeai.ai/ai-instructions", permanent: true, missing: [guitarServicesHost] },
       // SEO files get explicit, permanent (308), path-preserving redirects so
       // crawlers land on the Strumly equivalent of the file they asked for
       // instead of the catch-all's /guides page. These MUST stay above the
