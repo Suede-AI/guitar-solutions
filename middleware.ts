@@ -30,6 +30,12 @@ export function middleware(request: NextRequest) {
     .toLowerCase();
 
   if (host === 'guitar.services') {
+    if (request.nextUrl.pathname === '/ai-instructions') {
+      return NextResponse.rewrite(new URL('/ai-instructions.html', request.url));
+    }
+    if (request.nextUrl.pathname === '/ai-instructions.html' || request.nextUrl.pathname === '/ai-instructions-sitemap.xml') {
+      return NextResponse.next();
+    }
     if (request.nextUrl.pathname === '/') {
       return NextResponse.rewrite(new URL('/guitar-services', request.url));
     }

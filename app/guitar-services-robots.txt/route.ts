@@ -10,6 +10,7 @@ export async function GET() {
 Allow: /
 
 Sitemap: https://guitar.services/sitemap.xml
+Sitemap: https://guitar.services/ai-instructions-sitemap.xml
 `;
   return new Response(body, {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },
