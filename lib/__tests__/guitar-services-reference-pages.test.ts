@@ -24,6 +24,7 @@ import {
 import { GUIDE_GROUPS, GUIDE_SUMMARIES, strumlyGuideUrl } from '../signal-chain-guides';
 import { PRODUCTS, allPracticeToolUrls } from '../practice-tools';
 import { SURFACES } from '../guitar-services-content';
+import { FAQ } from '../about-content';
 
 /**
  * guitar.services grew from two indexable pages to six on 2026-10-11. Three
@@ -223,6 +224,36 @@ describe('book facts', () => {
     expect(BOOK_PARTS.reduce((n, p) => n + p.workshops, 0)).toBe(BOOK_FACTS.workshops);
     const workbook = BOOK_PARTS.find((p) => p.name.startsWith('The Expanded Workbook'));
     expect(EXPANDED_WORKBOOK.reduce((n, s) => n + s.workshops, 0)).toBe(workbook?.workshops);
+  });
+
+  it('summarizes the listing without naming a format the listing does not state', async () => {
+    // strumly.suedeai.ai/book gives no delivery format, ISBN, or publication
+    // date, so the contents summary must not claim one.
+    const book = GUITAR_SERVICES_PAGES.find((p) => p.path === '/the-signal-chain');
+    expect(book).toBeDefined();
+    const html = await renderPage(book as GuitarServicesPage);
+    expect(html).not.toMatch(/\b(paperback|hardcover|e-?book|pdf|isbn|kindle|epub|audiobook)\b/i);
+  });
+});
+
+describe('about FAQ agrees with the pages this host serves', () => {
+  const NUMBER_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
+
+  it('counts the reference pages the host actually serves', () => {
+    const answer = FAQ.find((f) => f.q.startsWith('What is the difference'))?.a ?? '';
+    expect(answer).toContain(`${NUMBER_WORDS[REFERENCE_PAGES.length]} reference pages`);
+    for (const { a } of FAQ) expect(a).not.toMatch(/single page/i);
+  });
+
+  it('places the book listing on Strumly, as the new pages do', () => {
+    for (const { a } of FAQ) expect(a).not.toMatch(/home of The Signal Chain/i);
+    expect(FAQ.some(({ a }) => a.includes('strumly.suedeai.ai/book'))).toBe(true);
+  });
+
+  it('does not say Strumly’s streak or rig builder need an account', () => {
+    // Live /streak: "tracked on this device, no sign-up"; /rig: "saves in your
+    // browser, no sign-up". The practice tools page quotes both.
+    for (const { a } of FAQ) expect(a).not.toMatch(/(do|does) use an account/i);
   });
 });
 

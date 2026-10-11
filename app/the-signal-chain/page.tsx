@@ -52,7 +52,10 @@ export const metadata: Metadata = {
 
 const schema = referencePageSchema(BOOK_PAGE, { about: { '@id': BOOK_ENTITY_ID } });
 
-export default function SignalChainBookPage() {
+// A summary of the book's contents as its Strumly listing sets them out, not a
+// product page: lib/signal-chain-book.ts says what the listing does and does
+// not state.
+export default function SignalChainContentsPage() {
   return (
     <div className="mx-auto max-w-[1080px] px-6 py-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
@@ -60,26 +63,32 @@ export default function SignalChainBookPage() {
 
       <header className="mb-14 max-w-2xl">
         <p className="mb-4 font-mono text-xs uppercase tracking-widest opacity-60">
-          guitar.services · the book
+          guitar.services · contents summary
         </p>
-        <h1 className="mb-5 text-4xl font-bold leading-tight md:text-5xl">The Signal Chain</h1>
+        <h1 className="mb-5 text-4xl font-bold leading-tight md:text-5xl">
+          Inside The Signal Chain
+        </h1>
+        <p className="mb-4 text-lg leading-relaxed opacity-80">
+          What is in Jason Colapietro&rsquo;s book, part by part, summarized from its listing on
+          Strumly.
+        </p>
         <p className="text-lg leading-relaxed opacity-80">
-          An illustrated history of electric guitar tone: the amplifiers, the pedals, and the
-          players who bent electricity into a voice, told alongside a self-taught player&rsquo;s
-          field notes. Jason Colapietro wrote it as Johnny Suede, and every idea in it lands in
+          The listing calls it an illustrated history of electric guitar tone: the amplifiers, the
+          pedals, and the players who bent electricity into a voice, told alongside a self-taught
+          player&rsquo;s field notes. Jason wrote it as Johnny Suede, and every idea in it lands in
           tablature you can play: {BOOK_FACTS.chapters} chapters and {BOOK_FACTS.workshops} song
           workshops.
         </p>
         <p className="mt-6">
           <a href={BOOK_LISTING_URL} className="underline">
-            See the full contents and buy the complete edition on Strumly
+            Open the full listing on Strumly
           </a>
         </p>
       </header>
 
       <section aria-labelledby="facts-heading" className="mb-14">
         <h2 id="facts-heading" className="mb-4 text-2xl font-semibold">
-          The book at a glance
+          From the listing
         </h2>
         <ul className="grid grid-cols-1 gap-3 text-base leading-relaxed md:grid-cols-2">
           <li className="rounded-lg border border-current/15 p-4">
@@ -91,13 +100,13 @@ export default function SignalChainBookPage() {
             {BOOK_FACTS.imprint}. Jason wrote, illustrated, and hand-typeset every page.
           </li>
           <li className="rounded-lg border border-current/15 p-4">
-            <span className="block font-mono text-[11px] uppercase tracking-widest opacity-60">Edition</span>
-            {BOOK_FACTS.edition}: {BOOK_FACTS.chapters} chapters and {BOOK_FACTS.workshops} workshops,
-            each workshop with full tablature.
+            <span className="block font-mono text-[11px] uppercase tracking-widest opacity-60">Contents</span>
+            {BOOK_FACTS.chapters} chapters and {BOOK_FACTS.workshops} workshops, each workshop with
+            full tablature. The listing calls this {BOOK_FACTS.edition.toLowerCase()}.
           </li>
           <li className="rounded-lg border border-current/15 p-4">
             <span className="block font-mono text-[11px] uppercase tracking-widest opacity-60">Price</span>
-            {BOOK_FACTS.price} on Strumly, the edition you keep.
+            {BOOK_FACTS.price} for the complete edition, as listed on Strumly.
           </li>
           <li className="rounded-lg border border-current/15 p-4">
             <span className="block font-mono text-[11px] uppercase tracking-widest opacity-60">Free to read</span>
@@ -105,11 +114,11 @@ export default function SignalChainBookPage() {
             essays on tone, listed below.
           </li>
           <li className="rounded-lg border border-current/15 p-4">
-            <span className="block font-mono text-[11px] uppercase tracking-widest opacity-60">Where it lives</span>
+            <span className="block font-mono text-[11px] uppercase tracking-widest opacity-60">Listing</span>
             <a href={BOOK_LISTING_URL} className="underline">
               strumly.suedeai.ai/book
             </a>
-            , formerly{' '}
+            . The book started at{' '}
             <a href={BOOK_ORIGINAL_HOME_URL} className="underline">
               guitar.solutions
             </a>
@@ -199,7 +208,7 @@ export default function SignalChainBookPage() {
 
       <section aria-labelledby="samples-heading" className="mb-14">
         <h2 id="samples-heading" className="mb-4 text-2xl font-semibold">
-          Read before you buy
+          Free to read on Strumly
         </h2>
         <p className="mb-6 max-w-3xl text-base leading-relaxed opacity-80">
           Four workshops from the complete edition are free to read on Strumly, in the same format

@@ -53,7 +53,7 @@ export const PRODUCTS: readonly PracticeTool[] = [
     description:
       'The Signal Chain, Jason Colapietro’s book of 111 song lessons, with guides on impedance, gain staging and pedalboard order, and the Strumly coach.',
     does:
-      'The original home of The Signal Chain and the signal chain guides. It now points to where each one lives on Strumly, including the free course that turns the book’s song lessons into a playing order.',
+      'The original home of The Signal Chain and the signal chain guides. It now links to where each one lives on Strumly, including the free course that turns the book’s song lessons into a playing order.',
   },
   {
     name: 'Suede Sing',

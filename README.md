@@ -37,7 +37,7 @@ through to their own routes:
 
 | Path | What it is | Data |
 | --- | --- | --- |
-| `/the-signal-chain` | The book's contents, edition, and free samples | `lib/signal-chain-book.ts` |
+| `/the-signal-chain` | A summary of the book's contents, part by part, from its Strumly listing, and the free samples | `lib/signal-chain-book.ts` |
 | `/signal-chain-guides` | A summary of each of the eight guides, linking its Strumly URL | `lib/signal-chain-guides.ts` |
 | `/chords-and-scales` | Index of the 39 chords and 12 scales on guitarchords.info | `lib/chord-scale-library.ts` |
 | `/practice-tools` | The Suede practice products and Strumly's toolkit | `lib/practice-tools.ts` |

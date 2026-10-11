@@ -1,4 +1,5 @@
-// Facts for the /the-signal-chain page.
+// Facts for the /the-signal-chain page: a summary of the book's contents as
+// its Strumly listing sets them out.
 //
 // Every value below was read from the book's live listing on 2026-10-11:
 //   https://strumly.suedeai.ai/book          (listing, contents, colophon, price)
@@ -7,9 +8,10 @@
 // guitar.solutions/THE-SIGNAL-CHAIN-WORKBOOK.html 308s to the listing, and
 // guitar.solutions itself is the book's original home (200, self-canonical).
 //
-// The listing does not say how the edition is delivered (print, PDF, or read
-// online), so the page does not either. Update this file from the listing, not
-// from memory.
+// The page is a contents summary of that listing, not a product page for the
+// book. The listing gives no delivery format (print, PDF, or read online), no
+// ISBN, and no publication date, so the page states none of them. Update this
+// file from the listing, not from memory.
 
 export const BOOK_LISTING_URL = 'https://strumly.suedeai.ai/book';
 export const BOOK_ENTITY_ID = 'https://strumly.suedeai.ai/book#book';

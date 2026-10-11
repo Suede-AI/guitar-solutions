@@ -45,10 +45,10 @@ export const ABOUT_PAGE: GuitarServicesPage = {
 
 export const BOOK_PAGE: GuitarServicesPage = {
   path: '/the-signal-chain',
-  navLabel: 'The Signal Chain',
-  title: 'The Signal Chain by Jason Colapietro: Contents and Edition',
+  navLabel: 'The Signal Chain contents',
+  title: 'The Signal Chain Contents, Summarized: 66 Chapters, 111 Workshops',
   description:
-    'Jason Colapietro’s illustrated history of electric guitar tone: 66 chapters, 111 song workshops with full tablature, and four sample lessons free to read.',
+    'The contents of Jason Colapietro’s The Signal Chain, summarized from its Strumly listing: chapters and song workshops by part, and four free sample lessons.',
   lastmod: '2026-10-11',
   priority: 0.8,
 };

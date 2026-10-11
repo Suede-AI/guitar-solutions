@@ -77,9 +77,9 @@ export default function AboutPage() {
           <p>
             Four reference pages go one level deeper, summarizing rather than copying:{' '}
             <a href={BOOK_PAGE.path} className="underline">
-              The Signal Chain
+              The Signal Chain contents
             </a>{' '}
-            covers the book&rsquo;s contents and edition, the{' '}
+            page summarizes the book part by part from its Strumly listing, the{' '}
             <a href={GUIDES_PAGE.path} className="underline">
               signal chain guides
             </a>{' '}

@@ -52,7 +52,7 @@ const PAGE_KEYWORDS = {
     'ai guitar coach',
     'Strumly guides',
   ],
-  // guitar.services/the-signal-chain: the book's contents, edition, and samples.
+  // guitar.services/the-signal-chain: a summary of the book's contents and free samples.
   'the-signal-chain': [
     'The Signal Chain',
     'The Signal Chain book',
