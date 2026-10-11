@@ -7,7 +7,8 @@ landing page. The eight signal-chain guides that lived at
 guides.guitar.solutions were migrated into Strumly at
 [strumly.suedeai.ai/guides](https://strumly.suedeai.ai/guides); this app's job
 is to keep every old URL pointing at its new home without dropping a single
-slug, and to serve one curated page on guitar.services.
+slug, and to serve the guitar.services directory: a home page, an about
+page, and four reference pages.
 
 ## What this deployment actually does
 
@@ -28,11 +29,25 @@ The catch-all is temporary (307) on purpose: unknown paths flatten to one
 page, and a permanent flattening would fight any future repurposing of the
 domain. Everything that actually migrated gets an explicit 308 above it.
 
-**2. The guitar.services landing page** — `middleware.ts` rewrites that
-host's `/` to `app/guitar-services/page.tsx` (Person/Organization JSON-LD,
-cross-links to the two books, the Strumly guides, and the chord tools) and
-its `/sitemap.xml` to a single-URL host sitemap; every other unmatched path
-returns a true `404` with `noindex, nofollow`.
+**2. The guitar.services pages** — `middleware.ts` rewrites that host's
+`/` to `app/guitar-services/page.tsx` (Person/Organization JSON-LD,
+cross-links to the books, the Strumly guides, and the chord tools) and its
+`/sitemap.xml` to the host sitemap. `/about` and four reference pages pass
+through to their own routes:
+
+| Path | What it is | Data |
+| --- | --- | --- |
+| `/the-signal-chain` | The book's contents, edition, and free samples | `lib/signal-chain-book.ts` |
+| `/signal-chain-guides` | A summary of each of the eight guides, linking its Strumly URL | `lib/signal-chain-guides.ts` |
+| `/chords-and-scales` | Index of the 39 chords and 12 scales on guitarchords.info | `lib/chord-scale-library.ts` |
+| `/practice-tools` | The Suede practice products and Strumly's toolkit | `lib/practice-tools.ts` |
+
+`lib/guitar-services-pages.ts` is the one list of pages: middleware's
+pass-through set, the host sitemap, the llms.txt page list, and the shared
+nav are all generated from it. Every other unmatched path returns a true
+`404` with `noindex, nofollow`. The data files hold values read from the
+live source pages, with the date they were read; refresh them from the
+source, not by hand.
 
 Config redirects run **before** middleware. The `/`, `/sitemap.xml`, and
 `/:path*` redirect entries carry a `missing` host condition so they skip
@@ -95,7 +110,9 @@ next.config.mjs             The redirect map — the load-bearing file
 middleware.ts               guitar.services host rewrites + 308s
 app/
   guitar-services/          Curated guitar.services landing page (JSON-LD)
-  guitar-services-sitemap.xml/  Single-URL sitemap for that host
+  the-signal-chain/, signal-chain-guides/, chords-and-scales/, practice-tools/
+                            guitar.services reference pages
+  guitar-services-sitemap.xml/  Host sitemap, built from lib/guitar-services-pages.ts
   guides/[slug]/page.tsx    Archived guide renderer
   robots.ts, sitemap.ts     Shadowed by redirects; fallback only
 content/guides/             Migrated MDX guides (source-of-record)

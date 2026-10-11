@@ -4,6 +4,8 @@
 //
 // Terms come from the 2026-09-08 estate keyword research (guitar and
 // musician_tools groups, plus brand) and from what each page actually lists.
+// The four reference pages added 2026-10-11 take their terms from their own
+// headings and tables.
 
 export const BRAND_KEYWORDS = ['Suede AI', 'Jason Colapietro'] as const;
 
@@ -49,6 +51,64 @@ const PAGE_KEYWORDS = {
     'guitar lessons',
     'ai guitar coach',
     'Strumly guides',
+  ],
+  // guitar.services/the-signal-chain: the book's contents, edition, and samples.
+  'the-signal-chain': [
+    'The Signal Chain',
+    'The Signal Chain book',
+    'guitar tone book',
+    'history of guitar tone',
+    'guitar amp history',
+    'guitar effects history',
+    'guitar song lessons',
+    'guitar tablature',
+    'Johnny Suede',
+    'Johnny Suede Press',
+    'The Guitar Without a Number',
+    'Print the Quiet',
+  ],
+  // guitar.services/signal-chain-guides: the eight guides, summarized.
+  'signal-chain-guides': [
+    'guitar signal chain',
+    'guitar signal chain guide',
+    'pedalboard order',
+    'gain staging',
+    'guitar impedance',
+    'guitar cable capacitance',
+    'true bypass vs buffered',
+    'guitar effects loop',
+    'four-cable method',
+    'pedalboard power supply',
+    'ground loop hum',
+  ],
+  // guitar.services/chords-and-scales: the guitarchords.info library index.
+  'chords-and-scales': [
+    'guitar chords',
+    'guitar chord chart',
+    'guitar chord library',
+    'guitar scales',
+    'guitar scale chart',
+    'guitar modes',
+    'minor pentatonic scale',
+    'blues scale',
+    'seventh chords',
+    'power chords',
+    'guitarchords.info',
+  ],
+  // guitar.services/practice-tools: the coach, tuners, trainers, and lessons.
+  'practice-tools': [
+    'ai guitar coach',
+    'guitar practice tools',
+    'online guitar tuner',
+    'online metronome',
+    'guitar ear trainer',
+    'strumming patterns',
+    'guitar lessons',
+    'singing practice',
+    'Strumly',
+    'GuitarHub',
+    'Suede Guitar Tuner & Studio',
+    'Suede Sing',
   ],
 } as const satisfies Record<string, readonly string[]>;
 

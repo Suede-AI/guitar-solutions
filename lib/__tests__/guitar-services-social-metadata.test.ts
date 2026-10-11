@@ -9,6 +9,10 @@ import {
 const METADATA_PAGES = [
   'app/guitar-services/page.tsx',
   'app/about/page.tsx',
+  'app/the-signal-chain/page.tsx',
+  'app/signal-chain-guides/page.tsx',
+  'app/chords-and-scales/page.tsx',
+  'app/practice-tools/page.tsx',
 ] as const;
 
 describe('guitar.services social metadata', () => {

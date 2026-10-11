@@ -10,6 +10,10 @@ import { BRAND_KEYWORDS, KEYWORD_PAGES, keywordsFor } from '../keywords';
 const INDEXABLE = [
   ['app/guitar-services/page.tsx', 'guitar-services'],
   ['app/about/page.tsx', 'about'],
+  ['app/the-signal-chain/page.tsx', 'the-signal-chain'],
+  ['app/signal-chain-guides/page.tsx', 'signal-chain-guides'],
+  ['app/chords-and-scales/page.tsx', 'chords-and-scales'],
+  ['app/practice-tools/page.tsx', 'practice-tools'],
   ['app/layout.tsx', 'default'],
 ] as const;
 

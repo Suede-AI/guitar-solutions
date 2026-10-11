@@ -2,6 +2,14 @@ import type { Metadata } from 'next';
 import { keywordsFor } from '@/lib/keywords';
 import { GUITAR_SERVICES_OG_IMAGE, GUITAR_SERVICES_TWITTER_IMAGES } from '@/lib/seo';
 import { FAQ, aboutSchema } from '@/lib/about-content';
+import {
+  ABOUT_PAGE,
+  BOOK_PAGE,
+  CHORDS_PAGE,
+  GUIDES_PAGE,
+  TOOLS_PAGE,
+} from '@/lib/guitar-services-pages';
+import { GuitarServicesNav } from '@/components/GuitarServicesNav';
 
 export const metadata: Metadata = {
   title: { absolute: 'About guitar.services' },
@@ -36,6 +44,7 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
       />
+      <GuitarServicesNav current={ABOUT_PAGE.path} />
       <header className="mb-14 max-w-2xl">
         <p className="mb-4 font-mono text-xs uppercase tracking-widest opacity-60">
           guitar.services · about this directory
@@ -64,6 +73,25 @@ export default function AboutPage() {
             lists every surface: the two books, the guide library, the chord and scale
             references, Strumly, and the iOS app. Each entry links straight to that surface.
             This domain does not duplicate the content itself.
+          </p>
+          <p>
+            Four reference pages go one level deeper, summarizing rather than copying:{' '}
+            <a href={BOOK_PAGE.path} className="underline">
+              The Signal Chain
+            </a>{' '}
+            covers the book&rsquo;s contents and edition, the{' '}
+            <a href={GUIDES_PAGE.path} className="underline">
+              signal chain guides
+            </a>{' '}
+            page sums up each guide and links its full text, the{' '}
+            <a href={CHORDS_PAGE.path} className="underline">
+              chord and scale library
+            </a>{' '}
+            indexes every chord and scale on guitarchords.info, and the{' '}
+            <a href={TOOLS_PAGE.path} className="underline">
+              practice tools
+            </a>{' '}
+            page lists the coach, tuners, trainers, and lessons.
           </p>
           <p>
             The long-form technical writing (signal topology, gain staging, cable capacitance,

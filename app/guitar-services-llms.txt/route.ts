@@ -1,4 +1,5 @@
 import { SURFACES } from '@/lib/guitar-services-content';
+import { GUITAR_SERVICES_PAGES, canonicalUrl } from '@/lib/guitar-services-pages';
 
 export const runtime = 'edge';
 
@@ -17,6 +18,11 @@ export const runtime = 'edge';
 export async function GET() {
   const entries = SURFACES.map(
     (s) => `- [${s.name}](${s.url}): ${s.kind}. ${s.desc}`,
+  ).join('\n');
+
+  // The pages this host serves, from the same list as the sitemap and nav.
+  const pages = GUITAR_SERVICES_PAGES.map(
+    (p) => `- [${p.title}](${canonicalUrl(p)}): ${p.description}`,
   ).join('\n');
 
   const body = `# guitar.services
@@ -40,6 +46,10 @@ export async function GET() {
 - Company: Suede AI (https://suedeai.ai).
 - Source code ships in public: https://github.com/JasonColapietro
 - How this directory works: https://guitar.services/about
+
+## Pages on this host
+
+${pages}
 
 ## What it indexes
 
