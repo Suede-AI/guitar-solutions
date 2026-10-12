@@ -63,7 +63,7 @@ export default function OpenGraphImage() {
               maxWidth: 940,
             }}
           >
-            Two books, a signal chain reference, chord libraries, and AI practice tools.
+            The Signal Chain, guides, chord libraries, and AI practice tools.
           </div>
         </div>
         <div

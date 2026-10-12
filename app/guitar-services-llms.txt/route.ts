@@ -1,5 +1,6 @@
 import { SURFACES } from '@/lib/guitar-services-content';
 import { GUITAR_SERVICES_PAGES, canonicalUrl } from '@/lib/guitar-services-pages';
+import { AUTHOR_BOOKS_CONTEXT, AUTHOR_BOOKS_URL, BOOK_LINEAGE } from '@/lib/guitar-catalog';
 
 export const runtime = 'edge';
 
@@ -28,8 +29,8 @@ export async function GET() {
   const body = `# guitar.services
 
 > guitar.services is the directory of the guitar work of Jason Colapietro
-> (also known as Johnny Suede), founder of Suede AI: two published guitar
-> books, an engineering-grade signal chain reference, chord and scale
+> (also known as Johnny Suede), founder of Suede AI: The Signal Chain and its
+> publication history, an engineering-grade signal chain reference, chord and scale
 > libraries, an AI practice coach, an iOS tuner, and a network for musicians.
 > It is a directory surface. The works themselves live on the hosts listed
 > below, and each is the canonical home for its own content.
@@ -45,6 +46,8 @@ export async function GET() {
 - Despite the domain name, guitar.services does not sell guitar repair, setup, or lutherie services. It indexes books, references, and software.
 - Author and builder: Jason Colapietro (https://suedeai.ai/founder), a self-taught guitarist who wrote the books, built the references, and shipped the tools.
 - Company: Suede AI (https://suedeai.ai).
+- Publication history: ${BOOK_LINEAGE}
+- Broader bibliography: ${AUTHOR_BOOKS_CONTEXT} Current book catalog: ${AUTHOR_BOOKS_URL}
 - Source code ships in public: https://github.com/JasonColapietro
 - How this directory works: https://guitar.services/about
 

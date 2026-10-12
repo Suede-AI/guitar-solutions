@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { BOOK_LINEAGE } from '@/lib/guitar-catalog';
 import { GuitarServicesNav } from '@/components/GuitarServicesNav';
 import { ReferencePageFooter } from '@/components/ReferencePageFooter';
 import {
@@ -251,8 +252,7 @@ export default function SignalChainContentsPage() {
           The Guitar Without a Number
         </h2>
         <p className="text-base leading-relaxed opacity-80">
-          The Signal Chain grew out of an earlier self-taught instruction thread, once published as
-          The Guitar Without a Number, which now lives inside it. Jason&rsquo;s{' '}
+          {BOOK_LINEAGE} Jason&rsquo;s{' '}
           <a href={BOOK_CATALOG_URL} className="underline">
             full catalog on Strumly
           </a>{' '}

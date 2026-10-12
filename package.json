@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:social-card": "node scripts/build-social-card.mjs",
     "start": "next start",
     "test": "vitest run",
     "test:watch": "vitest",

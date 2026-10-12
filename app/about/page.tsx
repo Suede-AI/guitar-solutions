@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { keywordsFor } from '@/lib/keywords';
 import { GUITAR_SERVICES_OG_IMAGE, GUITAR_SERVICES_TWITTER_IMAGES } from '@/lib/seo';
 import { FAQ, aboutSchema } from '@/lib/about-content';
+import { AUTHOR_BOOKS_CONTEXT, AUTHOR_BOOKS_URL } from '@/lib/guitar-catalog';
 import {
   ABOUT_PAGE,
   BOOK_PAGE,
@@ -51,8 +52,9 @@ export default function AboutPage() {
         </h1>
         <p className="text-lg leading-relaxed opacity-80">
           guitar.services is a directory, not a publication. It links to everything Jason
-          Colapietro has published about guitar: two books, an engineering-grade signal chain
-          reference, chord and scale libraries, and the tools built on top of them. There is one
+          Colapietro has published about guitar: The Signal Chain, its publication history, an
+          engineering-grade signal chain reference, chord and scale libraries, and the tools built
+          on top of them. There is one
           address to remember instead of six.
         </p>
       </header>
@@ -67,9 +69,15 @@ export default function AboutPage() {
             <a href="/" className="underline">
               home page
             </a>{' '}
-            lists every surface: the two books, the guide library, the chord and scale
-            references, Strumly, and the iOS app. Each entry links straight to that surface.
+            lists every surface: The Signal Chain, its publication history, the guide library,
+            the chord and scale references, Strumly, and the iOS app. Each entry links straight to that surface.
             This domain does not duplicate the content itself.
+          </p>
+          <p>
+            {AUTHOR_BOOKS_CONTEXT} See the{' '}
+            <a href={AUTHOR_BOOKS_URL} className="underline">
+              current book catalog on his founder page
+            </a>.
           </p>
           <p>
             Four reference pages go one level deeper, summarizing rather than copying:{' '}
