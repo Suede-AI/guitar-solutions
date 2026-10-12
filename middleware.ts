@@ -1,11 +1,14 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+import { PASS_THROUGH_PATHS } from './lib/guitar-services-pages';
+
 /**
  * guitar.services gets its own landing page instead of mirroring the guides
  * site. `/` rewrites to the dedicated page; `/sitemap.xml`, `/robots.txt` and
  * `/llms.txt` rewrite to versions that speak for this host instead of
- * strumly.suedeai.ai's; `/about` passes through to its own real route; and
+ * strumly.suedeai.ai's; `/about` and the reference pages listed in
+ * lib/guitar-services-pages.ts pass through to their own real routes; and
  * every other path rewrites to a dedicated 404 response so stale or mistyped
  * URLs cannot be mistaken for a migrated guide.
  *
@@ -51,9 +54,10 @@ export function middleware(request: NextRequest) {
     if (request.nextUrl.pathname === '/guitar-services-social-card.webp') {
       return NextResponse.next();
     }
-    if (request.nextUrl.pathname === '/about') {
-      // Real local route (app/about/page.tsx) — let it through instead of
-      // falling into the catch-all 404 below.
+    if (PASS_THROUGH_PATHS.has(request.nextUrl.pathname)) {
+      // Real local routes (app/about/page.tsx and the reference pages): let
+      // them through instead of falling into the catch-all 404 below. Exact
+      // matches only, so /about/anything still 404s.
       return NextResponse.next();
     }
     if (request.nextUrl.pathname === '/guitar-services-not-found') {

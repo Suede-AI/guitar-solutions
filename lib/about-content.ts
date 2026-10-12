@@ -8,6 +8,13 @@ import { JASON_PERSON_ID } from '@/lib/site-identity';
 // to strumly.suedeai.ai/guides, but the apex guitar.solutions returns 200 and
 // is self-canonical (it serves The Signal Chain). The answers below say only
 // that guides.guitar.solutions redirects — never that guitar.solutions does.
+//
+// Re-checked live 2026-10-11: the apex is still 200 and self-canonical. Its
+// page says the reference and the book's field notes "now live inside
+// Strumly", and the book's listing is https://strumly.suedeai.ai/book. Strumly's
+// /streak is "tracked on this device, no sign-up required" and /rig "saves in
+// your browser, no sign-up". guitar.services serves the pages listed in
+// lib/guitar-services-pages.ts.
 
 export interface FaqItem {
   q: string;
@@ -29,11 +36,11 @@ export const FAQ: FaqItem[] = [
   },
   {
     q: 'Where did the engineering-grade signal chain guides go?',
-    a: 'They used to live at guides.guitar.solutions. They have since moved into Strumly’s guide library at strumly.suedeai.ai/guides, alongside practice-methodology and rights & IP guides, so the long-form guitar writing lives in one place. guides.guitar.solutions now redirects there; guitar.solutions itself remains the home of The Signal Chain, the book.',
+    a: 'They used to live at guides.guitar.solutions. They have since moved into Strumly’s guide library at strumly.suedeai.ai/guides, alongside practice-methodology and rights & IP guides, so the long-form guitar writing lives in one place. guides.guitar.solutions now redirects there. The Signal Chain, the book, also started at guitar.solutions; its listing is now at strumly.suedeai.ai/book.',
   },
   {
     q: 'What is the difference between guitar.solutions and guitar.services?',
-    a: 'guitar.solutions is the home of The Signal Chain, the book. guitar.services is this directory: a single page linking every surface Jason has published, books included.',
+    a: 'guitar.solutions is where The Signal Chain and the engineering-grade reference started; both now live inside Strumly, and the book’s listing is at strumly.suedeai.ai/book. guitar.services is this directory: a home page linking every surface Jason has published, four reference pages that summarize the book’s contents, the signal chain guides, the chord and scale library, and the practice tools, and this about page.',
   },
   {
     q: 'Is guitar.services affiliated with Suede AI?',
@@ -41,7 +48,7 @@ export const FAQ: FaqItem[] = [
   },
   {
     q: 'Do I need an account to read the guides?',
-    a: 'No. The guides are plain reference pages, with no login required. Strumly’s interactive tools (streaks, saved rigs) do use an account, but reading the guides does not.',
+    a: 'No. The guides are plain reference pages, with no login required. Strumly’s practice streak and rig builder need no sign-up either: the streak is tracked on your device, and the rig saves in your browser.',
   },
 ];
 

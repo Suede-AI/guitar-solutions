@@ -21,13 +21,15 @@ export const SURFACES: Surface[] = [
   {
     name: 'The Guitar Without a Number',
     kind: 'Book',
-    url: 'https://guitar.solutions/catalog.html',
+    // guitar.solutions/catalog.html 308s here; link the destination directly.
+    url: 'https://strumly.suedeai.ai/book/catalog',
     desc: 'Memoir-driven instruction for the self-taught guitarist, with theory, tone, artist songbooks, and a chapter on owning the rights to your music.',
   },
   {
     name: 'Signal Chain Guides',
     kind: 'Reference',
-    url: 'https://guides.guitar.solutions',
+    // guides.guitar.solutions 308s here; link the destination directly.
+    url: 'https://strumly.suedeai.ai/guides',
     desc: 'Engineering-grade reference for guitar signal chains: impedance, gain staging, power, and effects topology.',
   },
   {

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { keywordsFor } from '@/lib/keywords';
 import { GUITAR_SERVICES_OG_IMAGE, GUITAR_SERVICES_TWITTER_IMAGES } from '@/lib/seo';
 import { SURFACES, guitarServicesSchema } from '@/lib/guitar-services-content';
+import { HOME_PAGE, REFERENCE_PAGES } from '@/lib/guitar-services-pages';
+import { GuitarServicesNav } from '@/components/GuitarServicesNav';
 
 export const metadata: Metadata = {
   title: { absolute: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro' },
@@ -36,6 +38,7 @@ export default function GuitarServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(guitarServicesSchema) }}
       />
+      <GuitarServicesNav current={HOME_PAGE.path} />
       <header className="mb-14 max-w-2xl">
         <p className="mb-4 font-mono text-xs uppercase tracking-widest opacity-60">
           guitar.services · a Suede AI surface
@@ -64,6 +67,30 @@ export default function GuitarServicesPage() {
                 </p>
                 <h2 className="mb-2 text-lg font-semibold">{s.name}</h2>
                 <p className="text-sm leading-relaxed opacity-70">{s.desc}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section aria-labelledby="reference-heading" className="mt-14">
+        <h2 id="reference-heading" className="mb-2 text-2xl font-semibold">
+          Go deeper on guitar.services
+        </h2>
+        <p className="mb-6 max-w-2xl text-base leading-relaxed opacity-70">
+          Four reference pages open up what the cards above point to: the book&rsquo;s contents,
+          the eight signal chain guides, every chord and scale in the library, and the practice
+          tools with what each one does.
+        </p>
+        <ul className="grid grid-cols-1 gap-5 md:grid-cols-2">
+          {REFERENCE_PAGES.map((page) => (
+            <li key={page.path}>
+              <a
+                href={page.path}
+                className="block h-full rounded-lg border border-current/15 p-5 transition-opacity hover:opacity-80"
+              >
+                <h3 className="mb-2 text-lg font-semibold">{page.navLabel}</h3>
+                <p className="text-sm leading-relaxed opacity-70">{page.description}</p>
               </a>
             </li>
           ))}
