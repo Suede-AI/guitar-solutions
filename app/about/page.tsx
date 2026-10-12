@@ -12,17 +12,15 @@ import {
 import { GuitarServicesNav } from '@/components/GuitarServicesNav';
 
 export const metadata: Metadata = {
-  title: { absolute: 'About guitar.services' },
-  description:
-    'What guitar.services is, how it is put together, and where the engineering-grade signal chain guides live now.',
+  title: { absolute: ABOUT_PAGE.title },
+  description: ABOUT_PAGE.description,
   keywords: keywordsFor('about'),
   alternates: {
     canonical: 'https://guitar.services/about',
   },
   openGraph: {
-    title: 'About guitar.services',
-    description:
-      'What guitar.services is, how it is put together, and where the engineering-grade signal chain guides live now.',
+    title: ABOUT_PAGE.title,
+    description: ABOUT_PAGE.description,
     url: 'https://guitar.services/about',
     siteName: 'Guitar Services',
     type: 'website',
@@ -30,9 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About guitar.services',
-    description:
-      'What guitar.services is, how it is put together, and where the engineering-grade signal chain guides live now.',
+    title: ABOUT_PAGE.title,
+    description: ABOUT_PAGE.description,
     images: GUITAR_SERVICES_TWITTER_IMAGES,
   },
 };

@@ -69,7 +69,7 @@ function identityNodes(value: unknown, out: JsonLdNode[] = []): JsonLdNode[] {
   } else if (value && typeof value === 'object') {
     const node = value as Record<string, unknown>;
     const type = node['@type'];
-    if ((type === 'WebSite' || type === 'WebPage') && typeof node['@id'] === 'string') {
+    if ((type === 'WebSite' || type === 'WebPage' || type === 'AboutPage') && typeof node['@id'] === 'string') {
       out.push(node);
     }
     Object.values(node).forEach((v) => identityNodes(v, out));

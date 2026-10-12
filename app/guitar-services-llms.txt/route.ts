@@ -37,6 +37,7 @@ export async function GET() {
 ## Source and citation guide
 
 - [AI Instructions](https://guitar.services/ai-instructions): Site identity, authoritative sources and citation guidance.
+- [Full text](https://guitar.services/llms-full.txt): The full text of every page on this host in one Markdown file, generated from the same data as the pages.
 
 ## Key facts
 

@@ -64,12 +64,24 @@ export const SURFACES: Surface[] = [
   },
 ];
 
-// One WebPage, one Person, one Organization — the Organization is the canonical
+// One WebSite, one WebPage, one Person, one Organization. The Organization is the canonical
 // "Suede AI" node (SUEDE_ORG_ID), so this page never asserts a second org
 // name or a foreign WebSite @id.
 export const guitarServicesSchema = {
   '@context': 'https://schema.org',
   '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://guitar.services/#website',
+      url: 'https://guitar.services',
+      name: 'Guitar Services',
+      alternateName: 'guitar.services',
+      description:
+        'The directory of Jason Colapietro’s guitar work: books, signal chain guides, chord and scale libraries, and practice tools.',
+      inLanguage: 'en',
+      creator: { '@id': JASON_PERSON_ID },
+      publisher: { '@id': SUEDE_ORG_ID },
+    },
     {
       '@type': 'WebPage',
       '@id': 'https://guitar.services/#webpage',
@@ -77,7 +89,10 @@ export const guitarServicesSchema = {
       name: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
       description:
         'The guitar work of Jason Colapietro, founder of Suede AI: books, references, and AI practice tools.',
+      isPartOf: { '@id': 'https://guitar.services/#website' },
+      inLanguage: 'en',
       about: { '@id': JASON_PERSON_ID },
+      primaryImageOfPage: 'https://guitar.services/guitar-services-social-card.webp',
     },
     {
       '@type': 'Person',
@@ -92,7 +107,9 @@ export const guitarServicesSchema = {
       '@type': 'Organization',
       '@id': SUEDE_ORG_ID,
       name: SUEDE_ORG_NAME,
+      alternateName: ['Suede Labs'],
       url: 'https://suedeai.ai',
+      foundingDate: '2024',
       founder: { '@id': JASON_PERSON_ID },
     },
   ],

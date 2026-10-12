@@ -3,6 +3,9 @@ import type { NextRequest } from 'next/server';
 
 import { PASS_THROUGH_PATHS } from './lib/guitar-services-pages';
 
+/** IndexNow key shared across the Suede AI estate; public/<key>.txt holds it. */
+export const INDEXNOW_KEY = '4c265a375effa42521f5b88bb3c28501';
+
 /**
  * guitar.services gets its own landing page instead of mirroring the guides
  * site. `/` rewrites to the dedicated page; `/sitemap.xml`, `/robots.txt` and
@@ -50,6 +53,13 @@ export function middleware(request: NextRequest) {
     }
     if (request.nextUrl.pathname === '/llms.txt') {
       return NextResponse.rewrite(new URL('/guitar-services-llms.txt', request.url));
+    }
+    if (request.nextUrl.pathname === '/llms-full.txt') {
+      return NextResponse.rewrite(new URL('/guitar-services-llms-full.txt', request.url));
+    }
+    if (request.nextUrl.pathname === `/${INDEXNOW_KEY}.txt`) {
+      // The IndexNow key file in public/, served as-is on this host.
+      return NextResponse.next();
     }
     if (request.nextUrl.pathname === '/guitar-services-social-card.webp') {
       return NextResponse.next();

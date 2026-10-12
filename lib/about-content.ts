@@ -1,3 +1,4 @@
+import { ABOUT_PAGE, GUITAR_SERVICES_ORIGIN, WEBSITE_ID } from '@/lib/guitar-services-pages';
 import { JASON_PERSON_ID } from '@/lib/site-identity';
 
 // Data for the guitar.services /about page, kept out of the page module so it
@@ -56,14 +57,22 @@ export const aboutSchema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'WebPage',
+      '@type': 'AboutPage',
       '@id': 'https://guitar.services/about#webpage',
       url: 'https://guitar.services/about',
-      name: 'About guitar.services',
-      description:
-        'What guitar.services is, how it is put together, and where the engineering-grade signal chain guides live now.',
+      name: ABOUT_PAGE.title,
+      description: ABOUT_PAGE.description,
       about: { '@id': JASON_PERSON_ID },
-      isPartOf: { '@id': 'https://guitar.services/#webpage' },
+      isPartOf: { '@id': WEBSITE_ID },
+      inLanguage: 'en',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://guitar.services/about#breadcrumb',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Guitar Services', item: GUITAR_SERVICES_ORIGIN },
+        { '@type': 'ListItem', position: 2, name: ABOUT_PAGE.navLabel, item: 'https://guitar.services/about' },
+      ],
     },
     {
       '@type': 'FAQPage',

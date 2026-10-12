@@ -29,17 +29,17 @@ export const HOME_PAGE: GuitarServicesPage = {
   title: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
   description:
     'The guitar work of Jason Colapietro, founder of Suede AI: two published books, a signal chain reference, chord and scale libraries, and AI practice tools.',
-  lastmod: '2026-10-11',
+  lastmod: '2026-10-12',
   priority: 1.0,
 };
 
 export const ABOUT_PAGE: GuitarServicesPage = {
   path: '/about',
   navLabel: 'About',
-  title: 'About guitar.services',
+  title: "About guitar.services: Jason Colapietro's Guitar Directory",
   description:
-    'What guitar.services is, how it is put together, and where the engineering-grade signal chain guides live now.',
-  lastmod: '2026-10-11',
+    "What guitar.services is, how Jason Colapietro's guitar directory is put together, and where the engineering-grade signal chain guides live now.",
+  lastmod: '2026-10-12',
   priority: 0.6,
 };
 
@@ -109,6 +109,32 @@ export function canonicalUrl(page: GuitarServicesPage): string {
 }
 
 /**
+ * The sitemap <loc> for a page. The home page is listed with its trailing
+ * slash, the form every relative link to "/" resolves to, so a crawler that
+ * compares linked URLs with sitemap URLs as strings sees the same address. For
+ * an origin the two spellings are one URL.
+ */
+export function sitemapLoc(page: GuitarServicesPage): string {
+  return page.path === '/' ? `${GUITAR_SERVICES_ORIGIN}/` : canonicalUrl(page);
+}
+
+/**
+ * Static pages served from public/ on this host that are indexable but are not
+ * React routes: the source and citation guide. They go in the host sitemap
+ * after the routed pages.
+ */
+export const STATIC_PAGES: readonly { path: string; title: string; lastmod: string; priority: number }[] = [
+  {
+    path: '/ai-instructions',
+    title: 'AI Instructions | Guitar Services',
+    lastmod: '2026-10-12',
+    priority: 0.3,
+  },
+];
+
+export const WEBSITE_ID = `${GUITAR_SERVICES_ORIGIN}/#website`;
+
+/**
  * JSON-LD for a reference page: one WebPage keyed to guitar.services, part of
  * the home page's WebPage, plus a breadcrumb back to home. It defines no
  * Person or Organization; the home page owns those.
@@ -127,7 +153,8 @@ export function referencePageSchema(
         url,
         name: page.title,
         description: page.description,
-        isPartOf: { '@id': `${GUITAR_SERVICES_ORIGIN}/#webpage` },
+        isPartOf: { '@id': WEBSITE_ID },
+        inLanguage: 'en',
         ...extra,
       },
       {

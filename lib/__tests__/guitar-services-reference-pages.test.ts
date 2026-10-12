@@ -9,6 +9,7 @@ import { NextRequest } from 'next/server';
 
 import { GET as llmsResponse } from '../../app/guitar-services-llms.txt/route';
 import { GET as sitemapResponse } from '../../app/guitar-services-sitemap.xml/route';
+import { GET as llmsFullResponse } from '../../app/guitar-services-llms-full.txt/route';
 import { middleware } from '../../middleware';
 import nextConfig from '../../next.config.mjs';
 import { BOOK_FACTS, BOOK_PARTS, EXPANDED_WORKBOOK } from '../signal-chain-book';
@@ -17,8 +18,10 @@ import {
   GUITAR_SERVICES_ORIGIN,
   GUITAR_SERVICES_PAGES,
   REFERENCE_PAGES,
+  STATIC_PAGES,
   canonicalUrl,
   referencePageSchema,
+  sitemapLoc,
   type GuitarServicesPage,
 } from '../guitar-services-pages';
 import { GUIDE_GROUPS, GUIDE_SUMMARIES, strumlyGuideUrl } from '../signal-chain-guides';
@@ -165,7 +168,33 @@ describe('host sitemap and llms.txt', () => {
   it('lists every page exactly once, and nothing else', async () => {
     const xml = await sitemapResponse().then((r) => r.text());
     const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-    expect(locs).toEqual(GUITAR_SERVICES_PAGES.map(canonicalUrl));
+    // Routed pages first (home with its trailing slash, the form links to "/"
+    // resolve to), then the static AI instructions page from public/.
+    expect(locs).toEqual([
+      ...GUITAR_SERVICES_PAGES.map(sitemapLoc),
+      ...STATIC_PAGES.map((p) => `${GUITAR_SERVICES_ORIGIN}${p.path}`),
+    ]);
+    expect(locs[0]).toBe(`${GUITAR_SERVICES_ORIGIN}/`);
+    expect(new Set(locs).size).toBe(locs.length);
+  });
+
+  it('links the full-text file from llms.txt', async () => {
+    const body = await llmsResponse().then((r) => r.text());
+    expect(body).toContain('(https://guitar.services/llms-full.txt)');
+  });
+
+  it('carries the text of every page in llms-full.txt', async () => {
+    const body = await llmsFullResponse().then((r) => r.text());
+    expect(body.startsWith('# guitar.services')).toBe(true);
+    for (const page of GUITAR_SERVICES_PAGES) {
+      expect(body).toContain(`URL: ${canonicalUrl(page)}`);
+      expect(body).toContain(page.description);
+    }
+    for (const guide of GUIDE_SUMMARIES) expect(body).toContain(guide.summary);
+    for (const item of FAQ) expect(body).toContain(item.a);
+    for (const chord of LIBRARY_CHORDS) expect(body).toContain(chord.url);
+    expect(body).not.toContain('\u2014');
+    expect(body.length).toBeLessThan(500_000);
   });
 
   it('names every page in llms.txt', async () => {
