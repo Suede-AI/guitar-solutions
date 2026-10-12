@@ -49,6 +49,17 @@ nav are all generated from it. Every other unmatched path returns a true
 live source pages, with the date they were read; refresh them from the
 source, not by hand.
 
+The catalog wording is shared in `lib/guitar-catalog.ts`: The Guitar Without
+a Number is publication history incorporated into The Signal Chain. The
+broader seven-book bibliography links to the founder's current books section;
+it is not a count of guitar books. The current book links directly to its
+Strumly listing, while the earlier title links to the Strumly catalog history.
+
+After editing `public/guitar-services-social-card.svg`, run
+`pnpm build:social-card` and commit the generated WebP. The catalog consistency
+test checks its dimensions and embedded SVG source digest to catch stale share
+card exports. The generator uses Sharp, already installed by Next.js.
+
 Config redirects run **before** middleware. The `/`, `/sitemap.xml`, and
 `/:path*` redirect entries carry a `missing` host condition so they skip
 guitar.services; remove those conditions and the middleware silently becomes

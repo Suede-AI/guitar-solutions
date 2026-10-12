@@ -1,4 +1,7 @@
 import { JASON_PERSON_ID, SUEDE_ORG_ID, SUEDE_ORG_NAME } from '@/lib/site-identity';
+import { BOOK_LINEAGE } from '@/lib/guitar-catalog';
+import { HOME_PAGE } from '@/lib/guitar-services-pages';
+import { BOOK_CATALOG_URL, BOOK_LISTING_URL } from '@/lib/signal-chain-book';
 
 // Data for the guitar.services landing page, kept out of the page module so it
 // can be imported by tests. (Next.js pages may only export a fixed set of
@@ -15,15 +18,15 @@ export const SURFACES: Surface[] = [
   {
     name: 'The Signal Chain',
     kind: 'Book',
-    url: 'https://guitar.solutions',
+    url: BOOK_LISTING_URL,
     desc: 'A life in six strings. Guitar tone, memoir, and method, built around the electric guitar signal chain.',
   },
   {
     name: 'The Guitar Without a Number',
-    kind: 'Book',
+    kind: 'Publication history',
     // guitar.solutions/catalog.html 308s here; link the destination directly.
-    url: 'https://strumly.suedeai.ai/book/catalog',
-    desc: 'Memoir-driven instruction for the self-taught guitarist, with theory, tone, artist songbooks, and a chapter on owning the rights to your music.',
+    url: BOOK_CATALOG_URL,
+    desc: `${BOOK_LINEAGE} Read the history in Jason’s Strumly catalog.`,
   },
   {
     name: 'Signal Chain Guides',
@@ -77,7 +80,7 @@ export const guitarServicesSchema = {
       name: 'Guitar Services',
       alternateName: 'guitar.services',
       description:
-        'The directory of Jason Colapietro’s guitar work: books, signal chain guides, chord and scale libraries, and practice tools.',
+        'The directory of Jason Colapietro’s guitar work: The Signal Chain, its publication history, signal chain guides, chord and scale libraries, and practice tools.',
       inLanguage: 'en',
       creator: { '@id': JASON_PERSON_ID },
       publisher: { '@id': SUEDE_ORG_ID },
@@ -87,8 +90,7 @@ export const guitarServicesSchema = {
       '@id': 'https://guitar.services/#webpage',
       url: 'https://guitar.services',
       name: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
-      description:
-        'The guitar work of Jason Colapietro, founder of Suede AI: books, references, and AI practice tools.',
+      description: HOME_PAGE.description,
       isPartOf: { '@id': 'https://guitar.services/#website' },
       inLanguage: 'en',
       about: { '@id': JASON_PERSON_ID },

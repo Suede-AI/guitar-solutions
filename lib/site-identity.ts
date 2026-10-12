@@ -1,3 +1,5 @@
+import { BOOK_LISTING_URL } from '@/lib/signal-chain-book';
+
 // Host-aware site identity for this multi-tenant deployment.
 //
 // One Next.js app serves two very different properties from the same code:
@@ -94,7 +96,7 @@ const GUIDES_JSON_LD: Record<string, unknown> = {
       author: { '@id': JASON_PERSON_ID },
       description:
         'A footnoted, engineering-grade reference for guitar signal chains — from pickup output through speaker excursion.',
-      url: 'https://guitar.solutions',
+      url: BOOK_LISTING_URL,
       publisher: { '@id': SUEDE_ORG_ID },
       mentions: { '@id': 'https://strumly.suedeai.ai/#software' },
     },

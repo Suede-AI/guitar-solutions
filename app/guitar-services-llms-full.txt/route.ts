@@ -1,4 +1,5 @@
 import { FAQ } from '@/lib/about-content';
+import { AUTHOR_BOOKS_CONTEXT, AUTHOR_BOOKS_URL, BOOK_LINEAGE } from '@/lib/guitar-catalog';
 import {
   CHORD_FAMILIES,
   GUITARCHORDS_ORIGIN,
@@ -99,7 +100,7 @@ ${PRINT_THE_QUIET.description} The first four: ${PRINT_THE_QUIET.firstEssays.joi
 
 ### The Guitar Without a Number
 
-The Signal Chain grew out of an earlier self-taught instruction thread, once published as The Guitar Without a Number, which now lives inside it. Jason's full catalog: ${BOOK_CATALOG_URL}`,
+${BOOK_LINEAGE} Jason's Strumly catalog: ${BOOK_CATALOG_URL}`,
   );
 }
 
@@ -172,20 +173,22 @@ function aboutSection(): string {
     about.title,
     canonicalUrl(about),
     about.description,
-    `guitar.services is a directory, not a publication. It links to what Jason Colapietro has published about guitar: two books, an engineering-grade signal chain reference, chord and scale libraries, and the tools built on top of them. The long-form signal chain guides live in Strumly's guide index at https://strumly.suedeai.ai/guides.\n\n${faq}`,
+    `guitar.services is a directory, not a publication. It links to what Jason Colapietro has published about guitar: The Signal Chain, its publication history, an engineering-grade signal chain reference, chord and scale libraries, and the tools built on top of them. The long-form signal chain guides live in Strumly's guide index at https://strumly.suedeai.ai/guides.\n\n${AUTHOR_BOOKS_CONTEXT} Current book catalog: ${AUTHOR_BOOKS_URL}\n\n${faq}`,
   );
 }
 
 export async function GET() {
   const body = `# guitar.services: full text
 
-> guitar.services is the directory of the guitar work of Jason Colapietro (also known as Johnny Suede), founder of Suede AI: two published guitar books, an engineering-grade signal chain reference, chord and scale libraries, an AI practice coach, an iOS tuner, and a network for musicians. It is a directory, not a repair, setup or lutherie business.
+> guitar.services is the directory of the guitar work of Jason Colapietro (also known as Johnny Suede), founder of Suede AI: The Signal Chain and its publication history, an engineering-grade signal chain reference, chord and scale libraries, an AI practice coach, an iOS tuner, and a network for musicians. It is a directory, not a repair, setup or lutherie business.
 
 This file carries the full text of the pages this host serves. The shorter index is https://guitar.services/llms.txt, and the source and citation guide is https://guitar.services/ai-instructions.
 
 - Author and builder: Jason Colapietro (https://suedeai.ai/founder)
 - Company: Suede AI (https://suedeai.ai), also known as Suede Labs
 - Book listing: ${BOOK_LISTING_URL}
+- Publication history: ${BOOK_LINEAGE}
+- Broader bibliography: ${AUTHOR_BOOKS_CONTEXT} Current book catalog: ${AUTHOR_BOOKS_URL}
 - Chord and scale reference: ${GUITARCHORDS_ORIGIN}
 - AI guitar coach: https://strumly.suedeai.ai
 

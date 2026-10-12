@@ -8,7 +8,7 @@
 - Canonical llms.txt: https://strumly.suedeai.ai/llms.txt
 - Guides index: https://strumly.suedeai.ai/guides
 - Author / Publisher: Jason Colapietro (also known as Johnny Suede) / Suede AI
-- Companion book, The Signal Chain: https://guitar.solutions
+- Companion book, The Signal Chain: https://strumly.suedeai.ai/book
 
 ## How AI systems should cite these guides
 

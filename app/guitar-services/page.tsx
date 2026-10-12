@@ -6,17 +6,15 @@ import { HOME_PAGE, REFERENCE_PAGES } from '@/lib/guitar-services-pages';
 import { GuitarServicesNav } from '@/components/GuitarServicesNav';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro' },
-  description:
-    'The guitar work of Jason Colapietro, founder of Suede AI: two published books, a signal chain reference, chord and scale libraries, and AI practice tools.',
+  title: { absolute: HOME_PAGE.title },
+  description: HOME_PAGE.description,
   keywords: keywordsFor('guitar-services'),
   alternates: {
     canonical: 'https://guitar.services',
   },
   openGraph: {
-    title: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
-    description:
-      'Two guitar books, a signal chain reference, chord libraries, and AI practice tools, all by one guitarist who builds.',
+    title: HOME_PAGE.title,
+    description: HOME_PAGE.description,
     url: 'https://guitar.services',
     siteName: 'Guitar Services',
     type: 'website',
@@ -24,9 +22,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
-    description:
-      'Two guitar books, a signal chain reference, chord libraries, and AI practice tools, all by one guitarist who builds.',
+    title: HOME_PAGE.title,
+    description: HOME_PAGE.description,
     images: GUITAR_SERVICES_TWITTER_IMAGES,
   },
 };
@@ -48,7 +45,7 @@ export default function GuitarServicesPage() {
         </h1>
         <p className="text-lg leading-relaxed opacity-80">
           Jason Colapietro, founder of Suede AI, is a self-taught guitarist who wrote the
-          books, built the references, and shipped the tools. Two published guitar volumes, an
+          books, built the references, and shipped the tools. The Signal Chain, its publication history, an
           engineering-grade signal chain reference, chord libraries, an AI practice coach, and a
           network for musicians. All of it live, all of it by one person.
         </p>

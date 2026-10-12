@@ -1,5 +1,7 @@
 import { ABOUT_PAGE, GUITAR_SERVICES_ORIGIN, WEBSITE_ID } from '@/lib/guitar-services-pages';
 import { JASON_PERSON_ID } from '@/lib/site-identity';
+import { BOOK_LINEAGE } from '@/lib/guitar-catalog';
+import { BOOK_CATALOG_URL, BOOK_LISTING_URL } from '@/lib/signal-chain-book';
 
 // Data for the guitar.services /about page, kept out of the page module so it
 // can be imported by tests. (Next.js pages may only export a fixed set of
@@ -25,11 +27,15 @@ export interface FaqItem {
 export const FAQ: FaqItem[] = [
   {
     q: 'Is guitar.services free?',
-    a: 'The signal chain guides, the chord and scale references, and Strumly’s practice toolkit (tuner, metronome, ear training) are free to use. The two books are separate paid publications, sold through their own retail listings. This directory points to them.',
+    a: `The signal chain guides, the chord and scale references, and Strumly’s practice toolkit (tuner, metronome, ear training) are free to use. The Signal Chain’s complete edition is a paid book; its listing is at ${BOOK_LISTING_URL}. The four sample lessons and Print the Quiet essays are free to read.`,
+  },
+  {
+    q: 'How does The Guitar Without a Number relate to The Signal Chain?',
+    a: `${BOOK_LINEAGE} The publication history is at ${BOOK_CATALOG_URL}.`,
   },
   {
     q: 'Who writes the guides?',
-    a: 'Jason Colapietro, founder of Suede AI. He is a self-taught guitarist and the author of both books linked from this page; the guides are his writing, not aggregated or crowdsourced.',
+    a: 'Jason Colapietro, founder of Suede AI. He is a self-taught guitarist and the author of The Signal Chain; the guides are his writing, not aggregated or crowdsourced.',
   },
   {
     q: 'How is this directory curated?',

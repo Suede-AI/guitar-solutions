@@ -28,7 +28,7 @@ export const HOME_PAGE: GuitarServicesPage = {
   navLabel: 'Home',
   title: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
   description:
-    'The guitar work of Jason Colapietro, founder of Suede AI: two published books, a signal chain reference, chord and scale libraries, and AI practice tools.',
+    'The guitar work of Jason Colapietro: The Signal Chain, signal chain guides, chord and scale libraries, and AI practice tools from Suede AI.',
   lastmod: '2026-10-12',
   priority: 1.0,
 };
