@@ -11,19 +11,19 @@ import { resolveSiteIdentity } from '@/lib/site-identity';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'guides.guitar.solutions — Technical Reference for Guitar Signal Chains',
+    default: 'Guitar Signal Chain Reference | guides.guitar.solutions',
     template: '%s | guides.guitar.solutions',
   },
   description:
-    'Engineering-grade reference for guitar signal chains — pickup output through speaker excursion. Signal topology, impedance, gain staging, and gear pairing by Suede Labs.',
+    'Engineering-grade reference for guitar signal chains, from pickup output to speaker excursion: topology, impedance, gain staging and gear pairing by Suede AI.',
   keywords: keywordsFor('default'),
   authors: [{ name: 'Jason Colapietro', url: 'https://suedeai.ai/founder' }],
   creator: 'Jason Colapietro',
   publisher: 'Suede AI',
   openGraph: {
-    title: 'guides.guitar.solutions — Technical Reference for Guitar Signal Chains',
+    title: 'Guitar Signal Chain Reference | guides.guitar.solutions',
     description:
-      'Engineering-grade reference for guitar signal chains — pickup output through speaker excursion. Signal topology, impedance, gain staging, and gear pairing by Suede Labs.',
+      'Engineering-grade reference for guitar signal chains, from pickup output to speaker excursion: topology, impedance, gain staging and gear pairing by Suede AI.',
     url: 'https://guides.guitar.solutions',
     siteName: 'guides.guitar.solutions',
     type: 'website',
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@AISUEDE',
     creator: '@johnnysuede',
-    title: 'guides.guitar.solutions — Technical Reference for Guitar Signal Chains',
+    title: 'Guitar Signal Chain Reference | guides.guitar.solutions',
     description:
-      'Engineering-grade reference for guitar signal chains — pickup output through speaker excursion. Signal topology, impedance, gain staging, and gear pairing by Suede Labs.',
+      'Engineering-grade reference for guitar signal chains, from pickup output to speaker excursion: topology, impedance, gain staging and gear pairing by Suede AI.',
     images: SITE_TWITTER_IMAGES,
   },
   robots: {

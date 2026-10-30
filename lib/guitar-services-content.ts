@@ -86,7 +86,7 @@ export const guitarServicesSchema = {
       '@type': 'WebPage',
       '@id': 'https://guitar.services/#webpage',
       url: 'https://guitar.services',
-      name: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
+      name: 'Guitar Books, Guides and Practice Tools | Guitar Services',
       description:
         'The guitar work of Jason Colapietro, founder of Suede AI: books, references, and AI practice tools.',
       isPartOf: { '@id': 'https://guitar.services/#website' },
