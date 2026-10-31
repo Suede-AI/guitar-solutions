@@ -47,7 +47,7 @@ export default function AboutPage() {
           guitar.services · about this directory
         </p>
         <h1 className="mb-5 text-4xl font-bold leading-tight md:text-5xl">
-          One guitarist&rsquo;s work, indexed in one place.
+          About Guitar Services, Jason Colapietro&rsquo;s guitar directory
         </h1>
         <p className="text-lg leading-relaxed opacity-80">
           guitar.services is a directory, not a publication. It links to everything Jason

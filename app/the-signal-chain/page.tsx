@@ -66,7 +66,7 @@ export default function SignalChainContentsPage() {
           guitar.services · contents summary
         </p>
         <h1 className="mb-5 text-4xl font-bold leading-tight md:text-5xl">
-          Inside The Signal Chain
+          The Signal Chain book: contents and four free sample lessons
         </h1>
         <p className="mb-4 text-lg leading-relaxed opacity-80">
           What is in Jason Colapietro&rsquo;s book, part by part, summarized from its listing on

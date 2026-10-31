@@ -13,7 +13,7 @@ export const GUITAR_SERVICES_OG_IMAGE = {
   url: 'https://guitar.services/guitar-services-social-card.webp',
   width: 1200,
   height: 630,
-  alt: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
+  alt: 'Guitar books, guides and practice tools by Jason Colapietro',
 };
 
 export const GUITAR_SERVICES_TWITTER_IMAGES = [GUITAR_SERVICES_OG_IMAGE.url];

@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'guides.guitar.solutions - Technical Reference for Guitar Signal Chains';
+export const alt = 'Guitar Signal Chain Reference | guides.guitar.solutions';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 

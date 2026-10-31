@@ -6,15 +6,14 @@ import { HOME_PAGE, REFERENCE_PAGES } from '@/lib/guitar-services-pages';
 import { GuitarServicesNav } from '@/components/GuitarServicesNav';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro' },
-  description:
-    'The guitar work of Jason Colapietro, founder of Suede AI: two published books, a signal chain reference, chord and scale libraries, and AI practice tools.',
+  title: { absolute: HOME_PAGE.title },
+  description: HOME_PAGE.description,
   keywords: keywordsFor('guitar-services'),
   alternates: {
     canonical: 'https://guitar.services',
   },
   openGraph: {
-    title: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
+    title: HOME_PAGE.title,
     description:
       'Two guitar books, a signal chain reference, chord libraries, and AI practice tools, all by one guitarist who builds.',
     url: 'https://guitar.services',
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
+    title: HOME_PAGE.title,
     description:
       'Two guitar books, a signal chain reference, chord libraries, and AI practice tools, all by one guitarist who builds.',
     images: GUITAR_SERVICES_TWITTER_IMAGES,
@@ -44,7 +43,7 @@ export default function GuitarServicesPage() {
           guitar.services · a Suede AI surface
         </p>
         <h1 className="mb-5 text-4xl font-bold leading-tight md:text-5xl">
-          Everything the guitar taught one builder, in one place.
+          Guitar books, guides and practice tools by Jason Colapietro
         </h1>
         <p className="text-lg leading-relaxed opacity-80">
           Jason Colapietro, founder of Suede AI, is a self-taught guitarist who wrote the

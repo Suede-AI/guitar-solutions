@@ -53,7 +53,7 @@ export default function PracticeToolsPage() {
           guitar.services · practice tools
         </p>
         <h1 className="mb-5 text-4xl font-bold leading-tight md:text-5xl">
-          An AI coach, a tuner, and a practice plan, all free to start.
+          AI guitar practice tools: a coach, tuners and trainers
         </h1>
         <p className="text-lg leading-relaxed opacity-80">
           Suede AI builds guitar practice tools at three levels: a coach that listens and

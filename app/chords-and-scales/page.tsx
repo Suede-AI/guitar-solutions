@@ -59,7 +59,8 @@ export default function ChordsAndScalesPage() {
           guitar.services · chord and scale library
         </p>
         <h1 className="mb-5 text-4xl font-bold leading-tight md:text-5xl">
-          {LIBRARY_CHORDS.length} chords and {LIBRARY_SCALES.length} scales, on one page.
+          Guitar chord and scale library: {LIBRARY_CHORDS.length} chords and{' '}
+          {LIBRARY_SCALES.length} scales
         </h1>
         <p className="text-lg leading-relaxed opacity-80">
           This is the index to the free chord and scale reference at{' '}

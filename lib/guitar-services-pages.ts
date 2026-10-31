@@ -26,7 +26,7 @@ export interface GuitarServicesPage {
 export const HOME_PAGE: GuitarServicesPage = {
   path: '/',
   navLabel: 'Home',
-  title: 'Guitar Services: Books, Guides, and Tools by Jason Colapietro',
+  title: 'Guitar Books, Guides and Practice Tools | Guitar Services',
   description:
     'The guitar work of Jason Colapietro, founder of Suede AI: two published books, a signal chain reference, chord and scale libraries, and AI practice tools.',
   lastmod: '2026-10-12',
@@ -46,9 +46,9 @@ export const ABOUT_PAGE: GuitarServicesPage = {
 export const BOOK_PAGE: GuitarServicesPage = {
   path: '/the-signal-chain',
   navLabel: 'The Signal Chain contents',
-  title: 'The Signal Chain Contents, Summarized: 66 Chapters, 111 Workshops',
+  title: 'The Signal Chain Book: Contents and Free Sample Lessons',
   description:
-    'The contents of Jason Colapietro’s The Signal Chain, summarized from its Strumly listing: chapters and song workshops by part, and four free sample lessons.',
+    'Contents of The Signal Chain by Jason Colapietro, summarized from its Strumly listing: chapters and song workshops by part, and four free sample lessons.',
   lastmod: '2026-10-11',
   priority: 0.8,
 };
@@ -76,9 +76,9 @@ export const CHORDS_PAGE: GuitarServicesPage = {
 export const TOOLS_PAGE: GuitarServicesPage = {
   path: '/practice-tools',
   navLabel: 'Practice tools',
-  title: 'AI Guitar Practice Tools: Coach, Tuners, Trainers, and Lessons',
+  title: 'AI Guitar Practice Tools: Coach, Tuners, Trainers, Lessons',
   description:
-    'Guitar practice tools from Suede AI: the Strumly AI coach and its browser toolkit, Suede Guitar Tuner & Studio, GuitarHub lessons, and Suede Sing for voice.',
+    'Guitar practice tools from Suede AI: the Strumly AI coach and its browser toolkit, Suede Guitar Tuner & Studio, GuitarHub lessons and Suede Sing for voice.',
   lastmod: '2026-10-11',
   priority: 0.8,
 };
