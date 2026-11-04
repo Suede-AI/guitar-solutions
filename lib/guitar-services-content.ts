@@ -101,7 +101,7 @@ export const guitarServicesSchema = {
       alternateName: 'Johnny Suede',
       url: 'https://suedeai.ai/founder',
       worksFor: { '@id': SUEDE_ORG_ID },
-      sameAs: ['https://guitar.services', 'https://github.com/JasonColapietro', 'https://x.com/johnnysuede'],
+      sameAs: ['https://guitar.services', 'https://github.com/JasonColapietro', 'https://apps.apple.com/us/developer/jason-colapietro/id1895958699', 'https://x.com/johnnysuede'],
     },
     {
       '@type': 'Organization',
