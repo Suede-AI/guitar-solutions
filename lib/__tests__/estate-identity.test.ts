@@ -122,21 +122,27 @@ describe('claim 1 — guitar.services never asserts another host as its own iden
   });
 });
 
-describe('claim 2 — exactly one organization, named "Suede AI"', () => {
+describe('claim 2 — canonical Suede AI company and its legal parent', () => {
   it('SUEDE_ORG_NAME is the canonical name', () => {
     expect(SUEDE_ORG_NAME).toBe('Suede AI');
   });
 
-  it('the served guitar.services home page defines exactly one org, canonical', () => {
+  it('the served guitar.services home page names the company and legal parent', () => {
     const names = orgNames(servedHome);
-    expect(names).toEqual([SUEDE_ORG_NAME]);
+    expect(names).toEqual([SUEDE_ORG_NAME, 'JC Investment Group LLC']);
     expect(names).not.toContain('Suede Labs'); // the old conflicting name is gone
   });
 
-  it('no served surface defines an Organization named anything but "Suede AI"', () => {
+  it('served company declarations carry the confirmed facts', () => {
     for (const nodes of [servedHome, servedAbout]) {
-      for (const name of orgNames(nodes)) {
-        expect(name).toBe(SUEDE_ORG_NAME);
+      for (const name of orgNames(nodes)) expect([SUEDE_ORG_NAME, 'JC Investment Group LLC']).toContain(name);
+      for (const company of nodes.filter(node => node['@id'] === SUEDE_ORG_ID && node.name === SUEDE_ORG_NAME)) {
+        expect(company).toMatchObject({
+        alternateName: ['Suede Labs AI', 'Suede Labs', 'Suede'],
+        parentOrganization: { name: 'JC Investment Group LLC' },
+        address: { streetAddress: '138 Victorian Lane', addressLocality: 'Jupiter', postalCode: '33458' },
+        hasMerchantReturnPolicy: { merchantReturnDays: 90, refundType: 'https://schema.org/FullRefund' },
+        });
       }
     }
   });
