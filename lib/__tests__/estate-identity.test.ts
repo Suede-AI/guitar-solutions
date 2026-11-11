@@ -152,7 +152,11 @@ describe('claim 2 — exactly one organization, named "Suede AI"', () => {
     const guides = resolveSiteIdentity('guides.guitar.solutions');
     expect(guides.chrome).toBe('guides');
     const nodes = graphOf(guides.jsonLd);
-    expect(orgNames(nodes)).toEqual([SUEDE_ORG_NAME]);
+    expect(orgNames(nodes)).toEqual([SUEDE_ORG_NAME, 'JC Investment Group LLC']);
+    const company = nodes.find((node) => node['@id'] === 'https://suedeai.ai/#organization' && node.name === SUEDE_ORG_NAME);
+    expect(company?.parentOrganization?.name).toBe('JC Investment Group LLC');
+    expect(company?.address?.streetAddress).toBe('138 Victorian Lane');
+    expect(company?.hasMerchantReturnPolicy?.merchantReturnDays).toBe(90);
     const website = nodes.find((n) => n['@type'] === 'WebSite');
     expect(originOf(website?.['@id'])).toBe('https://guides.guitar.solutions');
   });
