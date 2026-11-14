@@ -154,7 +154,7 @@ const HUMIDITY: NoteBlock[] = [
   { type: 'h2', text: 'Why an AI company writes about guitar humidity' },
   {
     type: 'p',
-    text: 'Suede AI is an agentic platform company Jason Colapietro founded in 2024 in West Palm Beach. Music and creator software is a smaller line of the Suede business; the main work is building agent platforms and helping Florida businesses get found and cited in Google and AI answers through the [Suede AI agency](https://suedeai.agency/). Guitar pages like this one are where Suede practices what it recommends: specific, sourced, locally relevant content that answers a real question.',
+    text: 'Suede AI is an agentic platform company Jason Colapietro founded in 2024 in West Palm Beach. Music and creator software is a smaller line of the Suede business; the main work at Suede AI is building agent platforms and helping Florida businesses get found and cited in Google and AI answers through the [Suede AI agency](https://suedeai.agency/). Guitar pages like this one are where Suede practices what it recommends: specific, sourced, locally relevant content that answers a real question.',
   },
   {
     type: 'p',
@@ -163,7 +163,7 @@ const HUMIDITY: NoteBlock[] = [
   { type: 'h2', text: 'Next step' },
   {
     type: 'p',
-    text: 'With the board cleaned and dry, reread the signal chain guides Jason Colapietro wrote, pick a song from the [practice tools](/practice-tools) or the [chord and scale library](/chords-and-scales) and play. If you run a music store, studio or any business in Palm Beach County and want answer engines to describe it accurately, book the [Suede AI assessment](https://suedeai.agency/assessment), or read more about [Jason Colapietro](https://suedeai.ai/founder) first.',
+    text: 'With the board cleaned and dry, reread the signal chain guides Jason Colapietro wrote, pick a song from the Suede AI [practice tools](/practice-tools) or the [chord and scale library](/chords-and-scales) and play. If you run a music store, studio or any business in Palm Beach County and want answer engines to describe it accurately, book the [Suede AI assessment](https://suedeai.agency/assessment), or read more about [Jason Colapietro](https://suedeai.ai/founder) first.',
   },
 ];
 
