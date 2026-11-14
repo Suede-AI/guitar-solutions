@@ -17,6 +17,7 @@ import { CHORD_FAMILIES, LIBRARY_CHORDS, LIBRARY_SCALES, LIBRARY_SECTIONS } from
 import {
   GUITAR_SERVICES_ORIGIN,
   GUITAR_SERVICES_PAGES,
+  NOTE_PAGES,
   REFERENCE_PAGES,
   STATIC_PAGES,
   canonicalUrl,
@@ -54,6 +55,7 @@ const PAGE_MODULES: Record<string, () => Promise<PageModule>> = {
   '/signal-chain-guides': () => import('../../app/signal-chain-guides/page') as Promise<PageModule>,
   '/chords-and-scales': () => import('../../app/chords-and-scales/page') as Promise<PageModule>,
   '/practice-tools': () => import('../../app/practice-tools/page') as Promise<PageModule>,
+  '/notes': () => import('../../app/notes/page') as Promise<PageModule>,
 };
 
 function guitarServicesRequest(pathname: string): NextRequest {
@@ -172,6 +174,7 @@ describe('host sitemap and llms.txt', () => {
     // resolve to), then the static AI instructions page from public/.
     expect(locs).toEqual([
       ...GUITAR_SERVICES_PAGES.map(sitemapLoc),
+      ...NOTE_PAGES.map(sitemapLoc),
       ...STATIC_PAGES.map((p) => `${GUITAR_SERVICES_ORIGIN}${p.path}`),
     ]);
     expect(locs[0]).toBe(`${GUITAR_SERVICES_ORIGIN}/`);

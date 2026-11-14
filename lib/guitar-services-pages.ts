@@ -5,6 +5,13 @@
 // generated from it, and the shared page nav renders it. One list means a page
 // cannot be added to the nav without also reaching the sitemap, or be routed
 // without being linked.
+//
+// The notes section adds one nav entry (/notes, NOTES_PAGE) and one page per
+// note (NOTE_PAGES, built from lib/notes-index.ts). Note pages are routed,
+// listed in the sitemap and llms.txt, and linked from /notes and from every
+// other note, but stay out of the top nav so it does not grow with each note.
+
+import { NOTES, notePath } from './notes-index';
 
 export const GUITAR_SERVICES_ORIGIN = 'https://guitar.services';
 
@@ -83,6 +90,26 @@ export const TOOLS_PAGE: GuitarServicesPage = {
   priority: 0.8,
 };
 
+export const NOTES_PAGE: GuitarServicesPage = {
+  path: '/notes',
+  navLabel: 'Notes',
+  title: 'Guitar and AI Search Notes from West Palm Beach, Florida',
+  description:
+    'Notes from Jason Colapietro and Suede AI in West Palm Beach: South Florida signal chain care, AI-citable reference sites and schema for local firms.',
+  lastmod: '2026-11-14',
+  priority: 0.7,
+};
+
+/** One page per note, in publication order. Routed and listed, not in the top nav. */
+export const NOTE_PAGES: readonly GuitarServicesPage[] = NOTES.map((note) => ({
+  path: notePath(note),
+  navLabel: note.navLabel,
+  title: note.title,
+  description: note.description,
+  lastmod: note.lastmod,
+  priority: 0.6,
+}));
+
 /** The four reference pages that go one level deeper than the home page. */
 export const REFERENCE_PAGES: readonly GuitarServicesPage[] = [
   BOOK_PAGE,
@@ -95,12 +122,13 @@ export const REFERENCE_PAGES: readonly GuitarServicesPage[] = [
 export const GUITAR_SERVICES_PAGES: readonly GuitarServicesPage[] = [
   HOME_PAGE,
   ...REFERENCE_PAGES,
+  NOTES_PAGE,
   ABOUT_PAGE,
 ];
 
 /** Paths that are real local routes (everything except '/', which middleware rewrites). */
 export const PASS_THROUGH_PATHS: ReadonlySet<string> = new Set(
-  GUITAR_SERVICES_PAGES.filter((p) => p.path !== '/').map((p) => p.path),
+  [...GUITAR_SERVICES_PAGES, ...NOTE_PAGES].filter((p) => p.path !== '/').map((p) => p.path),
 );
 
 /** Canonical URL in the form the site serves it: no trailing slash, bare origin for home. */

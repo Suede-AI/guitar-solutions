@@ -1,4 +1,5 @@
 import { GUITAR_SERVICES_PAGES } from '@/lib/guitar-services-pages';
+import { SuedeNetworkFooter } from './SuedeNetworkFooter';
 
 // Footer for the guitar.services reference pages: the rest of the site, then
 // who is behind it.
@@ -31,6 +32,7 @@ export function ReferencePageFooter({ current }: { current: string }) {
         </a>{' '}
         with questions about any of it.
       </p>
+      <SuedeNetworkFooter />
     </footer>
   );
 }

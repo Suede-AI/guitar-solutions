@@ -42,6 +42,14 @@ through to their own routes:
 | `/chords-and-scales` | Index of the 39 chords and 12 scales on guitarchords.info | `lib/chord-scale-library.ts` |
 | `/practice-tools` | The Suede practice products and Strumly's toolkit | `lib/practice-tools.ts` |
 
+`/notes` and `/notes/<slug>` are the notes section: three articles by Jason
+Colapietro and Suede AI (metadata in `lib/notes-index.ts`, text in
+`lib/notes-content.ts`, BlogPosting JSON-LD in `lib/notes-schema.ts`). Notes
+are routed, listed in the sitemap, llms.txt and llms-full.txt, and linked from
+`/notes`; only `/notes` itself sits in the top nav. Every page footer carries
+the "Built by Suede AI in West Palm Beach, Florida" block
+(`components/SuedeNetworkFooter.tsx`).
+
 `lib/guitar-services-pages.ts` is the one list of pages: middleware's
 pass-through set, the host sitemap, the llms.txt page list, and the shared
 nav are all generated from it. Every other unmatched path returns a true

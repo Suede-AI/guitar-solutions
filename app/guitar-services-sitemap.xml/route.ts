@@ -1,6 +1,7 @@
 import {
   GUITAR_SERVICES_ORIGIN,
   GUITAR_SERVICES_PAGES,
+  NOTE_PAGES,
   STATIC_PAGES,
   sitemapLoc,
 } from '@/lib/guitar-services-pages';
@@ -13,7 +14,7 @@ export const runtime = 'edge';
 // routes and the nav renders, so a page cannot be served without being listed.
 export async function GET() {
   const entries = [
-    ...GUITAR_SERVICES_PAGES.map((page) => ({
+    ...[...GUITAR_SERVICES_PAGES, ...NOTE_PAGES].map((page) => ({
       loc: sitemapLoc(page),
       lastmod: page.lastmod,
       priority: page.priority,

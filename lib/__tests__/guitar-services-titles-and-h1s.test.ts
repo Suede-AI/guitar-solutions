@@ -27,6 +27,7 @@ const PAGE_MODULES: Record<string, () => Promise<PageModule>> = {
   '/signal-chain-guides': () => import('../../app/signal-chain-guides/page') as Promise<PageModule>,
   '/chords-and-scales': () => import('../../app/chords-and-scales/page') as Promise<PageModule>,
   '/practice-tools': () => import('../../app/practice-tools/page') as Promise<PageModule>,
+  '/notes': () => import('../../app/notes/page') as Promise<PageModule>,
 };
 
 const H1_TOPIC: Record<string, RegExp> = {
@@ -36,6 +37,7 @@ const H1_TOPIC: Record<string, RegExp> = {
   '/signal-chain-guides': /guitar signal chain/,
   '/chords-and-scales': /^Guitar chord and scale library: \d+ chords and \d+ scales$/,
   '/practice-tools': /^AI guitar practice tools/,
+  '/notes': /^Guitar and AI search notes/,
 };
 
 function h1s(html: string): string[] {

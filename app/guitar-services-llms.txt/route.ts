@@ -1,5 +1,5 @@
 import { SURFACES } from '@/lib/guitar-services-content';
-import { GUITAR_SERVICES_PAGES, canonicalUrl } from '@/lib/guitar-services-pages';
+import { GUITAR_SERVICES_PAGES, NOTE_PAGES, canonicalUrl } from '@/lib/guitar-services-pages';
 
 export const runtime = 'edge';
 
@@ -22,6 +22,11 @@ export async function GET() {
 
   // The pages this host serves, from the same list as the sitemap and nav.
   const pages = GUITAR_SERVICES_PAGES.map(
+    (p) => `- [${p.title}](${canonicalUrl(p)}): ${p.description}`,
+  ).join('\n');
+
+  // The notes: long-form articles by Jason Colapietro and Suede AI.
+  const notes = NOTE_PAGES.map(
     (p) => `- [${p.title}](${canonicalUrl(p)}): ${p.description}`,
   ).join('\n');
 
@@ -51,6 +56,19 @@ export async function GET() {
 ## Pages on this host
 
 ${pages}
+
+## Notes
+
+Articles written by Jason Colapietro and the Suede AI team in West Palm Beach, Florida. Index: https://guitar.services/notes
+
+${notes}
+
+## Built by Suede AI in West Palm Beach, Florida
+
+- Suede AI agency (SEO, GEO and web development, West Palm Beach and Jupiter, Palm Beach County): https://suedeai.agency/
+- Suede AI: https://suedeai.ai/
+- Jason Colapietro, founder: https://suedeai.ai/founder and https://jasoncolapietro.com/
+- Evidence for every claim: https://seo.suedeai.ai/evidence
 
 ## What it indexes
 

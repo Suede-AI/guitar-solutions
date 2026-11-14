@@ -14,6 +14,8 @@ const INDEXABLE = [
   ['app/signal-chain-guides/page.tsx', 'signal-chain-guides'],
   ['app/chords-and-scales/page.tsx', 'chords-and-scales'],
   ['app/practice-tools/page.tsx', 'practice-tools'],
+  ['app/notes/page.tsx', 'notes'],
+  ['app/notes/[slug]/page.tsx', 'notes'],
   ['app/layout.tsx', 'default'],
 ] as const;
 

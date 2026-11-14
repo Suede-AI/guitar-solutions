@@ -4,6 +4,7 @@ import { GUITAR_SERVICES_OG_IMAGE, GUITAR_SERVICES_TWITTER_IMAGES } from '@/lib/
 import { SURFACES, guitarServicesSchema } from '@/lib/guitar-services-content';
 import { HOME_PAGE, REFERENCE_PAGES } from '@/lib/guitar-services-pages';
 import { GuitarServicesNav } from '@/components/GuitarServicesNav';
+import { SuedeNetworkFooter } from '@/components/SuedeNetworkFooter';
 
 export const metadata: Metadata = {
   title: { absolute: HOME_PAGE.title },
@@ -125,6 +126,7 @@ export default function GuitarServicesPage() {
             Contact
           </a>
         </p>
+        <SuedeNetworkFooter />
       </footer>
     </div>
   );

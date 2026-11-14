@@ -110,6 +110,22 @@ const PAGE_KEYWORDS = {
     'Suede Guitar Tuner & Studio',
     'Suede Sing',
   ],
+  // guitar.services/notes and each note: articles by Jason Colapietro and
+  // Suede AI, with the West Palm Beach and Palm Beach County angle they carry.
+  notes: [
+    'guitar notes',
+    'guitar humidity',
+    'guitar signal chain',
+    'South Florida guitar care',
+    'answer engine optimization',
+    'generative engine optimization',
+    'structured data for local business',
+    'AI SEO West Palm Beach',
+    'web development West Palm Beach',
+    'SEO Jupiter Florida',
+    'Palm Beach County SEO',
+    'Suede',
+  ],
 } as const satisfies Record<string, readonly string[]>;
 
 export type KeywordPage = keyof typeof PAGE_KEYWORDS;

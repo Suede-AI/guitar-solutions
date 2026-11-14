@@ -13,6 +13,8 @@ const METADATA_PAGES = [
   'app/signal-chain-guides/page.tsx',
   'app/chords-and-scales/page.tsx',
   'app/practice-tools/page.tsx',
+  'app/notes/page.tsx',
+  'app/notes/[slug]/page.tsx',
 ] as const;
 
 describe('guitar.services social metadata', () => {

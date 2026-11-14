@@ -10,6 +10,7 @@ import {
   TOOLS_PAGE,
 } from '@/lib/guitar-services-pages';
 import { GuitarServicesNav } from '@/components/GuitarServicesNav';
+import { SuedeNetworkFooter } from '@/components/SuedeNetworkFooter';
 
 export const metadata: Metadata = {
   title: { absolute: ABOUT_PAGE.title },
@@ -139,6 +140,7 @@ export default function AboutPage() {
             Contact
           </a>
         </p>
+        <SuedeNetworkFooter />
       </footer>
     </div>
   );

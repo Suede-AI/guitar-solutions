@@ -13,6 +13,8 @@ import {
   GUIDES_PAGE,
   GUITAR_SERVICES_PAGES,
   HOME_PAGE,
+  NOTES_PAGE,
+  NOTE_PAGES,
   TOOLS_PAGE,
   canonicalUrl,
 } from '@/lib/guitar-services-pages';
@@ -29,6 +31,8 @@ import {
   SAMPLE_LESSONS,
 } from '@/lib/signal-chain-book';
 import { GUIDE_GROUPS, GUIDE_SUMMARIES, strumlyGuideUrl } from '@/lib/signal-chain-guides';
+import { noteMarkdown } from '@/lib/notes-content';
+import { NOTES, notePath } from '@/lib/notes-index';
 
 export const runtime = 'edge';
 
@@ -176,6 +180,20 @@ function aboutSection(): string {
   );
 }
 
+function notesSection(): string {
+  const notes = NOTES.map((note) => {
+    const page = NOTE_PAGES.find((p) => p.path === notePath(note));
+    const url = page ? canonicalUrl(page) : `https://guitar.services${notePath(note)}`;
+    return `### ${note.title}\n\nURL: ${url}\n\nBy Jason Colapietro, Founder and CEO, Suede AI, West Palm Beach, Florida. Published ${note.datePublished}.\n\n${note.description}\n\n${noteMarkdown(note.slug)}`;
+  }).join('\n\n');
+  return section(
+    NOTES_PAGE.title,
+    canonicalUrl(NOTES_PAGE),
+    NOTES_PAGE.description,
+    `Articles by Jason Colapietro and the Suede AI team in West Palm Beach, Florida. Suede AI's SEO, GEO and web development practice for West Palm Beach, Jupiter and Palm Beach County is at https://suedeai.agency/.\n\n${notes}`,
+  );
+}
+
 export async function GET() {
   const body = `# guitar.services: full text
 
@@ -198,6 +216,8 @@ ${guidesSection()}
 ${chordsSection()}
 
 ${toolsSection()}
+
+${notesSection()}
 
 ${aboutSection()}
 `;
