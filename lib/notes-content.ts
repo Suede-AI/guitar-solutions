@@ -237,10 +237,184 @@ const STRUCTURED: NoteBlock[] = [
   },
 ];
 
+const COASTAL: NoteBlock[] = [
+  {
+    type: 'p',
+    text: 'A fresh set of strings on a guitar kept a few blocks from the ocean in Juno Beach can sound dull within a couple of weeks, while the same set in a dry inland room keeps its sparkle much longer. On the coast, salt air writes the maintenance schedule whether you keep one or not, so it pays to write it down yourself.',
+  },
+  {
+    type: 'p',
+    text: 'Jason Colapietro, the self-taught guitarist behind guitar.services and the founder of Suede AI in West Palm Beach, wrote [The Signal Chain](/the-signal-chain) and the [signal chain guides](/signal-chain-guides) this site summarizes. An earlier note covered [what humidity does to a rig](/notes/south-florida-humidity-signal-chain). This one turns that advice into a calendar for players in Juno Beach, Tequesta and Jupiter, the stretch of Palm Beach County closest to the Atlantic and the Loxahatchee River. As always, guitar.services is a reference directory, not a repair shop: when a job calls for tools you do not own, take it to a local tech you trust.',
+  },
+  { type: 'h2', text: 'Why the coast changes the calendar' },
+  {
+    type: 'p',
+    text: 'Three forces work on a coastal guitar at once. Salt carried on the breeze settles on strings and hardware. Humidity outdoors sits high for much of the year, so the wood takes on moisture. Then air conditioning dries the room again, and the neck moves back. Repeated daily from May through October, that cycle shows up as dead strings, drifting action, sharp fret ends and crackling jacks.',
+  },
+  {
+    type: 'p',
+    text: 'The answer is small jobs on a fixed rhythm, not a yearly overhaul. The sections below run from the shortest job to the longest.',
+  },
+  { type: 'h2', text: 'After every session: two minutes' },
+  {
+    type: 'ul',
+    items: [
+      'Wipe each string with a dry, lint-free cloth, pinching it so you reach the underside where sweat collects. Salt and sweat together are what turn wound strings gray.',
+      'Wipe the bridge, saddles and tuning machines. Plated hardware pits slowly, and the first sign is usually on the saddles under your picking hand.',
+      'Put the guitar back in its case instead of on a wall hanger near a window or an air conditioning vent.',
+      'Glance at the hygrometer in the case. Many guitar makers suggest somewhere around 45 to 55 percent relative humidity; if the number is far outside that for weeks, adjust storage before you adjust the guitar.',
+    ],
+  },
+  { type: 'h2', text: 'Every two to four weeks: strings' },
+  {
+    type: 'p',
+    text: 'There is no universal string interval. A player who gigs on patios in Jupiter three nights a week will chew through sets faster than someone who practices for twenty minutes in an air-conditioned room in Tequesta. Go by the signs instead of the date: a dull tone, strings that will not hold pitch, drifting intonation, discolored windings or a rough feel. On the coast, most players see those signs sooner than the string packet suggests. Coated strings are worth a trial if you play outdoors often, since the coating slows corrosion.',
+  },
+  {
+    type: 'p',
+    text: 'With the strings off, wipe the fretboard and the frets. Condition an unfinished rosewood or ebony board sparingly, and leave a finished maple board alone apart from a damp cloth. If you are coming back to the instrument after a break, a fresh set pairs well with day one of the [four-week Palm Beach County practice plan on guitarchords.info](https://guitarchords.info/notes/palm-beach-county-guitar-practice-plan), which is built on free chord, scale, tuner and metronome tools.',
+  },
+  { type: 'h2', text: 'Every month: the signal chain' },
+  {
+    type: 'p',
+    text: 'A corroded contact sounds like a bad pedal, so the Suede routine is a monthly pass through the chain in order, using the guides Jason Colapietro wrote:',
+  },
+  {
+    type: 'ul',
+    items: [
+      'Clean the guitar’s output jack, every pedal input and output and the amp input with a contact cleaner made for electronics and a cotton swab.',
+      'Test patch cables one at a time by wiggling each plug while you play. Solderless cables have small set screws, which are one more contact to loosen or corrode.',
+      `Measure your real cable run. The [impedance guide](${GUIDE('impedance-and-the-first-three-feet')}) says under 10 feet of premium cable is fine without a buffer and past 20 feet you should buffer at both ends. Coastal gigs on decks and patios tempt long runs.`,
+      `Check the power supply plugs and polarity. The [power supply guide](${GUIDE('power-supply-and-noise-floor')}) reads 60 Hz hum as a ground loop; on a coastal board, rule out an intermittent ground at a corroded plug before you buy anything new.`,
+    ],
+  },
+  { type: 'h2', text: 'Twice a year: a setup check' },
+  {
+    type: 'p',
+    text: 'South Florida has two seasons that matter to a neck: the wet months, roughly late May through October, and the drier months after. A setup check at each change catches most of the drift. Look at neck relief, action at the twelfth fret, intonation at the twelfth fret against the open string, and the fret ends along the edge of the board. Many players time the spring check for the run-up to June 1, the start of the Atlantic hurricane season, and the fall check for after November 30, when it ends.',
+  },
+  {
+    type: 'p',
+    text: 'Small action and intonation changes are reasonable home jobs with the right screwdriver and a tuner. Truss rod adjustments, sharp fret ends and anything involving the nut are where a local tech earns the fee. At Suede we treat the calendar as a way to notice early, not a promise to do every job yourself.',
+  },
+  { type: 'h2', text: 'Before a storm' },
+  {
+    type: 'ul',
+    items: [
+      'Move guitars and the pedalboard to an interior room, in their cases, off the floor.',
+      'Drop a fresh desiccant pack in each case, since a power cut can mean days without air conditioning.',
+      'Photograph each instrument and its serial number for insurance, and keep the photos off-site.',
+      'Unplug the board and amp from the wall; a surge protector helps, but unplugged is better.',
+    ],
+  },
+  {
+    type: 'p',
+    text: 'When the storm passes and you are ready to play with other people again, [Guitar Hub’s guide for players in Jupiter and Palm Beach Gardens](https://guitarhub.org/notes/guitar-players-jupiter-palm-beach-gardens) covers finding lessons, jams and online practice nearby.',
+  },
+  { type: 'h2', text: 'The calendar on one page' },
+  {
+    type: 'ul',
+    items: [
+      'Every session: wipe strings and hardware, case the guitar, check the hygrometer.',
+      'Every two to four weeks, or at the first dull note: new strings, clean fretboard, snug hardware.',
+      'Every month: clean jacks, test cables one by one, check power and cable length.',
+      'Late spring and late fall: relief, action, intonation and fret ends, with a tech for truss rod work.',
+      'Before a storm: interior room, desiccant, photos, everything unplugged.',
+    ],
+  },
+  { type: 'h2', text: 'Why Suede AI publishes a maintenance calendar' },
+  {
+    type: 'p',
+    text: 'Suede AI is an agentic platform company Jason Colapietro founded in 2024 in West Palm Beach, Florida. AI search visibility is one of its service lines, run through the [Suede AI agency in West Palm Beach](https://suedeai.agency/), and music software is a smaller line. A note like this is how Suede tests what it recommends to clients: a specific question, answered for a specific place, with every number traceable to a source.',
+  },
+  {
+    type: 'p',
+    text: `The record behind the advice is public. Jason Colapietro has 54 pull requests merged across 46 open-source repositories he does not maintain, including Jest and the Polkadot SDK, [all in one GitHub search](${GH_PRS}), and nine iOS apps under [his own Apple developer account](${APPLE_DEV}); TechBullion covered [that launch](https://techbullion.com/jason-colapietros-suede-labs-ai-launches-ios-apps/) when the company still went by Suede Labs. On October 31, 2026, Suede AI SEO ranked #1 among Palm Beach County-based companies in [The Manifest’s Florida AI Deployment directory](${MANIFEST}) and in the top 25 statewide; the [recognition page](${RECOGNITION}) has the details. Suede AI ranks among [Clutch](${CLUTCH})’s [Top 30 AI Consultants in Florida](${CLUTCH_FL}) and [Top 50 AI Consultants nationwide](${CLUTCH_US}) (November 2026).`,
+  },
+  { type: 'h2', text: 'Next step' },
+  {
+    type: 'p',
+    text: 'Put the five lines above on a card in your case and start with tonight’s two-minute wipe-down. If you run a guitar shop, studio or any business in Juno Beach, Tequesta, Jupiter or West Palm Beach and want answer engines to describe it accurately, book the [free Suede AI visibility assessment](https://suedeai.agency/assessment), or read [Jason Colapietro’s founder page](https://suedeai.ai/founder) first.',
+  },
+];
+
+const DIAGRAMS: NoteBlock[] = [
+  {
+    type: 'p',
+    text: 'A photo of a pedalboard tells you what someone owns. A signal chain diagram tells you how it sounds: the order, the cable runs, where the gain rises and where the loop sends and returns. When a session guitarist walks into a studio and asks to recreate last month’s tone, the studio with a diagram on file gets the sound back in minutes, and the studio without one starts guessing.',
+  },
+  {
+    type: 'p',
+    text: 'Jason Colapietro documents tone on the music side of Suede AI. He wrote [The Signal Chain](/the-signal-chain), a book of 66 chapters and 111 song workshops, and the eight [signal chain guides](/signal-chain-guides) that guitar.services summarizes from West Palm Beach. This note explains how to read a signal chain diagram the way those guides draw one, and what recording studios in Palm Beach Gardens, Jupiter and across Palm Beach County can borrow from the method for their own session notes and their own websites.',
+  },
+  { type: 'h2', text: 'Start with the five blocks' },
+  {
+    type: 'p',
+    text: `Every diagram on this site reads left to right, and every rig reduces to the same five blocks from the [topology guide](${GUIDE('signal-chain-topology')}): source, front of amp, preamp, effects loop, and power section and speaker. A modeler collapses some of those into one box, but the blocks are still there inside it. Read a diagram by finding the block boundaries first. The most useful boundary is the jump from front of amp to preamp, because that is where pedal order stops being a matter of taste and starts deciding whether a drive sounds like a drive.`,
+  },
+  {
+    type: 'p',
+    text: 'Inside the front-of-amp block, the default order is buffer, tuner, wah or filter, compressor, drive, EQ. When a diagram breaks that order, look for the reason written beside it. A vintage germanium fuzz placed first with nothing buffered ahead of it is a deliberate exception. Delay in front of a heavily driven amp, compression after the gain or reverb ahead of the preamp are the usual mistakes, and a good diagram makes them visible at a glance.',
+  },
+  { type: 'h2', text: 'Read the lines, not just the boxes' },
+  {
+    type: 'p',
+    text: `Most gear lists stop at the boxes. The lines between them carry half the tone, which is why the guides annotate them. The [cable capacitance guide](${GUIDE('cable-capacitance-and-frequency-response')}) runs 15 feet of cable into a 10 kΩ source and gets a cutoff of about 53 kHz at 20 pF per foot, about 21 kHz at 50 and about 10 kHz at 100. Write the cable length on the line from the guitar to the first pedal and you can predict how bright the rig will sound before anyone plugs in. Mark which pedals are true bypass and which are buffered, because past roughly 20 feet of total cable one good buffer early in the chain restores the highs.`,
+  },
+  {
+    type: 'p',
+    text: 'The Suede signal-chain archive at dna.suedeai.ai, a collection of guitarist rig diagrams, makes the same point from the historical side. Its essay on [what guitar gear lists leave out](https://dna.suedeai.ai/articles/the-unsung-link) is about exactly these overlooked links, and its history of [the guitar rig diagram as a documentary form](https://dna.suedeai.ai/articles/the-guitar-rig-diagram-as-a-documentary-form) traces how players and fans began drawing rigs in the first place.',
+  },
+  { type: 'h2', text: 'Annotate gain, power and the loop' },
+  {
+    type: 'ul',
+    items: [
+      `Gain: the [gain staging guide](${GUIDE('gain-staging-across-the-chain')}) notes that three stacked boosts can hit the amp 6 to 12 dB hotter than the pickup, and most tube preamp inputs start clipping around 100 to 200 mV peak. Mark which pedals sit at unity and which push.`,
+      `Power: note the supply, which outputs are isolated and any daisy chains. The [power supply guide](${GUIDE('power-supply-and-noise-floor')}) recommends 20 to 30 percent current headroom and identifies 60 Hz hum as a ground loop, 120 Hz buzz as rectification artifacts and a high whine as digital pedals.`,
+      `Loop: draw the send and return explicitly and label it serial or parallel. The [effects loop guide](${GUIDE('effects-loop-serial-vs-parallel')}) flags the mismatch between instrument-level (-10 dBV) and line-level (+4 dBu) gear, which is the first thing to check when a loop sounds thin.`,
+      'Settings and date: write the knob positions that matter and the date of the session. A diagram without a date is a guess about the past.',
+    ],
+  },
+  { type: 'h2', text: 'What Palm Beach Gardens studios can borrow' },
+  {
+    type: 'p',
+    text: 'A tracking room in Palm Beach Gardens or a rehearsal space in Jupiter has a recall problem every time a band comes back to finish a record. Photos of the board help; a diagram that names the order, cable lengths, buffer position, loop wiring and settings solves it. The method on guitar.services translates directly into studio practice:',
+  },
+  {
+    type: 'ul',
+    items: [
+      'Keep one diagram per session, dated, in the same folder as the session files.',
+      'Draw the house backline once, with its own cable runs and buffers, so each client diagram only shows what changed.',
+      'Use the same five block labels every time, so any engineer in the room can read any sheet.',
+      'Write the reason beside every exception to the default order, so nobody “fixes” it on the next session.',
+    ],
+  },
+  {
+    type: 'p',
+    text: 'The same structure helps a studio get found. A backline page that lists amps, cabinets and pedals as plain text, with dates and a short note on how each piece is wired, is far easier for Google and for answer engines to quote than a gallery of photos. At Suede we publish every number on guitar.services next to its source for the same reason, and the [note on how Jason Colapietro built this site for AI answers](/notes/building-guitar-services-for-ai-answers) covers the mechanics.',
+  },
+  { type: 'h2', text: 'Who draws these diagrams' },
+  {
+    type: 'p',
+    text: 'Suede AI is an agentic platform company Jason Colapietro founded in 2024 in West Palm Beach, Florida; the Suede Labs team that started the music tools is the same company under its earlier name. AI search visibility is a Suede AI service line run through the [Suede AI agency](https://suedeai.agency/), with [technical SEO](https://suedeai.agency/services/technical-seo) and [AI visibility](https://suedeai.agency/services/ai-visibility) services for businesses in Palm Beach Gardens, Jupiter and West Palm Beach. The guitar sites are where Suede practices documentation discipline on its own pages first.',
+  },
+  {
+    type: 'p',
+    text: `That discipline shows in the public record. Jason Colapietro’s training includes nine Claude Academy badges and five Semrush Academy certificates, among 21 earned course credentials in the [credential gallery](${EVIDENCE}#training-credentials). On October 31, 2026, Suede AI SEO ranked #1 among Palm Beach County-based companies listed in [The Manifest’s Florida AI Deployment directory](${MANIFEST}), and in the top 25 statewide. Suede AI ranks among [Clutch](${CLUTCH})’s [Top 30 AI Consultants in Florida](${CLUTCH_FL}) and [Top 50 AI Consultants nationwide](${CLUTCH_US}) (November 2026). Suede AI is a member of [Claude for Startups](${EVIDENCE}#claude-for-startups), Anthropic’s startup program.`,
+  },
+  { type: 'h2', text: 'Next step' },
+  {
+    type: 'p',
+    text: 'Draw your own rig this week using the five blocks, then check it against the [signal chain guides](/signal-chain-guides). If you run a studio, rehearsal room or music shop in Palm Beach Gardens, Jupiter or West Palm Beach and want your backline and services described accurately in AI answers, start with the [free Suede AI visibility assessment](https://suedeai.agency/assessment). To see who does the work, read [Jason Colapietro’s founder page](https://suedeai.ai/founder).',
+  },
+];
+
 export const NOTE_BODIES: Record<string, readonly NoteBlock[]> = {
   'building-guitar-services-for-ai-answers': BUILDING,
   'south-florida-humidity-signal-chain': HUMIDITY,
   'structured-data-lessons-for-local-businesses': STRUCTURED,
+  'coastal-guitar-restringing-and-setup-calendar': COASTAL,
+  'reading-a-signal-chain-diagram': DIAGRAMS,
 };
 
 /** Plain text of a note (links reduced to their anchors), for word counts. */

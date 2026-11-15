@@ -75,8 +75,10 @@ export default function NotesPage() {
         </h1>
         <p className="text-lg leading-relaxed opacity-80">
           Long-form notes by Jason Colapietro and the Suede AI team: how this reference site is built
-          for answer engines, how to keep a signal chain healthy in South Florida&rsquo;s humidity, and
-          what a guitar site can teach a Palm Beach County business about structured data.
+          for answer engines, how to keep a signal chain healthy in South Florida&rsquo;s humidity, a
+          restringing and setup calendar for coastal players in Juno Beach and Tequesta, how to read a
+          signal chain diagram, and what a guitar site can teach a Palm Beach County business about
+          structured data.
         </p>
       </header>
 

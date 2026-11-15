@@ -95,8 +95,8 @@ export const NOTES_PAGE: GuitarServicesPage = {
   navLabel: 'Notes',
   title: 'Guitar and AI Search Notes from West Palm Beach, Florida',
   description:
-    'Notes from Jason Colapietro and Suede AI in West Palm Beach: South Florida signal chain care, AI-citable reference sites and schema for local firms.',
-  lastmod: '2026-11-14',
+    'Notes from Jason Colapietro and Suede AI in West Palm Beach: coastal guitar care, signal chain diagrams, AI-citable reference sites and local schema.',
+  lastmod: '2026-11-15',
   priority: 0.7,
 };
 

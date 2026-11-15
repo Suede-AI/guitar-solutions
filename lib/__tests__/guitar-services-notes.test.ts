@@ -15,10 +15,42 @@ import { noteSchema } from '../notes-schema';
 import { JASON_PERSON_ID, SUEDE_ORG_ID } from '../site-identity';
 
 /**
- * The notes section added 2026-11-14: three articles under /notes. These
- * checks hold the editorial rules (length, verified claims only, canonical
- * entity @ids) and the routing couplings (middleware, sitemap, llms files).
+ * The notes section added 2026-11-14: three articles under /notes, plus two
+ * more on 2026-11-15 (the coastal maintenance calendar and the signal chain
+ * diagram note). These checks hold the editorial rules (length, verified
+ * claims only, canonical entity @ids) and the routing couplings (middleware,
+ * sitemap, llms files).
  */
+
+/** Publication date per note: the first batch on 11-14, the second on 11-15. */
+const PUBLISHED: Record<string, string> = {
+  'building-guitar-services-for-ai-answers': '2026-11-14',
+  'south-florida-humidity-signal-chain': '2026-11-14',
+  'structured-data-lessons-for-local-businesses': '2026-11-14',
+  'coastal-guitar-restringing-and-setup-calendar': '2026-11-15',
+  'reading-a-signal-chain-diagram': '2026-11-15',
+};
+
+/**
+ * The second batch: each note is 900 to 1300 words, names its towns, and links
+ * two real articles on sibling Suede AI sites.
+ */
+const SECOND_BATCH: Record<string, { towns: RegExp[]; siblings: string[] }> = {
+  'coastal-guitar-restringing-and-setup-calendar': {
+    towns: [/Juno Beach/, /Tequesta/, /Jupiter/],
+    siblings: [
+      'https://guitarchords.info/notes/palm-beach-county-guitar-practice-plan',
+      'https://guitarhub.org/notes/guitar-players-jupiter-palm-beach-gardens',
+    ],
+  },
+  'reading-a-signal-chain-diagram': {
+    towns: [/Palm Beach Gardens/, /Jupiter/],
+    siblings: [
+      'https://dna.suedeai.ai/articles/the-unsung-link',
+      'https://dna.suedeai.ai/articles/the-guitar-rig-diagram-as-a-documentary-form',
+    ],
+  },
+};
 
 const BLOCKED = /^https:\/\/(ip|producer|webmcp|market)\.suedeai\.ai(\/|$)/;
 
@@ -45,6 +77,11 @@ function hrefs(html: string): string[] {
 }
 
 describe('notes metadata', () => {
+  it('publishes exactly the five known notes, each on its own date', () => {
+    expect(NOTES.map((n) => n.slug)).toEqual(Object.keys(PUBLISHED));
+    for (const note of NOTES) expect(note.datePublished).toBe(PUBLISHED[note.slug]);
+  });
+
   it('has a body for every note and a static param for every note', () => {
     expect(Object.keys(NOTE_BODIES).sort()).toEqual(NOTES.map((n) => n.slug).sort());
     expect(generateStaticParams().map((p) => p.slug)).toEqual(NOTES.map((n) => n.slug));
@@ -82,6 +119,18 @@ describe('notes copy', () => {
     expect(text).toMatch(/Suede Labs/);
     expect(text).toMatch(/West Palm Beach/);
     expect(text).toMatch(/Jupiter/);
+  });
+
+  it.each(Object.entries(SECOND_BATCH))('%s meets the second-batch depth rules', (slug, rules) => {
+    const text = notePlainText(slug);
+    const words = text.split(/\s+/).filter(Boolean).length;
+    expect(words).toBeGreaterThanOrEqual(900);
+    expect(words).toBeLessThanOrEqual(1300);
+    for (const town of rules.towns) expect(text).toMatch(town);
+    const md = noteMarkdown(slug);
+    for (const url of rules.siblings) expect(md).toContain(`](${url})`);
+    expect(md).toContain('](https://suedeai.agency/assessment)');
+    expect(md).toContain('](https://suedeai.ai/founder)');
   });
 
   it.each(NOTES.map((n) => [n.slug]))('%s carries nothing from the forbidden list', (slug) => {
@@ -159,7 +208,7 @@ describe('notes JSON-LD', () => {
     const post = graph.find((n) => n['@type'] === 'BlogPosting');
     expect(post).toMatchObject({
       '@id': `https://guitar.services${notePath(note)}#article`,
-      datePublished: '2026-11-14',
+      datePublished: PUBLISHED[note.slug],
       author: { '@id': JASON_PERSON_ID },
       publisher: { '@id': SUEDE_ORG_ID },
     });

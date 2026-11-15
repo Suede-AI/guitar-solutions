@@ -28,6 +28,9 @@ export const NOTES_PUBLISHED = '2026-11-14';
 /** Last content change to the notes (Clutch ranking added). */
 export const NOTES_MODIFIED = '2026-11-15';
 
+/** Second batch of notes: the coastal maintenance calendar and the diagram note. */
+export const NOTES_SECOND_PUBLISHED = '2026-11-15';
+
 export const NOTES: readonly NoteMeta[] = [
   {
     slug: 'building-guitar-services-for-ai-answers',
@@ -57,6 +60,26 @@ export const NOTES: readonly NoteMeta[] = [
       'Six structured data and AI citation lessons from guitar.services for any Palm Beach County business, from Jupiter contractors to West Palm Beach clinics.',
     navLabel: 'Structured data lessons for local businesses',
     datePublished: NOTES_PUBLISHED,
+    lastmod: NOTES_MODIFIED,
+  },
+  {
+    slug: 'coastal-guitar-restringing-and-setup-calendar',
+    title: 'Restringing and Setup Calendar for Coastal Florida Guitars',
+    h1: 'Restringing and setup schedule for coastal guitars: a Juno Beach and Tequesta player’s maintenance calendar',
+    description:
+      'A restringing and setup calendar for coastal guitars: what Juno Beach, Tequesta and Jupiter players should do every session, month and season.',
+    navLabel: 'Coastal restringing and setup calendar',
+    datePublished: NOTES_SECOND_PUBLISHED,
+    lastmod: NOTES_MODIFIED,
+  },
+  {
+    slug: 'reading-a-signal-chain-diagram',
+    title: 'How to Read a Signal Chain Diagram: Notes for Studios',
+    h1: 'Reading a signal chain diagram: how guitar.services documents tone, and what Palm Beach Gardens studios can borrow from it',
+    description:
+      'How guitar.services documents tone in signal chain diagrams, and what Palm Beach Gardens and Jupiter recording studios can borrow for session recall.',
+    navLabel: 'Reading a signal chain diagram',
+    datePublished: NOTES_SECOND_PUBLISHED,
     lastmod: NOTES_MODIFIED,
   },
 ];
