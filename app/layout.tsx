@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type { Metadata } from 'next';
 import { keywordsFor } from '@/lib/keywords';
 import { GeistSans } from 'geist/font/sans';
@@ -151,6 +152,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <main>{children}</main>
         )}
       <nav aria-label="Site reference" style={{ padding: "1rem", textAlign: "center", fontSize: "0.875rem" }}><a href="/ai-instructions">AI Instructions</a></nav>
+        {/* Light · Dark · AI agent view switch shared by every Suede site (suedeai.ai/agent-view.js). */}
+        <Script src="https://suedeai.ai/agent-view.js" strategy="lazyOnload" />
       </body>
     </html>
   );
