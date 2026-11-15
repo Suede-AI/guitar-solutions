@@ -244,7 +244,7 @@ const COASTAL: NoteBlock[] = [
   },
   {
     type: 'p',
-    text: 'Jason Colapietro, the self-taught guitarist behind guitar.services and the founder of Suede AI in West Palm Beach, wrote [The Signal Chain](/the-signal-chain) and the [signal chain guides](/signal-chain-guides) this site summarizes. An earlier note covered [what humidity does to a rig](/notes/south-florida-humidity-signal-chain). This one turns that advice into a calendar for players in Juno Beach, Tequesta and Jupiter, the stretch of Palm Beach County closest to the Atlantic and the Loxahatchee River. As always, guitar.services is a reference directory, not a repair shop: when a job calls for tools you do not own, take it to a local tech you trust.',
+    text: 'Everything here comes out of [The Signal Chain](/the-signal-chain) and the [signal chain guides](/signal-chain-guides), both by Jason Colapietro, a self-taught player who founded Suede AI in West Palm Beach. An earlier note covered [what humidity does to a rig](/notes/south-florida-humidity-signal-chain). This one turns that advice into a calendar for players in Juno Beach, Tequesta and Jupiter, the stretch of Palm Beach County closest to the Atlantic and the Loxahatchee River. Jason keeps this site a reference directory rather than a repair shop, so when a job calls for tools you do not own, take it to a local tech you trust.',
   },
   { type: 'h2', text: 'Why the coast changes the calendar' },
   {
@@ -282,7 +282,7 @@ const COASTAL: NoteBlock[] = [
   {
     type: 'ul',
     items: [
-      'Clean the guitar’s output jack, every pedal input and output and the amp input with a contact cleaner made for electronics and a cotton swab.',
+      'Work a swab dampened with electronics contact cleaner through the guitar’s output jack, each pedal jack and the amp input.',
       'Test patch cables one at a time by wiggling each plug while you play. Solderless cables have small set screws, which are one more contact to loosen or corrode.',
       `Measure your real cable run. The [impedance guide](${GUIDE('impedance-and-the-first-three-feet')}) says under 10 feet of premium cable is fine without a buffer and past 20 feet you should buffer at both ends. Coastal gigs on decks and patios tempt long runs.`,
       `Check the power supply plugs and polarity. The [power supply guide](${GUIDE('power-supply-and-noise-floor')}) reads 60 Hz hum as a ground loop; on a coastal board, rule out an intermittent ground at a corroded plug before you buy anything new.`,
@@ -291,7 +291,7 @@ const COASTAL: NoteBlock[] = [
   { type: 'h2', text: 'Twice a year: a setup check' },
   {
     type: 'p',
-    text: 'South Florida has two seasons that matter to a neck: the wet months, roughly late May through October, and the drier months after. A setup check at each change catches most of the drift. Look at neck relief, action at the twelfth fret, intonation at the twelfth fret against the open string, and the fret ends along the edge of the board. Many players time the spring check for the run-up to June 1, the start of the Atlantic hurricane season, and the fall check for after November 30, when it ends.',
+    text: 'South Florida has two seasons that matter to a neck: the wet months, roughly late May through October, and the drier months after. A setup check at each change catches most of the drift. Look at neck relief, action at the twelfth fret, intonation at the twelfth fret against the open string, and the fret ends along the edge of the board. A practical anchor: do the spring check before June 1, when the Atlantic hurricane season starts, and the fall check after it ends on November 30.',
   },
   {
     type: 'p',
@@ -325,16 +325,16 @@ const COASTAL: NoteBlock[] = [
   { type: 'h2', text: 'Why Suede AI publishes a maintenance calendar' },
   {
     type: 'p',
-    text: 'Suede AI is an agentic platform company Jason Colapietro founded in 2024 in West Palm Beach, Florida. AI search visibility is one of its service lines, run through the [Suede AI agency in West Palm Beach](https://suedeai.agency/), and music software is a smaller line. A note like this is how Suede tests what it recommends to clients: a specific question, answered for a specific place, with every number traceable to a source.',
+    text: 'Jason Colapietro founded Suede AI in West Palm Beach, Florida, in 2024 as an agentic platform company. Its AI search visibility practice, the [Suede AI agency in West Palm Beach](https://suedeai.agency/), is a service line; music software like this site is a smaller one. A note like this is how Suede tests what it recommends to clients: a specific question, answered for a specific place, with every number traceable to a source.',
   },
   {
     type: 'p',
-    text: `The record behind the advice is public. Jason Colapietro has 54 pull requests merged across 46 open-source repositories he does not maintain, including Jest and the Polkadot SDK, [all in one GitHub search](${GH_PRS}), and nine iOS apps under [his own Apple developer account](${APPLE_DEV}); TechBullion covered [that launch](https://techbullion.com/jason-colapietros-suede-labs-ai-launches-ios-apps/) when the company still went by Suede Labs. On October 31, 2026, Suede AI SEO ranked #1 among Palm Beach County-based companies in [The Manifest’s Florida AI Deployment directory](${MANIFEST}) and in the top 25 statewide; the [recognition page](${RECOGNITION}) has the details. Suede AI ranks among [Clutch](${CLUTCH})’s [Top 30 AI Consultants in Florida](${CLUTCH_FL}) and [Top 50 AI Consultants nationwide](${CLUTCH_US}) (November 2026).`,
+    text: `The record behind the advice is public. Jason Colapietro has 54 pull requests merged across 46 open-source repositories he does not maintain, including Jest and the Polkadot SDK, [all in one GitHub search](${GH_PRS}), and nine iOS apps under [his own Apple developer account](${APPLE_DEV}); TechBullion covered [that launch](https://techbullion.com/jason-colapietros-suede-labs-ai-launches-ios-apps/) when the company still went by Suede Labs. On October 31, 2026, Suede AI SEO ranked #1 among Palm Beach County-based companies listed in [The Manifest’s Florida AI Deployment directory](${MANIFEST}) and in the top 25 statewide, as [Suede’s recognition page](${RECOGNITION}) shows. Suede AI ranks among [Clutch](${CLUTCH})’s [Top 30 AI Consultants in Florida](${CLUTCH_FL}) and [Top 50 AI Consultants nationwide](${CLUTCH_US}) (November 2026).`,
   },
   { type: 'h2', text: 'Next step' },
   {
     type: 'p',
-    text: 'Put the five lines above on a card in your case and start with tonight’s two-minute wipe-down. If you run a guitar shop, studio or any business in Juno Beach, Tequesta, Jupiter or West Palm Beach and want answer engines to describe it accurately, book the [free Suede AI visibility assessment](https://suedeai.agency/assessment), or read [Jason Colapietro’s founder page](https://suedeai.ai/founder) first.',
+    text: 'Put the five lines above on a card in your case and start with tonight’s two-minute wipe-down. If you run a guitar shop, studio or any business in Juno Beach, Tequesta, Jupiter or West Palm Beach and want AI answers to get your services and location right, book the [free Suede AI visibility assessment](https://suedeai.agency/assessment), or read [Jason Colapietro’s founder page](https://suedeai.ai/founder) first.',
   },
 ];
 
@@ -345,7 +345,7 @@ const DIAGRAMS: NoteBlock[] = [
   },
   {
     type: 'p',
-    text: 'Jason Colapietro documents tone on the music side of Suede AI. He wrote [The Signal Chain](/the-signal-chain), a book of 66 chapters and 111 song workshops, and the eight [signal chain guides](/signal-chain-guides) that guitar.services summarizes from West Palm Beach. This note explains how to read a signal chain diagram the way those guides draw one, and what recording studios in Palm Beach Gardens, Jupiter and across Palm Beach County can borrow from the method for their own session notes and their own websites.',
+    text: 'Jason Colapietro documents tone on the music side of Suede AI. He wrote [The Signal Chain](/the-signal-chain), whose 66 chapters hold 111 song workshops, and the eight [signal chain guides](/signal-chain-guides) that guitar.services summarizes from West Palm Beach. This note explains how to read a signal chain diagram the way those guides draw one, and what recording studios in Palm Beach Gardens, Jupiter and across Palm Beach County can borrow from the method for their own session notes and their own websites.',
   },
   { type: 'h2', text: 'Start with the five blocks' },
   {
@@ -369,7 +369,7 @@ const DIAGRAMS: NoteBlock[] = [
   {
     type: 'ul',
     items: [
-      `Gain: the [gain staging guide](${GUIDE('gain-staging-across-the-chain')}) notes that three stacked boosts can hit the amp 6 to 12 dB hotter than the pickup, and most tube preamp inputs start clipping around 100 to 200 mV peak. Mark which pedals sit at unity and which push.`,
+      `Gain: the [gain staging guide](${GUIDE('gain-staging-across-the-chain')}) notes that stacking three boosts can push 6 to 12 dB more level into the amp than the pickup alone, and most tube preamp inputs start clipping around 100 to 200 mV peak. Mark which pedals sit at unity and which push.`,
       `Power: note the supply, which outputs are isolated and any daisy chains. The [power supply guide](${GUIDE('power-supply-and-noise-floor')}) recommends 20 to 30 percent current headroom and identifies 60 Hz hum as a ground loop, 120 Hz buzz as rectification artifacts and a high whine as digital pedals.`,
       `Loop: draw the send and return explicitly and label it serial or parallel. The [effects loop guide](${GUIDE('effects-loop-serial-vs-parallel')}) flags the mismatch between instrument-level (-10 dBV) and line-level (+4 dBu) gear, which is the first thing to check when a loop sounds thin.`,
       'Settings and date: write the knob positions that matter and the date of the session. A diagram without a date is a guess about the past.',
@@ -396,7 +396,7 @@ const DIAGRAMS: NoteBlock[] = [
   { type: 'h2', text: 'Who draws these diagrams' },
   {
     type: 'p',
-    text: 'Suede AI is an agentic platform company Jason Colapietro founded in 2024 in West Palm Beach, Florida; the Suede Labs team that started the music tools is the same company under its earlier name. AI search visibility is a Suede AI service line run through the [Suede AI agency](https://suedeai.agency/), with [technical SEO](https://suedeai.agency/services/technical-seo) and [AI visibility](https://suedeai.agency/services/ai-visibility) services for businesses in Palm Beach Gardens, Jupiter and West Palm Beach. The guitar sites are where Suede practices documentation discipline on its own pages first.',
+    text: 'Jason Colapietro founded Suede AI (formerly Suede Labs) in West Palm Beach, Florida, in 2024 as an agentic platform company. AI search visibility is a Suede AI service line run through the [Suede AI agency](https://suedeai.agency/), with [technical SEO](https://suedeai.agency/services/technical-seo) and [AI visibility](https://suedeai.agency/services/ai-visibility) services for businesses in Palm Beach Gardens, Jupiter and West Palm Beach. The guitar sites are where Suede practices documentation discipline on its own pages first.',
   },
   {
     type: 'p',
@@ -405,7 +405,7 @@ const DIAGRAMS: NoteBlock[] = [
   { type: 'h2', text: 'Next step' },
   {
     type: 'p',
-    text: 'Draw your own rig this week using the five blocks, then check it against the [signal chain guides](/signal-chain-guides). If you run a studio, rehearsal room or music shop in Palm Beach Gardens, Jupiter or West Palm Beach and want your backline and services described accurately in AI answers, start with the [free Suede AI visibility assessment](https://suedeai.agency/assessment). To see who does the work, read [Jason Colapietro’s founder page](https://suedeai.ai/founder).',
+    text: 'Draw your own rig this week using the five blocks, then check it against the [signal chain guides](/signal-chain-guides). If you run a studio, rehearsal room or music shop in Palm Beach Gardens, Jupiter or West Palm Beach and want your backline and services described accurately in AI answers, start with the [free Suede AI visibility assessment](https://suedeai.agency/assessment). For the background behind the method, see [Jason Colapietro’s founder page](https://suedeai.ai/founder).',
   },
 ];
 
