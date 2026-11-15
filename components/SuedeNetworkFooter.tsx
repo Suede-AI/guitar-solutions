@@ -41,6 +41,21 @@ export function SuedeNetworkFooter() {
         </a>
         . Read the <a href={NOTES_PAGE.path} className="underline">notes</a> for how this site is built.
       </p>
+      <p className="mb-3 max-w-3xl">
+        Suede AI ranks among{' '}
+        <a href="https://clutch.co/profile/suede-ai-seo" className="underline">
+          Clutch
+        </a>
+        ’s{' '}
+        <a href="https://clutch.co/consulting/ai/florida" className="underline">
+          Top 30 AI Consultants in Florida
+        </a>{' '}
+        and{' '}
+        <a href="https://clutch.co/us/consulting/ai" className="underline">
+          Top 50 AI Consultants nationwide
+        </a>{' '}
+        (November 2026).
+      </p>
       <ul className="mb-3 flex flex-wrap gap-x-5 gap-y-2">
         {SUEDE_MAIN_LINKS.map((link) => (
           <li key={link.href}>

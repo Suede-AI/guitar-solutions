@@ -25,6 +25,9 @@ export interface NoteMeta {
 
 export const NOTES_PUBLISHED = '2026-11-14';
 
+/** Last content change to the notes (Clutch ranking added). */
+export const NOTES_MODIFIED = '2026-11-15';
+
 export const NOTES: readonly NoteMeta[] = [
   {
     slug: 'building-guitar-services-for-ai-answers',
@@ -34,7 +37,7 @@ export const NOTES: readonly NoteMeta[] = [
       'How Suede AI founder Jason Colapietro built guitar.services in West Palm Beach as a source answer engines quote: one page list, dated facts, clean schema.',
     navLabel: 'Building guitar.services for AI answers',
     datePublished: NOTES_PUBLISHED,
-    lastmod: NOTES_PUBLISHED,
+    lastmod: NOTES_MODIFIED,
   },
   {
     slug: 'south-florida-humidity-signal-chain',
@@ -44,7 +47,7 @@ export const NOTES: readonly NoteMeta[] = [
       'Humidity, salt air and air conditioning versus your rig: a signal chain care routine for guitarists in Jupiter, West Palm Beach and Palm Beach County.',
     navLabel: 'Humidity and the South Florida signal chain',
     datePublished: NOTES_PUBLISHED,
-    lastmod: NOTES_PUBLISHED,
+    lastmod: NOTES_MODIFIED,
   },
   {
     slug: 'structured-data-lessons-for-local-businesses',
@@ -54,7 +57,7 @@ export const NOTES: readonly NoteMeta[] = [
       'Six structured data and AI citation lessons from guitar.services for any Palm Beach County business, from Jupiter contractors to West Palm Beach clinics.',
     navLabel: 'Structured data lessons for local businesses',
     datePublished: NOTES_PUBLISHED,
-    lastmod: NOTES_PUBLISHED,
+    lastmod: NOTES_MODIFIED,
   },
 ];
 

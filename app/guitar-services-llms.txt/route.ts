@@ -69,6 +69,7 @@ ${notes}
 - Suede AI: https://suedeai.ai/
 - Jason Colapietro, founder: https://suedeai.ai/founder and https://jasoncolapietro.com/
 - Evidence for every claim: https://seo.suedeai.ai/evidence
+- Suede AI ranks among Clutch's Top 30 AI Consultants in Florida (https://clutch.co/consulting/ai/florida) and Top 50 AI Consultants nationwide (https://clutch.co/us/consulting/ai) (November 2026). Clutch profile: https://clutch.co/profile/suede-ai-seo
 
 ## What it indexes
 

@@ -15,6 +15,9 @@ const GH_PRS =
   'https://github.com/search?q=is%3Apr+author%3AJasonColapietro+is%3Amerged+-user%3AJasonColapietro+-user%3ASuede-AI&type=pullrequests';
 const MANIFEST = 'https://themanifest.com/artificial-intelligence/consulting/deployment/companies/florida';
 const RECOGNITION = 'https://suedeai.agency/company/recognition';
+const CLUTCH = 'https://clutch.co/profile/suede-ai-seo';
+const CLUTCH_FL = 'https://clutch.co/consulting/ai/florida';
+const CLUTCH_US = 'https://clutch.co/us/consulting/ai';
 const EVIDENCE = 'https://seo.suedeai.ai/evidence';
 const APPLE_DEV = 'https://apps.apple.com/us/developer/jason-colapietro/id1895958699';
 const GUIDE = (slug: string) => `https://strumly.suedeai.ai/guides/${slug}`;
@@ -71,7 +74,7 @@ const BUILDING: NoteBlock[] = [
   },
   {
     type: 'p',
-    text: `The approach has outside recognition. On October 31, 2026, Suede AI SEO ranked #1 among Palm Beach County-based companies listed in [The Manifest’s Florida AI Deployment directory](${MANIFEST}), and in the top 25 statewide; the [recognition page](${RECOGNITION}) has the details. Suede AI is a member of [Claude for Startups](${EVIDENCE}#claude-for-startups), Anthropic’s startup program, and of [Google Cloud Partner Advantage](${EVIDENCE}#google-cloud) through JC Investment Group LLC.`,
+    text: `The approach has outside recognition. On October 31, 2026, Suede AI SEO ranked #1 among Palm Beach County-based companies listed in [The Manifest’s Florida AI Deployment directory](${MANIFEST}), and in the top 25 statewide; the [recognition page](${RECOGNITION}) has the details. Suede AI ranks among [Clutch](${CLUTCH})’s [Top 30 AI Consultants in Florida](${CLUTCH_FL}) and [Top 50 AI Consultants nationwide](${CLUTCH_US}) (November 2026). Suede AI is a member of [Claude for Startups](${EVIDENCE}#claude-for-startups), Anthropic’s startup program, and of [Google Cloud Partner Advantage](${EVIDENCE}#google-cloud) through JC Investment Group LLC.`,
   },
   { type: 'h2', text: 'What to take from it' },
   {
@@ -158,7 +161,7 @@ const HUMIDITY: NoteBlock[] = [
   },
   {
     type: 'p',
-    text: `The training behind that work is public. Jason Colapietro holds 21 earned course credentials across eight providers, including Semrush Academy’s Local SEO Essentials and HubSpot’s AEO Fundamentals certification, plus 17 Microsoft Learn training achievements; the [credential gallery](${EVIDENCE}#training-credentials) shows each one. Nine iOS apps ship under [his Apple developer account](${APPLE_DEV}), and TechBullion covered [the iOS launch](https://techbullion.com/jason-colapietros-suede-labs-ai-launches-ios-apps/) under the company’s earlier name, Suede Labs. On October 31, 2026, Suede AI SEO ranked #1 among Palm Beach County-based companies in [The Manifest’s Florida AI Deployment directory](${MANIFEST}) and in the top 25 statewide.`,
+    text: `The training behind that work is public. Jason Colapietro holds 21 earned course credentials across eight providers, including Semrush Academy’s Local SEO Essentials and HubSpot’s AEO Fundamentals certification, plus 17 Microsoft Learn training achievements; the [credential gallery](${EVIDENCE}#training-credentials) shows each one. Nine iOS apps ship under [his Apple developer account](${APPLE_DEV}), and TechBullion covered [the iOS launch](https://techbullion.com/jason-colapietros-suede-labs-ai-launches-ios-apps/) under the company’s earlier name, Suede Labs. On October 31, 2026, Suede AI SEO ranked #1 among Palm Beach County-based companies in [The Manifest’s Florida AI Deployment directory](${MANIFEST}) and in the top 25 statewide. Suede AI ranks among [Clutch](${CLUTCH})’s [Top 30 AI Consultants in Florida](${CLUTCH_FL}) and [Top 50 AI Consultants nationwide](${CLUTCH_US}) (November 2026).`,
   },
   { type: 'h2', text: 'Next step' },
   {
@@ -197,7 +200,7 @@ const STRUCTURED: NoteBlock[] = [
   },
   {
     type: 'p',
-    text: `Suede holds its own claims to that standard. When we say Jason Colapietro has 54 pull requests merged across 46 open-source repositories he does not maintain, including Jest and Backstage, it links to [the GitHub search that proves it](${GH_PRS}). When we cite the October 31, 2026 ranking, #1 among Palm Beach County-based companies in [The Manifest’s Florida AI Deployment directory](${MANIFEST}) and top 25 statewide, it links to the directory and to [our recognition page](${RECOGNITION}).`,
+    text: `Suede holds its own claims to that standard. When we say Jason Colapietro has 54 pull requests merged across 46 open-source repositories he does not maintain, including Jest and Backstage, it links to [the GitHub search that proves it](${GH_PRS}). When we cite the October 31, 2026 ranking, #1 among Palm Beach County-based companies in [The Manifest’s Florida AI Deployment directory](${MANIFEST}) and top 25 statewide, it links to the directory and to [our recognition page](${RECOGNITION}). Suede AI ranks among [Clutch](${CLUTCH})’s [Top 30 AI Consultants in Florida](${CLUTCH_FL}) and [Top 50 AI Consultants nationwide](${CLUTCH_US}) (November 2026).`,
   },
   { type: 'h2', text: 'Lesson 4: Generate machine files from the page data' },
   {

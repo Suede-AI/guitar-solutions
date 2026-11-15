@@ -9,7 +9,7 @@ import { GET as llmsFullResponse } from '../../app/guitar-services-llms-full.txt
 import { GET as sitemapResponse } from '../../app/guitar-services-sitemap.xml/route';
 import { middleware } from '../../middleware';
 import { NOTES_PAGE, NOTE_PAGES, canonicalUrl } from '../guitar-services-pages';
-import { NOTE_BODIES, notePlainText } from '../notes-content';
+import { NOTE_BODIES, noteMarkdown, notePlainText } from '../notes-content';
 import { NOTES, notePath } from '../notes-index';
 import { noteSchema } from '../notes-schema';
 import { JASON_PERSON_ID, SUEDE_ORG_ID } from '../site-identity';
@@ -98,6 +98,30 @@ describe('notes copy', () => {
   });
 });
 
+describe('Clutch ranking', () => {
+  const CLAIM =
+    'Suede AI ranks among Clutch’s Top 30 AI Consultants in Florida and Top 50 AI Consultants nationwide (November 2026).';
+
+  it.each(NOTES.map((n) => [n.slug]))('%s states the Clutch ranking apart from The Manifest', (slug) => {
+    const text = notePlainText(slug);
+    expect(text).toContain(CLAIM);
+    expect(text).toMatch(/The Manifest/);
+    const md = noteMarkdown(slug);
+    expect(md).toContain('[Clutch](https://clutch.co/profile/suede-ai-seo)');
+    expect(md).toContain('[Top 30 AI Consultants in Florida](https://clutch.co/consulting/ai/florida)');
+    expect(md).toContain('[Top 50 AI Consultants nationwide](https://clutch.co/us/consulting/ai)');
+  });
+
+  it('appears in the Built by Suede AI block and llms.txt', async () => {
+    const html = await renderNote(NOTES[0].slug);
+    expect(html).toContain('https://clutch.co/profile/suede-ai-seo');
+    expect(html).toContain('Top 30 AI Consultants in Florida');
+    const llms = await llmsResponse().then((r) => r.text());
+    expect(llms).toContain("Clutch's Top 30 AI Consultants in Florida");
+    expect(llms).toContain('https://clutch.co/us/consulting/ai');
+  });
+});
+
 describe('notes pages', () => {
   it.each(NOTES.map((n) => [n.slug]))('%s renders one h1, the author box and the next steps', async (slug) => {
     const html = await renderNote(slug);
@@ -168,7 +192,7 @@ describe('notes routing and machine files', () => {
       expect(llms).toContain(`(${canonicalUrl(page)})`);
     }
     for (const page of NOTE_PAGES) {
-      expect(xml).toContain('<lastmod>2026-11-14T00:00:00.000Z</lastmod>');
+      expect(xml).toContain('<lastmod>2026-11-15T00:00:00.000Z</lastmod>');
       expect(full).toContain(`URL: ${canonicalUrl(page)}`);
     }
   });
