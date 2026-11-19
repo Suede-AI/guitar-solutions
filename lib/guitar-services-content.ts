@@ -59,7 +59,7 @@ export const SURFACES: Surface[] = [
   {
     name: 'Suede Social',
     kind: 'Community',
-    url: 'https://social.suedeai.ai',
+    url: 'https://suede.social',
     desc: 'A network for musicians: clips, rig profiles with real tone data, practice threads, and uploads that can register as IP assets.',
   },
 ];

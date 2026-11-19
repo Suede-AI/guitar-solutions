@@ -89,7 +89,7 @@ export default async function NotePage({ params }: Props) {
               jasoncolapietro.com
             </a>{' '}
             and the{' '}
-            <a href="https://seo.suedeai.ai/evidence" className="underline">
+            <a href="https://suedeai.ai/seo/evidence" className="underline">
               Suede AI evidence page
             </a>
             .

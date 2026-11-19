@@ -203,7 +203,7 @@ export default async function GuidePage({ params }: { params: Promise<Params> })
               <a href="https://www.amazon.com/dp/B0GMB2VLXQ" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">Proof as Infrastructure</a>
               <a href="https://strumly.suedeai.ai/book/catalog" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">The Guitar Without a Number</a>
               <a href="https://www.amazon.com/dp/B0GD5FX6N6" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">The Human Authenticity Layer</a>
-              <a href="https://seo.suedeai.ai/book" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">The Screenshot</a>
+              <a href="https://suedeai.ai/seo/book" target="_blank" rel="noopener" className="hover:text-cyan transition-colors">The Screenshot</a>
             </div>
           </div>
         </div>
