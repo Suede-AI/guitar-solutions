@@ -68,7 +68,7 @@ ${notes}
 - Suede AI agency (SEO, GEO and web development, West Palm Beach and Jupiter, Palm Beach County): https://suedeai.agency/
 - Suede AI: https://suedeai.ai/
 - Jason Colapietro, founder: https://suedeai.ai/founder and https://jasoncolapietro.com/
-- Evidence for every claim: https://seo.suedeai.ai/evidence
+- Evidence for every claim: https://suedeai.ai/seo/evidence
 - Suede AI ranks among Clutch's Top 30 AI Consultants in Florida (https://clutch.co/consulting/ai/florida) and Top 50 AI Consultants nationwide (https://clutch.co/us/consulting/ai) (November 2026). Clutch profile: https://clutch.co/profile/suede-ai-seo
 
 ## What it indexes

@@ -18,7 +18,7 @@ const RECOGNITION = 'https://suedeai.agency/company/recognition';
 const CLUTCH = 'https://clutch.co/profile/suede-ai-seo';
 const CLUTCH_FL = 'https://clutch.co/consulting/ai/florida';
 const CLUTCH_US = 'https://clutch.co/us/consulting/ai';
-const EVIDENCE = 'https://seo.suedeai.ai/evidence';
+const EVIDENCE = 'https://suedeai.ai/seo/evidence';
 const APPLE_DEV = 'https://apps.apple.com/us/developer/jason-colapietro/id1895958699';
 const GUIDE = (slug: string) => `https://strumly.suedeai.ai/guides/${slug}`;
 
